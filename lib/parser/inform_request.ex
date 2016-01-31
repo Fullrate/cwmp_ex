@@ -103,10 +103,17 @@ defmodule CWMP.Protocol.Parser.Messages.InformRequest do
     end
   end
 
+  @accepted_time_formats ["{YYYY}-{0M}-{0D}T{0h24}:{0m}:{0s}", "{YYYY}-{0M}-{0D}T{0h24}:{0m}:{0s}{Z:}"]
   def end_element(state, ['CurrentTime']) do
-    case Timex.DateFormat.parse(state.last_text, "{YYYY}-{0M}-{0D}T{0h24}:{0m}:{0s}") do
-      {:ok, time} -> update_acc(state, fn cur -> %InformRequest{cur | current_time: time} end)
-      {:error, reason} -> raise "Time parsing error: #{reason}"
+    times = @accepted_time_formats
+    |> Enum.map(&Timex.DateFormat.parse(state.last_text, &1))
+    |> Enum.filter(fn
+      {:ok, _} -> true
+      _ -> false
+    end)
+    case times do
+      [{:ok, val} | _] -> update_acc(state, fn cur -> %InformRequest{cur | current_time: val} end)
+      _ -> raise "Current time '#{state.last_text}' has unacceptable format"
     end
   end
 
