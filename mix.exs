@@ -14,7 +14,7 @@ defmodule CWMP.Protocol.Mixfile do
   #
   # Type "mix help compile.app" for more information
   def application do
-    [applications: [:logger]]
+    [applications: [:logger, :tzdata]]
   end
 
   # Dependencies can be Hex packages:
@@ -27,6 +27,8 @@ defmodule CWMP.Protocol.Mixfile do
   #
   # Type "mix help deps" for more examples and options
   defp deps do
-    [{:mix_test_watch, "~> 0.2", only: :dev}]
+    [{:mix_test_watch, "~> 0.2", only: :dev},
+     {:timex, "~> 1.0"},
+     {:erlsom, github: "willemdj/erlsom"}]
   end
 end
