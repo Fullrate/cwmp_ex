@@ -299,4 +299,115 @@ defmodule CWMP.Protocol.Parser.InformTest do
     assert(CWMP.Protocol.Parser.parse!(@sample_hgw4) == @sample_hgw4_result)
   end
 
+  @sample_vap """
+  <?xml version="1.0"?>
+  <soap:Envelope   xmlns:soap="http://schemas.xmlsoap.org/soap/envelope/"   xmlns:enc="http://schemas.xmlsoap.org/soap/encoding/"   xmlns:xsd="http://www.w3.org/2001/XMLSchema"   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"   xmlns:cwmp="urn:dslforum-org:cwmp-1-0">
+   <soap:Body>
+     <cwmp:Inform>
+      <DeviceId>
+         <Manufacturer>Motorola Mobility</Manufacturer>
+         <OUI>001404</OUI>
+         <ProductClass>VAP2404E</ProductClass>
+         <SerialNumber>M91342SA1JJ0</SerialNumber>
+      </DeviceId>
+      <Event enc:arrayType="cwmp:EventStruct[1]">
+         <EventStruct>
+         <EventCode>2 PERIODIC</EventCode>
+         <CommandKey></CommandKey>
+       </EventStruct>
+      </Event>
+         <MaxEnvelopes>1</MaxEnvelopes>
+         <CurrentTime>2015-09-22T05:04:58-07:00</CurrentTime>
+         <RetryCount>0</RetryCount>
+      <ParameterList enc:arrayType="cwmp:ParameterValueStruct[11]">
+         <ParameterValueStruct>
+         <Name>Device.DeviceSummary</Name>
+         <Value xsi:type="xsd:string">Device:1.1[](Baseline:1,Time:1,IPPing:1,TraceRoute:1)</Value>
+       </ParameterValueStruct>
+         <ParameterValueStruct>
+         <Name>Device.DeviceInfo.HardwareVersion</Name>
+         <Value xsi:type="xsd:string">02.00</Value>
+       </ParameterValueStruct>
+         <ParameterValueStruct>
+         <Name>Device.DeviceInfo.SoftwareVersion</Name>
+         <Value xsi:type="xsd:string">00.19.00</Value>
+       </ParameterValueStruct>
+         <ParameterValueStruct>
+         <Name>Device.DeviceInfo.ProvisioningCode</Name>
+         <Value xsi:type="xsd:string">00000</Value>
+       </ParameterValueStruct>
+         <ParameterValueStruct>
+         <Name>Device.ManagementServer.ParameterKey</Name>
+         <Value xsi:type="xsd:string"></Value>
+       </ParameterValueStruct>
+         <ParameterValueStruct>
+         <Name>Device.ManagementServer.ConnectionRequestURL</Name>
+         <Value xsi:type="xsd:string">http://2.110.24.198:7547/XML/001404-M91342SA1JJ0.xml</Value>
+       </ParameterValueStruct>
+         <ParameterValueStruct>
+         <Name>Device.GatewayInfo.ManufacturerOUI</Name>
+         <Value xsi:type="xsd:string"></Value>
+       </ParameterValueStruct>
+         <ParameterValueStruct>
+         <Name>Device.GatewayInfo.ProductClass</Name>
+         <Value xsi:type="xsd:string"></Value>
+       </ParameterValueStruct>
+         <ParameterValueStruct>
+         <Name>Device.GatewayInfo.SerialNumber</Name>
+         <Value xsi:type="xsd:string"></Value>
+       </ParameterValueStruct>
+         <ParameterValueStruct>
+         <Name>Device.LAN.IPAddress</Name>
+         <Value xsi:type="xsd:string">2.110.24.198</Value>
+       </ParameterValueStruct>
+         <ParameterValueStruct>
+         <Name>Device.LAN.MACAddress</Name>
+         <Value xsi:type="xsd:string">30:60:23:06:C6:8E</Value>
+       </ParameterValueStruct>
+      </ParameterList>
+     </cwmp:Inform>
+   </soap:Body>
+  </soap:Envelope>
+  """
+
+  @sample_vap_result %{entries: [%CWMP.Protocol.Messages.InformRequest{current_time: %Timex.DateTime{calendar: :gregorian,
+          day: 22, hour: 5, minute: 4, month: 9, ms: 0, second: 58,
+          timezone: %Timex.TimezoneInfo{abbreviation: "GMT+7", from: :min,
+            full_name: "Etc/GMT+7", offset_std: 0, offset_utc: -420,
+            until: :max}, year: 2015},
+        device_id: %CWMP.Protocol.Messages.DeviceIdStruct{manufacturer: "Motorola Mobility",
+          oui: "001404", product_class: "VAP2404E",
+          serial_number: "M91342SA1JJ0"},
+        events: [%CWMP.Protocol.Messages.EventStruct{code: "2 PERIODIC",
+            command_key: ""}], max_envelopes: 1,
+        parameters: [%CWMP.Protocol.Messages.ParameterValueStruct{name: "Device.DeviceSummary",
+            type: 'xsd:string',
+            value: "Device:1.1[](Baseline:1,Time:1,IPPing:1,TraceRoute:1)"},
+          %CWMP.Protocol.Messages.ParameterValueStruct{name: "Device.DeviceInfo.HardwareVersion",
+            type: 'xsd:string', value: "02.00"},
+          %CWMP.Protocol.Messages.ParameterValueStruct{name: "Device.DeviceInfo.SoftwareVersion",
+            type: 'xsd:string', value: "00.19.00"},
+          %CWMP.Protocol.Messages.ParameterValueStruct{name: "Device.DeviceInfo.ProvisioningCode",
+            type: 'xsd:string', value: "00000"},
+          %CWMP.Protocol.Messages.ParameterValueStruct{name: "Device.ManagementServer.ParameterKey",
+            type: 'xsd:string', value: ""},
+          %CWMP.Protocol.Messages.ParameterValueStruct{name: "Device.ManagementServer.ConnectionRequestURL",
+            type: 'xsd:string',
+            value: "http://2.110.24.198:7547/XML/001404-M91342SA1JJ0.xml"},
+          %CWMP.Protocol.Messages.ParameterValueStruct{name: "Device.GatewayInfo.ManufacturerOUI",
+            type: 'xsd:string', value: ""},
+          %CWMP.Protocol.Messages.ParameterValueStruct{name: "Device.GatewayInfo.ProductClass",
+            type: 'xsd:string', value: ""},
+          %CWMP.Protocol.Messages.ParameterValueStruct{name: "Device.GatewayInfo.SerialNumber",
+            type: 'xsd:string', value: ""},
+          %CWMP.Protocol.Messages.ParameterValueStruct{name: "Device.LAN.IPAddress",
+            type: 'xsd:string', value: "2.110.24.198"},
+          %CWMP.Protocol.Messages.ParameterValueStruct{name: "Device.LAN.MACAddress",
+            type: 'xsd:string', value: "30:60:23:06:C6:8E"}],
+        retry_count: 0}], header: nil}
+
+  test "parses VAP inform" do
+    assert(CWMP.Protocol.Parser.parse!(@sample_vap) == @sample_vap_result)
+  end
+
 end
