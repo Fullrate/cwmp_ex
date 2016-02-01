@@ -51,7 +51,7 @@ defmodule CWMP.Protocol.Parser.Messages.InformRequest do
 
     def start_element(state, ['Value'], attribs) do
       case for {:attribute, 'type', _, _, val} <- attribs, do: val do
-        [val | _] -> update_acc(state, fn acc -> %ParameterValueStruct{acc | type: val} end)
+        [val | _] -> update_acc(state, fn acc -> %ParameterValueStruct{acc | type: "#{val}"} end)
         _ -> state
       end
     end
