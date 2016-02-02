@@ -3,7 +3,7 @@ defmodule CWMP.Protocol.Mixfile do
 
   def project do
     [app: :cwmp_ex,
-     version: "0.0.2",
+     version: "0.0.3",
      elixir: "~> 1.2",
      build_embedded: Mix.env == :prod,
      start_permanent: Mix.env == :prod,
@@ -28,6 +28,7 @@ defmodule CWMP.Protocol.Mixfile do
   # Type "mix help deps" for more examples and options
   defp deps do
     [{:mix_test_watch, "~> 0.2", only: :dev},
+     {:poison, "~> 2.0"},
      {:timex, "~> 1.0"},
      {:erlsom, github: "willemdj/erlsom"}]
   end
