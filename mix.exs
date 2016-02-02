@@ -14,7 +14,7 @@ defmodule CWMP.Protocol.Mixfile do
   #
   # Type "mix help compile.app" for more information
   def application do
-    [applications: [:logger, :tzdata]]
+    [applications: [:logger, :tzdata, :timex, :erlsom]]
   end
 
   # Dependencies can be Hex packages:
