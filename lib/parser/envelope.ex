@@ -9,7 +9,7 @@ defmodule CWMP.Protocol.Parser.Envelope do
       %Header{}
     end
 
-    @known_header_fields ['ID', 'HoldRequests', 'SessionTimeout']
+    @known_header_fields ['ID', 'HoldRequests', 'SessionTimeout', 'NoMoreRequests']
     def start_element(state, [field], attribs) do
       mustUnderstand = not((for {:attribute, 'mustUnderstand', _, _, '1'} <- attribs, do: true) |> Enum.empty?)
       if mustUnderstand && !Enum.member?(@known_header_fields, field) do
@@ -36,6 +36,15 @@ defmodule CWMP.Protocol.Parser.Envelope do
         _ -> raise "Invalid value '#{state.last_text}' for hold_requests"
       end
       update_acc(state, fn cur -> %Header{cur | hold_requests: val} end)
+    end
+
+    def end_element(state, ['NoMoreRequests']) do
+      val = case state.last_text do
+        "0" -> false
+        "1" -> true
+        _ -> raise "Invalid value '#{state.last_text}' for no_more_requests"
+      end
+      update_acc(state, fn cur -> %Header{cur | no_more_requests: val} end)
     end
   end
 

@@ -11,6 +11,7 @@ defmodule CWMP.Protocol.Parser.InformTest do
     xmlns:xsd="http://www.w3.org/2001/XMLSchema">
     <SOAP-ENV:Header>
       <cwmp:ID SOAP-ENV:mustUnderstand="1">100</cwmp:ID>
+      <cwmp:NoMoreRequests SOAP-ENV:mustUnderstand="1">1</cwmp:NoMoreRequests>
     </SOAP-ENV:Header>
     <SOAP-ENV:Body>
       <cwmp:Inform>
@@ -95,7 +96,7 @@ defmodule CWMP.Protocol.Parser.InformTest do
           %CWMP.Protocol.Messages.ParameterValueStruct{name: "InternetGatewayDevice.WANDevice.1.WANConnectionDevice.1.WANIPConnection.1.ExternalIPAddress",
             type: "xsd:string", value: "2.110.157.83"}], retry_count: 0}],
     header: %CWMP.Protocol.Messages.Header{hold_requests: false, id: "100",
-      session_timeout: 30}}
+      session_timeout: 30, no_more_requests: true}}
 
   test "parses 2601 inform" do
     assert(CWMP.Protocol.Parser.parse!(@sample_2601) == @sample_2601_result)
