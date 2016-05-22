@@ -57,7 +57,7 @@ defmodule CWMP.Protocol.Parser.Envelope do
     push_handler(state, Header)
   end
 
-  @message_types %{'Inform' => CWMP.Protocol.Parser.Messages.InformRequest}
+  @message_types %{'Inform' => CWMP.Protocol.Parser.Messages.InformRequest,'TransferComplete' => CWMP.Protocol.Parser.Messages.TransferCompleteRequest}
   def start_element(state, [msgtype, 'Body', 'Envelope'], _attribs) do
     case Map.get(@message_types, msgtype) do
       nil -> raise "Message type '#{msgtype}' is not known"

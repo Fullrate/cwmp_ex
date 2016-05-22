@@ -3,8 +3,18 @@ defmodule CWMP.Protocol.Parser do
   alias CWMP.Protocol.Parser.State
 
   def parse!(source, _opts \\ []) do
-    {:ok, %State{curstate: %ElemState{acc: acc}}, _} = :erlsom.parse_sax(source, initial_state, &parse_step/2)
-    acc
+    case :erlsom.parse_sax(source, initial_state, &parse_step/2) do
+      {:ok, %State{curstate: %ElemState{acc: acc}}, _} -> acc
+      err -> err
+    end
+  end
+
+  def parse(source, _opts \\ []) do
+    try do
+      parse!(source,_opts)
+    catch
+      {:error,err} -> {:error,to_string(err)}
+    end
   end
 
   def initial_elem_state(handler) do
@@ -32,7 +42,7 @@ defmodule CWMP.Protocol.Parser do
     state = case state.curstate.path do
       [] -> # Empty, so pop off the handler stack
         case state.stack do
-          [newcur | rest] -> 
+          [newcur | rest] ->
             %State{state | curstate: newcur, stack: rest, last_acc: state.curstate.acc}
           _ -> raise "Imbalanced tags"
         end

@@ -1,6 +1,16 @@
 defmodule CWMP.Protocol.Parser.InformTest do
   use ExUnit.Case, async: true
 
+  @sample_bogus """
+  bogus
+  """
+
+  @sample_bogus_result {:error,"Malformed: Illegal character in prolog"}
+
+  test "parse bogus request" do
+    assert(CWMP.Protocol.Parser.parse(@sample_bogus) == @sample_bogus_result)
+  end
+
   @sample_2601 """
   <SOAP-ENV:Envelope
     SOAP-ENV:encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"
@@ -99,7 +109,7 @@ defmodule CWMP.Protocol.Parser.InformTest do
       session_timeout: 30, no_more_requests: true}}
 
   test "parses 2601 inform" do
-    assert(CWMP.Protocol.Parser.parse!(@sample_2601) == @sample_2601_result)
+    assert(CWMP.Protocol.Parser.parse(@sample_2601) == @sample_2601_result)
   end
 
   @sample_vmg """
@@ -200,7 +210,7 @@ defmodule CWMP.Protocol.Parser.InformTest do
       session_timeout: 30}}
 
   test "parses VMG inform" do
-    assert(CWMP.Protocol.Parser.parse!(@sample_vmg) == @sample_vmg_result)
+    assert(CWMP.Protocol.Parser.parse(@sample_vmg) == @sample_vmg_result)
   end
 
   @sample_hgw4 """
@@ -297,7 +307,7 @@ defmodule CWMP.Protocol.Parser.InformTest do
       id: "0", session_timeout: 30}}
 
   test "parses HGW4 inform" do
-    assert(CWMP.Protocol.Parser.parse!(@sample_hgw4) == @sample_hgw4_result)
+    assert(CWMP.Protocol.Parser.parse(@sample_hgw4) == @sample_hgw4_result)
   end
 
   @sample_vap """
@@ -408,7 +418,7 @@ defmodule CWMP.Protocol.Parser.InformTest do
         retry_count: 0}], header: nil}
 
   test "parses VAP inform" do
-    assert(CWMP.Protocol.Parser.parse!(@sample_vap) == @sample_vap_result)
+    assert(CWMP.Protocol.Parser.parse(@sample_vap) == @sample_vap_result)
   end
 
 end
