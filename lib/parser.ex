@@ -9,9 +9,9 @@ defmodule CWMP.Protocol.Parser do
     end
   end
 
-  def parse(source, _opts \\ []) do
+  def parse(source, opts \\ []) do
     try do
-      parse!(source,_opts)
+      parse!(source,opts)
     catch
       {:error,err} -> {:error,to_string(err)}
     end
