@@ -2,12 +2,17 @@ defmodule CWMP.Protocol.Generator do
   import XmlBuilder
 
   @moduledoc """
+
+  Generates InformResponse XML
+
   """
   def inform_response(header, resp) do
     envelope(header,CWMP.Protocol.Generator.Messages.InformResponse.generate(resp))
   end
 
   @moduledoc """
+
+  Generates GetParameterValues XML
 
   """
   def get_parameter_values(header, req) do
@@ -16,9 +21,20 @@ defmodule CWMP.Protocol.Generator do
 
   @moduledoc """
 
+  Generates SetParameterValues XML
+
   """
   def set_parameter_values(header, req) do
     envelope(header,CWMP.Protocol.Generator.Messages.SetParameterValuesRequest.generate(req))
+  end
+
+  @moduledoc """
+
+  Generates GetRPCMethods XML
+
+  """
+  def get_rpc_methods(header) do
+    envelope(header,CWMP.Protocol.Generator.Messages.GetRPCMethodsRequest.generate);
   end
 
   @moduledoc """

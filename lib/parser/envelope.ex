@@ -62,7 +62,9 @@ defmodule CWMP.Protocol.Parser.Envelope do
      'Inform' => CWMP.Protocol.Parser.Messages.InformRequest,
      'TransferComplete' => CWMP.Protocol.Parser.Messages.TransferCompleteRequest,
      'AutonomousTransferComplete' => CWMP.Protocol.Parser.Messages.AutonomousTransferCompleteRequest,
-     'GetParameterValuesResponse' => CWMP.Protocol.Parser.Messages.GetParameterValuesResponseRequest
+     'GetRPCMethodsResponse' => CWMP.Protocol.Parser.Messages.GetRPCMethodsResponseRequest,
+     'GetParameterValuesResponse' => CWMP.Protocol.Parser.Messages.GetParameterValuesResponseRequest,
+     'SetParameterValuesResponse' => CWMP.Protocol.Parser.Messages.SetParameterValuesResponseRequest
   }
 
   def start_element(state, [msgtype, 'Body', 'Envelope'], _attribs) do
