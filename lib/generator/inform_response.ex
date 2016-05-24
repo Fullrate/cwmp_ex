@@ -1,10 +1,8 @@
 defmodule CWMP.Protocol.Generator.Messages.InformResponse do
-  alias CWMP.Protocol.Messages.InformResponse
+  import XmlBuilder
 
   def generate(resp) do
-    ~s|<cwmp:InformResponse>
-      <MaxEnvelopes>#{resp.max_envelopes}</MaxEnvelopes>
-    </cwmp:InformResponse>|
+    element('cwmp:InformResponse', [element(:MaxEnvelopes, resp.max_envelopes)])
   end
 end
 

@@ -30,6 +30,7 @@ defmodule CWMP.Protocol.Mixfile do
     [{:mix_test_watch, "~> 0.2", only: :dev},
      {:poison, "~> 2.0"},
      {:timex, "~> 1.0"},
+     {:xml_builder, github: "joshnuss/xml_builder"},
      {:erlsom, github: "willemdj/erlsom"}]
   end
 end
