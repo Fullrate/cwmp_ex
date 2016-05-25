@@ -8,7 +8,7 @@ defmodule CWMP.Protocol.Parser.Messages.GetParameterValuesResponseRequest do
   end
 
   def start_element(state, ['ParameterValueStruct', 'ParameterList'], _attribs) do
-    push_handler(state, ParameterValueStruct)
+    push_handler(state, CWMP.Protocol.Parser.Messages.ParameterValueStruct)
   end
 
   def end_element(state, ['ParameterValueStruct', 'ParameterList']) do

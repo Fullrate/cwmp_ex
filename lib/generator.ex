@@ -3,45 +3,37 @@ defmodule CWMP.Protocol.Generator do
 
   @moduledoc """
 
-  Generates InformResponse XML
+  Generates XML messages from elixir structures
 
   """
   def inform_response(header, resp) do
     envelope(header,CWMP.Protocol.Generator.Messages.InformResponse.generate(resp))
   end
 
-  @moduledoc """
-
-  Generates GetParameterValues XML
-
-  """
   def get_parameter_values(header, req) do
     envelope(header,CWMP.Protocol.Generator.Messages.GetParameterValuesRequest.generate(req))
   end
 
-  @moduledoc """
+  def get_parameter_names(header, req) do
+    envelope(header,CWMP.Protocol.Generator.Messages.GetParameterNamesRequest.generate(req))
+  end
 
-  Generates SetParameterValues XML
-
-  """
   def set_parameter_values(header, req) do
     envelope(header,CWMP.Protocol.Generator.Messages.SetParameterValuesRequest.generate(req))
   end
 
-  @moduledoc """
+  def get_parameter_attributes(header, req) do
+    envelope(header,CWMP.Protocol.Generator.Messages.GetParameterAttributesRequest.generate(req))
+  end
 
-  Generates GetRPCMethods XML
+  def set_parameter_attributes(header, req) do
+    envelope(header,CWMP.Protocol.Generator.Messages.SetParameterAttributesRequest.generate(req))
+  end
 
-  """
   def get_rpc_methods(header) do
     envelope(header,CWMP.Protocol.Generator.Messages.GetRPCMethodsRequest.generate);
   end
 
-  @moduledoc """
-
-  Wraps the SOAP Envelope around the meat of the request
-
-  """
   defp envelope(head,body) do
     header=CWMP.Protocol.Generator.Messages.Header.generate(head)
     element('SOAP-ENV:Envelope',
