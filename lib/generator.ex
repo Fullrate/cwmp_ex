@@ -38,6 +38,10 @@ defmodule CWMP.Protocol.Generator do
     envelope(header,CWMP.Protocol.Generator.Messages.AddObjectRequest.generate(req));
   end
 
+  def delete_object(header, req) do
+    envelope(header,CWMP.Protocol.Generator.Messages.DeleteObjectRequest.generate(req));
+  end
+
   defp envelope(head,body) do
     header=CWMP.Protocol.Generator.Messages.Header.generate(head)
     element('SOAP-ENV:Envelope',
