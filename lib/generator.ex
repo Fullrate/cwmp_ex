@@ -55,6 +55,10 @@ defmodule CWMP.Protocol.Generator do
     envelope(header,CWMP.Protocol.Generator.Messages.InformRequest.generate(req));
   end
 
+  def transfer_complete(header, req) do
+    envelope(header,CWMP.Protocol.Generator.Messages.TransferCompleteRequest.generate(req));
+  end
+
   defp envelope(head,body) do
     header=CWMP.Protocol.Generator.Messages.Header.generate(head)
     element('SOAP-ENV:Envelope',
