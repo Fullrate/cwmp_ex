@@ -70,7 +70,8 @@ defmodule CWMP.Protocol.Parser.Envelope do
      'GetParameterAttributesResponse' => CWMP.Protocol.Parser.Messages.GetParameterAttributesResponseRequest,
      'AddObjectResponse' => CWMP.Protocol.Parser.Messages.AddObjectResponseRequest,
      'DeleteObjectResponse' => CWMP.Protocol.Parser.Messages.DeleteObjectResponseRequest,
-     'DownloadResponse' => CWMP.Protocol.Parser.Messages.DownloadResponseRequest
+     'DownloadResponse' => CWMP.Protocol.Parser.Messages.DownloadResponseRequest,
+     'RebootResponse' => CWMP.Protocol.Parser.Messages.RebootResponseRequest
   }
 
   def start_element(state, [msgtype, 'Body', 'Envelope'], _attribs) do
