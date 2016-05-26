@@ -24,11 +24,11 @@ defmodule CWMP.Protocol.Parser.DownloadResponseTest do
   @sample_result %{entries: [%CWMP.Protocol.Messages.DownloadResponse{
         status: 1,
         complete_time: %Timex.DateTime{calendar: :gregorian,
-          day: 19, hour: 23, minute: 9, month: 1, ms: 0, second: 24,
+          day: 19, hour: 23, minute: 9, month: 1, millisecond: 0, second: 24,
           timezone: %Timex.TimezoneInfo{abbreviation: "UTC", from: :min,
             full_name: "UTC", offset_std: 0, offset_utc: 0, until: :max}, year: 2015},
         start_time: %Timex.DateTime{calendar: :gregorian,
-          day: 19, hour: 23, minute: 8, month: 1, ms: 0, second: 24,
+          day: 19, hour: 23, minute: 8, month: 1, millisecond: 0, second: 24,
           timezone: %Timex.TimezoneInfo{abbreviation: "UTC", from: :min,
             full_name: "UTC", offset_std: 0, offset_utc: 0, until: :max}, year: 2015},
       }],
@@ -85,7 +85,7 @@ defmodule CWMP.Protocol.Parser.DownloadResponseTest do
   @sample_result3 %{entries: [%CWMP.Protocol.Messages.DownloadResponse{
         status: 1,
         complete_time: %Timex.DateTime{calendar: :gregorian,
-          day: 19, hour: 23, minute: 9, month: 1, ms: 0, second: 24,
+          day: 19, hour: 23, minute: 9, month: 1, millisecond: 0, second: 24,
           timezone: %Timex.TimezoneInfo{abbreviation: "UTC", from: :min,
             full_name: "UTC", offset_std: 0, offset_utc: 0, until: :max}, year: 2015},
         start_time: nil

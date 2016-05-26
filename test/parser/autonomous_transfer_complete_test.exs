@@ -26,11 +26,11 @@ defmodule CWMP.Protocol.Parser.AutonomousTransferCompleteTest do
   """
 
   @sample_result %{entries: [%CWMP.Protocol.Messages.AutonomousTransferCompleteRequest{complete_time: %Timex.DateTime{calendar: :gregorian,
-          day: 7, hour: 8, minute: 45, month: 4, ms: 0, second: 6,
+          day: 7, hour: 8, minute: 45, month: 4, millisecond: 0, second: 6,
           timezone: %Timex.TimezoneInfo{abbreviation: "UTC", from: :min,
             full_name: "UTC", offset_std: 0, offset_utc: 0, until: :max}, year: 2016},
           start_time: %Timex.DateTime{calendar: :gregorian,
-          day: 7, hour: 8, minute: 43, month: 4, ms: 0, second: 49,
+          day: 7, hour: 8, minute: 43, month: 4, millisecond: 0, second: 49,
           timezone: %Timex.TimezoneInfo{abbreviation: "UTC", from: :min,
             full_name: "UTC", offset_std: 0, offset_utc: 0, until: :max}, year: 2016},
       announce_url: "http://example.com/announce",

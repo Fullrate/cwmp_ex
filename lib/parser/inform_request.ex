@@ -84,7 +84,7 @@ defmodule CWMP.Protocol.Parser.Messages.InformRequest do
                           "{YYYY}-{0M}-{0D}T{0h24}:{0m}:{0s}Z"]
   def end_element(state, ['CurrentTime']) do
     times = @accepted_time_formats
-    |> Enum.map(&Timex.DateFormat.parse(state.last_text, &1))
+    |> Enum.map(&Timex.Parse.DateTime.Parser.parse(state.last_text, &1))
     |> Enum.filter(fn
       {:ok, _} -> true
       _ -> false

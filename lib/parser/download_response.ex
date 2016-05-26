@@ -19,7 +19,7 @@ defmodule CWMP.Protocol.Parser.Messages.DownloadResponseRequest do
                           "{YYYY}-{0M}-{0D}T{0h24}:{0m}:{0s}Z"]
   def end_element(state, ['StartTime']) do
     times = @accepted_time_formats
-    |> Enum.map(&Timex.DateFormat.parse(state.last_text, &1))
+    |> Enum.map(&Timex.Parse.DateTime.Parser.parse(state.last_text, &1))
     |> Enum.filter(fn
       {:ok, _} -> true
       _ -> false
@@ -32,7 +32,7 @@ defmodule CWMP.Protocol.Parser.Messages.DownloadResponseRequest do
 
   def end_element(state, ['CompleteTime']) do
     times = @accepted_time_formats
-    |> Enum.map(&Timex.DateFormat.parse(state.last_text, &1))
+    |> Enum.map(&Timex.Parse.DateTime.Parser.parse(state.last_text, &1))
     |> Enum.filter(fn
       {:ok, _} -> true
       _ -> false
