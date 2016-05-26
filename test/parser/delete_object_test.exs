@@ -53,7 +53,7 @@ defmodule CWMP.Protocol.Parser.DeleteObjectResponseTest do
     header: %CWMP.Protocol.Messages.Header{hold_requests: false, id: "API_aa0642e34b23820801e7642ad7cb536c",
       session_timeout: 30, no_more_requests: false}}
 
-  test "parses DeleteObjectResponse request" do
+  test "parses 2nd DeleteObjectResponse request" do
     assert(CWMP.Protocol.Parser.parse(@sample) == @sample_result)
   end
 
