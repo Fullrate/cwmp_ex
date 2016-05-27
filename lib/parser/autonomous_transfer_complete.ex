@@ -65,7 +65,7 @@ defmodule CWMP.Protocol.Parser.Messages.AutonomousTransferCompleteRequest do
   end
 
   def end_element(state, ['TargetFileName']) do
-    update_acc(state, fn cur -> %AutonomousTransferCompleteRequest{cur | targetfilename: state.last_text} end)
+    update_acc(state, fn cur -> %AutonomousTransferCompleteRequest{cur | target_filename: state.last_text} end)
   end
 
   def end_element(state, ['IsDownload']) do

@@ -38,7 +38,7 @@ defmodule CWMP.Protocol.Parser.AutonomousTransferCompleteTest do
       is_download: true,
       filetype: "1 Firmware Upgrade Image",
       filesize: 10000,
-      targetfilename: "/bin/image",
+      target_filename: "/bin/image",
       fault_struct: %CWMP.Protocol.Messages.FaultStruct{code: 0, string: ""}}],
     header: %CWMP.Protocol.Messages.Header{hold_requests: false, id: "1",
       session_timeout: 30, no_more_requests: false}}
