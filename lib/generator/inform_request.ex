@@ -1,11 +1,10 @@
 defmodule CWMP.Protocol.Generator.Messages.InformRequest do
   import XmlBuilder
 
+  use CWMP.Protocol.GeneratorHelpers
+
   def generate(req) do
-    ctime = case Timex.format(req.current_time, "%FT%T%:z", :strftime) do
-      {:ok, timestr} -> timestr
-      _ -> raise "Invalid time structure"
-    end
+    ctime = timeString(req.current_time, Timex.DateTime.today)
     element('cwmp:Inform', [
       deviceId( req.device_id ),
       events( req.events ),
