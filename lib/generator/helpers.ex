@@ -52,10 +52,37 @@ defmodule CWMP.Protocol.GeneratorHelpers do
   Translates a boolean value to "0" or "1"
 
   """
-  def boolValue ( boolean ) do
+  def boolValue( boolean ) do
     case boolean do
       false -> "0"
       _ -> 1
+    end
+  end
+
+  @doc """
+
+  Ensures that the passed value is an integer and that it satisfies
+  the restraints layed out by the anon function passed.
+
+  """
+  def integerValue(i, fun \\ fn(x) -> x end)
+
+  def integerValue(i, fun) when is_integer( i ) do
+    if fun.(i) do
+      i
+    else
+      raise "Integer does not validate"
+    end
+  end
+
+  def integerValue(i, fun) do
+    case Integer.parse(i) do
+      {v,""} -> if fun.(v) do
+                  v
+                else
+                  raise "Integer does not validate"
+                end
+      _ -> raise "Integer value does not parse"
     end
   end
 
