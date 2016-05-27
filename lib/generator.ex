@@ -26,6 +26,10 @@ defmodule CWMP.Protocol.Generator do
     envelope(header,CWMP.Protocol.Generator.Messages.GetParameterAttributesRequest.generate(req))
   end
 
+  def get_parameter_attributes_response(header, req) do
+    envelope(header,CWMP.Protocol.Generator.Messages.GetParameterAttributesResponse.generate(req))
+  end
+
   def set_parameter_attributes(header, req) do
     envelope(header,CWMP.Protocol.Generator.Messages.SetParameterAttributesRequest.generate(req))
   end
