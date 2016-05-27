@@ -82,11 +82,11 @@ defmodule CWMP.Protocol.Generator.DownloadTest do
   end
 
   test "raise, Invalid filesize on Download request" do
-    assert(catch_error(CWMP.Protocol.Generator.download(%CWMP.Protocol.Messages.Header{id: "API_69412286f02e475b44783c61972f0a91"},%CWMP.Protocol.Messages.DownloadRequest{commandkey: "CommandKey", filetype: "1 Firmware Upgrade Image", url: "http://example.com", username: "user", password: "pass", filesize: "size", target_filename: "foo", delay_seconds: 5, success_url: "http://example.com/success", failure_url: "http://example.com/failure"}))==%RuntimeError{message: "Invalid filesize value"})
+    assert(catch_error(CWMP.Protocol.Generator.download(%CWMP.Protocol.Messages.Header{id: "API_69412286f02e475b44783c61972f0a91"},%CWMP.Protocol.Messages.DownloadRequest{commandkey: "CommandKey", filetype: "1 Firmware Upgrade Image", url: "http://example.com", username: "user", password: "pass", filesize: "size", target_filename: "foo", delay_seconds: 5, success_url: "http://example.com/success", failure_url: "http://example.com/failure"}))==%RuntimeError{message: "Integer value does not parse"})
   end
 
   test "raise, negative filesize on Download request" do
-    assert(catch_error(CWMP.Protocol.Generator.download(%CWMP.Protocol.Messages.Header{id: "API_69412286f02e475b44783c61972f0a91"},%CWMP.Protocol.Messages.DownloadRequest{commandkey: "CommandKey", filetype: "1 Firmware Upgrade Image", url: "http://example.com", username: "user", password: "pass", filesize: -1, target_filename: "foo", delay_seconds: 5, success_url: "http://example.com/success", failure_url: "http://example.com/failure"}))==%RuntimeError{message: "Invalid filesize, can not be negative"})
+    assert(catch_error(CWMP.Protocol.Generator.download(%CWMP.Protocol.Messages.Header{id: "API_69412286f02e475b44783c61972f0a91"},%CWMP.Protocol.Messages.DownloadRequest{commandkey: "CommandKey", filetype: "1 Firmware Upgrade Image", url: "http://example.com", username: "user", password: "pass", filesize: -1, target_filename: "foo", delay_seconds: 5, success_url: "http://example.com/success", failure_url: "http://example.com/failure"}))==%RuntimeError{message: "Integer does not validate"})
   end
 
 end

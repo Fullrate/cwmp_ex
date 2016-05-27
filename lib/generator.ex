@@ -54,6 +54,10 @@ defmodule CWMP.Protocol.Generator do
     envelope(header,CWMP.Protocol.Generator.Messages.DownloadRequest.generate(req));
   end
 
+  def download_response(header, req) do
+    envelope(header,CWMP.Protocol.Generator.Messages.DownloadResponse.generate(req));
+  end
+
   def reboot(header, req) do
     envelope(header,CWMP.Protocol.Generator.Messages.RebootRequest.generate(req));
   end
