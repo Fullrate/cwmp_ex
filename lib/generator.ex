@@ -46,6 +46,10 @@ defmodule CWMP.Protocol.Generator do
     envelope(header,CWMP.Protocol.Generator.Messages.DeleteObjectRequest.generate(req));
   end
 
+  def delete_object_response(header, req) do
+    envelope(header,CWMP.Protocol.Generator.Messages.DeleteObjectResponse.generate(req));
+  end
+
   def download(header, req) do
     envelope(header,CWMP.Protocol.Generator.Messages.DownloadRequest.generate(req));
   end
