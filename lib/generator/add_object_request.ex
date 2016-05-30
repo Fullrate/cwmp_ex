@@ -3,12 +3,12 @@ defmodule CWMP.Protocol.Generator.Messages.AddObjectRequest do
 
   def generate(req) do
     p=[]
-    case String.last(req.objectname) do
-      "." -> p = p ++ [element('ObjectName', req.objectname)]
-      _ -> raise "invalid objectname [#{req.objectname}] - must end in ."
+    case String.last(req.object_name) do
+      "." -> p = p ++ [element('ObjectName', req.object_name)]
+      _ -> raise "invalid object_name [#{req.object_name}] - must end in ."
     end
-    if ( req.parameterkey != nil && String.length(req.parameterkey) > 0 ) do
-      p = p ++ [element('ParameterKey', req.parameterkey)]
+    if ( req.parameter_key != nil && String.length(req.parameter_key) > 0 ) do
+      p = p ++ [element('ParameterKey', req.parameter_key)]
     end
     element('cwmp:AddObject', p)
   end

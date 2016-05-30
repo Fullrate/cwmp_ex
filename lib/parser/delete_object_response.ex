@@ -1,4 +1,4 @@
-defmodule CWMP.Protocol.Parser.Messages.DeleteObjectResponseRequest do
+defmodule CWMP.Protocol.Parser.Messages.DeleteObjectResponse do
 
   use CWMP.Protocol.ParserHelpers
   alias CWMP.Protocol.Messages.DeleteObjectResponse

@@ -1,5 +1,5 @@
-defmodule CWMP.Protocol.Messages.AddObjectRequest do
+defmodule CWMP.Protocol.Messages.AddObject do
   @derive [Poison.Encoder]
-  defstruct objectname: nil,
-            parameterkey: nil
+  defstruct object_name: nil,
+            parameter_key: nil
 end

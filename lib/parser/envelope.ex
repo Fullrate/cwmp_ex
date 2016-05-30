@@ -62,14 +62,17 @@ defmodule CWMP.Protocol.Parser.Envelope do
      'Inform' => CWMP.Protocol.Parser.Messages.InformRequest,
      'TransferComplete' => CWMP.Protocol.Parser.Messages.TransferCompleteRequest,
      'AutonomousTransferComplete' => CWMP.Protocol.Parser.Messages.AutonomousTransferCompleteRequest,
+     'AutonomousTransferCompleteResponse' => CWMP.Protocol.Parser.Messages.AutonomousTransferCompleteResponse,
      'GetRPCMethodsResponse' => CWMP.Protocol.Parser.Messages.GetRPCMethodsResponseRequest,
      'GetParameterValuesResponse' => CWMP.Protocol.Parser.Messages.GetParameterValuesResponseRequest,
      'GetParameterNamesResponse' => CWMP.Protocol.Parser.Messages.GetParameterNamesResponseRequest,
      'SetParameterValuesResponse' => CWMP.Protocol.Parser.Messages.SetParameterValuesResponseRequest,
      'SetParameterAttributesResponse' => CWMP.Protocol.Parser.Messages.SetParameterAttributesResponseRequest,
      'GetParameterAttributesResponse' => CWMP.Protocol.Parser.Messages.GetParameterAttributesResponseRequest,
+     'AddObject' => CWMP.Protocol.Parser.Messages.AddObject,
      'AddObjectResponse' => CWMP.Protocol.Parser.Messages.AddObjectResponseRequest,
-     'DeleteObjectResponse' => CWMP.Protocol.Parser.Messages.DeleteObjectResponseRequest,
+     'DeleteObject' => CWMP.Protocol.Parser.Messages.DeleteObject,
+     'DeleteObjectResponse' => CWMP.Protocol.Parser.Messages.DeleteObjectResponse,
      'DownloadResponse' => CWMP.Protocol.Parser.Messages.DownloadResponseRequest,
      'RebootResponse' => CWMP.Protocol.Parser.Messages.RebootResponseRequest
   }
