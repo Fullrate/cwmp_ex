@@ -52,11 +52,22 @@ defmodule CWMP.Protocol.GeneratorHelpers do
   Translates a boolean value to "0" or "1"
 
   """
-  def boolValue( boolean ) do
-    case boolean do
+  def boolValue(b) when is_boolean(b) do
+    case b do
       false -> "0"
       _ -> 1
     end
+  end
+
+  def boolValue(i) when is_integer(i) do
+    case i do
+      0 -> "0"
+      _ -> 1
+    end
+  end
+
+  def boolValue(s) do
+    raise "Not a boolean value"
   end
 
   @doc """
