@@ -1,10 +1,10 @@
-defmodule CWMP.Protocol.Parser.Messages.TransferCompleteRequest do
+defmodule CWMP.Protocol.Parser.Messages.TransferComplete do
 
   use CWMP.Protocol.ParserHelpers
-  alias CWMP.Protocol.Messages.TransferCompleteRequest
+  alias CWMP.Protocol.Messages.TransferComplete
 
   def initial_acc do
-    %TransferCompleteRequest{}
+    %TransferComplete{}
   end
 
   def start_element(state, ['FaultStruct'], _attribs) do
@@ -12,9 +12,8 @@ defmodule CWMP.Protocol.Parser.Messages.TransferCompleteRequest do
   end
 
   def end_element(state, ['FaultStruct']) do
-    update_acc(state, fn acc -> %TransferCompleteRequest{acc | fault_struct: state.last_acc} end)
+    update_acc(state, fn acc -> %TransferComplete{acc | fault_struct: state.last_acc} end)
   end
-
 
   @accepted_time_formats ["{YYYY}-{0M}-{0D}T{0h24}:{0m}:{0s}",
                           "{YYYY}-{0M}-{0D}T{0h24}:{0m}:{0s}{Z:}",
@@ -27,7 +26,7 @@ defmodule CWMP.Protocol.Parser.Messages.TransferCompleteRequest do
       _ -> false
     end)
     case times do
-      [{:ok, val} | _] -> update_acc(state, fn cur -> %TransferCompleteRequest{cur | start_time: val} end)
+      [{:ok, val} | _] -> update_acc(state, fn cur -> %TransferComplete{cur | start_time: val} end)
       _ -> raise "StartTime '#{state.last_text}' has unacceptable format"
     end
   end
@@ -40,13 +39,13 @@ defmodule CWMP.Protocol.Parser.Messages.TransferCompleteRequest do
       _ -> false
     end)
     case times do
-      [{:ok, val} | _] -> update_acc(state, fn cur -> %TransferCompleteRequest{cur | complete_time: val} end)
+      [{:ok, val} | _] -> update_acc(state, fn cur -> %TransferComplete{cur | complete_time: val} end)
       _ -> raise "CompleteTime '#{state.last_text}' has unacceptable format"
     end
   end
 
   def end_element(state, ['CommandKey']) do
-    update_acc(state, fn cur -> %TransferCompleteRequest{cur | command_key: state.last_text} end)
+    update_acc(state, fn cur -> %TransferComplete{cur | command_key: state.last_text} end)
   end
 end
 

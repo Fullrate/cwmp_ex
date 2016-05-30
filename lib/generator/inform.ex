@@ -1,4 +1,4 @@
-defmodule CWMP.Protocol.Generator.Messages.InformRequest do
+defmodule CWMP.Protocol.Generator.Messages.Inform do
   import XmlBuilder
 
   use CWMP.Protocol.GeneratorHelpers

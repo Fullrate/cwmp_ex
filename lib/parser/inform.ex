@@ -1,4 +1,4 @@
-defmodule CWMP.Protocol.Parser.Messages.InformRequest do
+defmodule CWMP.Protocol.Parser.Messages.Inform do
   defmodule DeviceIdStruct do
     use CWMP.Protocol.ParserHelpers
     alias CWMP.Protocol.Messages.DeviceIdStruct
@@ -42,10 +42,10 @@ defmodule CWMP.Protocol.Parser.Messages.InformRequest do
   end
 
   use CWMP.Protocol.ParserHelpers
-  alias CWMP.Protocol.Messages.InformRequest
+  alias CWMP.Protocol.Messages.Inform
 
   def initial_acc do
-    %InformRequest{}
+    %Inform{}
   end
 
   def start_element(state, ['DeviceId'], _attribs) do
@@ -61,20 +61,20 @@ defmodule CWMP.Protocol.Parser.Messages.InformRequest do
   end
 
   def end_element(state, ['DeviceId']) do
-    update_acc(state, fn acc -> %InformRequest{acc | device_id: state.last_acc} end)
+    update_acc(state, fn acc -> %Inform{acc | device_id: state.last_acc} end)
   end
 
   def end_element(state, ['EventStruct', 'Event']) do
-    update_acc(state, fn acc -> %InformRequest{acc | events: acc.events ++ [state.last_acc]} end)
+    update_acc(state, fn acc -> %Inform{acc | events: acc.events ++ [state.last_acc]} end)
   end
 
   def end_element(state, ['ParameterValueStruct', 'ParameterList']) do
-    update_acc(state, fn acc -> %InformRequest{acc | parameters: acc.parameters ++ [state.last_acc]} end)
+    update_acc(state, fn acc -> %Inform{acc | parameters: acc.parameters ++ [state.last_acc]} end)
   end
 
   def end_element(state, ['MaxEnvelopes']) do
     case Integer.parse(state.last_text) do
-      {val, ""} when val > 0 -> update_acc(state, fn cur -> %InformRequest{cur | max_envelopes: val} end)
+      {val, ""} when val > 0 -> update_acc(state, fn cur -> %Inform{cur | max_envelopes: val} end)
       _ -> raise "Invalid number of maximum envelopes"
     end
   end
@@ -90,14 +90,14 @@ defmodule CWMP.Protocol.Parser.Messages.InformRequest do
       _ -> false
     end)
     case times do
-      [{:ok, val} | _] -> update_acc(state, fn cur -> %InformRequest{cur | current_time: val} end)
+      [{:ok, val} | _] -> update_acc(state, fn cur -> %Inform{cur | current_time: val} end)
       _ -> raise "Current time '#{state.last_text}' has unacceptable format"
     end
   end
 
   def end_element(state, ['RetryCount']) do
     case Integer.parse(state.last_text) do
-      {val, ""} when val >= 0 -> update_acc(state, fn cur -> %InformRequest{cur | retry_count: val} end)
+      {val, ""} when val >= 0 -> update_acc(state, fn cur -> %Inform{cur | retry_count: val} end)
       _ -> raise "Invalid retry count"
     end
   end

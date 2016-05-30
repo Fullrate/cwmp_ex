@@ -1,4 +1,4 @@
-defmodule CWMP.Protocol.Parser.Messages.AddObjectResponseRequest do
+defmodule CWMP.Protocol.Parser.Messages.AddObjectResponse do
 
   use CWMP.Protocol.ParserHelpers
   alias CWMP.Protocol.Messages.AddObjectResponse

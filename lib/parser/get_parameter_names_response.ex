@@ -1,4 +1,4 @@
-defmodule CWMP.Protocol.Parser.Messages.GetParameterNamesResponseRequest do
+defmodule CWMP.Protocol.Parser.Messages.GetParameterNamesResponse do
 
   use CWMP.Protocol.ParserHelpers
   alias CWMP.Protocol.Messages.GetParameterNamesResponse

@@ -91,7 +91,7 @@ defmodule CWMP.Protocol.Generator do
   end
 
   def inform(header, req) do
-    envelope(header,CWMP.Protocol.Generator.Messages.InformRequest.generate(req));
+    envelope(header,CWMP.Protocol.Generator.Messages.Inform.generate(req));
   end
 
   def transfer_complete(header, req) do

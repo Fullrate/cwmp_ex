@@ -1,4 +1,4 @@
-defmodule CWMP.Protocol.Parser.Messages.RebootResponseRequest do
+defmodule CWMP.Protocol.Parser.Messages.RebootResponse do
 
   use CWMP.Protocol.ParserHelpers
   alias CWMP.Protocol.Messages.RebootResponse

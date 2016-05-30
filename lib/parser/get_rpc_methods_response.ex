@@ -1,4 +1,4 @@
-defmodule CWMP.Protocol.Parser.Messages.GetRPCMethodsResponseRequest do
+defmodule CWMP.Protocol.Parser.Messages.GetRPCMethodsResponse do
 
   use CWMP.Protocol.ParserHelpers
   alias CWMP.Protocol.Messages.GetRPCMethodsResponse

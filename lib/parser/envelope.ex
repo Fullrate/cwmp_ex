@@ -59,23 +59,23 @@ defmodule CWMP.Protocol.Parser.Envelope do
 
   @message_types %{
      'Fault' => CWMP.Protocol.Parser.Messages.Fault,
-     'Inform' => CWMP.Protocol.Parser.Messages.InformRequest,
-     'TransferComplete' => CWMP.Protocol.Parser.Messages.TransferCompleteRequest,
-     'AutonomousTransferComplete' => CWMP.Protocol.Parser.Messages.AutonomousTransferCompleteRequest,
+     'Inform' => CWMP.Protocol.Parser.Messages.Inform,
+     'TransferComplete' => CWMP.Protocol.Parser.Messages.TransferComplete,
+     'AutonomousTransferComplete' => CWMP.Protocol.Parser.Messages.AutonomousTransferComplete,
      'AutonomousTransferCompleteResponse' => CWMP.Protocol.Parser.Messages.AutonomousTransferCompleteResponse,
-     'GetRPCMethodsResponse' => CWMP.Protocol.Parser.Messages.GetRPCMethodsResponseRequest,
-     'GetParameterValuesResponse' => CWMP.Protocol.Parser.Messages.GetParameterValuesResponseRequest,
-     'GetParameterNamesResponse' => CWMP.Protocol.Parser.Messages.GetParameterNamesResponseRequest,
-     'SetParameterValuesResponse' => CWMP.Protocol.Parser.Messages.SetParameterValuesResponseRequest,
-     'SetParameterAttributesResponse' => CWMP.Protocol.Parser.Messages.SetParameterAttributesResponseRequest,
-     'GetParameterAttributesResponse' => CWMP.Protocol.Parser.Messages.GetParameterAttributesResponseRequest,
+     'GetRPCMethodsResponse' => CWMP.Protocol.Parser.Messages.GetRPCMethodsResponse,
+     'GetParameterValuesResponse' => CWMP.Protocol.Parser.Messages.GetParameterValuesResponse,
+     'GetParameterNamesResponse' => CWMP.Protocol.Parser.Messages.GetParameterNamesResponse,
+     'SetParameterValuesResponse' => CWMP.Protocol.Parser.Messages.SetParameterValuesResponse,
+     'SetParameterAttributesResponse' => CWMP.Protocol.Parser.Messages.SetParameterAttributesResponse,
+     'GetParameterAttributesResponse' => CWMP.Protocol.Parser.Messages.GetParameterAttributesResponse,
      'AddObject' => CWMP.Protocol.Parser.Messages.AddObject,
-     'AddObjectResponse' => CWMP.Protocol.Parser.Messages.AddObjectResponseRequest,
+     'AddObjectResponse' => CWMP.Protocol.Parser.Messages.AddObjectResponse,
      'DeleteObject' => CWMP.Protocol.Parser.Messages.DeleteObject,
      'DeleteObjectResponse' => CWMP.Protocol.Parser.Messages.DeleteObjectResponse,
      'Download' => CWMP.Protocol.Parser.Messages.Download,
      'DownloadResponse' => CWMP.Protocol.Parser.Messages.DownloadResponse,
-     'RebootResponse' => CWMP.Protocol.Parser.Messages.RebootResponseRequest
+     'RebootResponse' => CWMP.Protocol.Parser.Messages.RebootResponse
   }
 
   def start_element(state, [msgtype, 'Body', 'Envelope'], _attribs) do

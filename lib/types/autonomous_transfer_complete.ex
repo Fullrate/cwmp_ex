@@ -1,4 +1,4 @@
-defmodule CWMP.Protocol.Messages.AutonomousTransferCompleteRequest do
+defmodule CWMP.Protocol.Messages.AutonomousTransferComplete do
   @derive [Poison.Encoder]
   defstruct announce_url:    nil,
             transfer_url:    nil,

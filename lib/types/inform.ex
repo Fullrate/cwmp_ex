@@ -1,4 +1,4 @@
-defmodule CWMP.Protocol.Messages.InformRequest do
+defmodule CWMP.Protocol.Messages.Inform do
   @derive [Poison.Encoder]
   defstruct device_id:      %CWMP.Protocol.Messages.DeviceIdStruct{},
             events:         [],

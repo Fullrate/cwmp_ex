@@ -1,4 +1,4 @@
-defmodule CWMP.Protocol.Generator.InformRequestTest do
+defmodule CWMP.Protocol.Generator.InformTest do
   use ExUnit.Case, async: true
 
   @sample ~s|<SOAP-ENV:Envelope xmlns:SOAP-ENC="http://schemas.xmlsoap.org/soap/encoding/" xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/" xmlns:cwmp="urn:dslforum-org:cwmp-1-0" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
@@ -63,7 +63,7 @@ defmodule CWMP.Protocol.Generator.InformRequestTest do
   test "generates inform request" do
     assert(CWMP.Protocol.Generator.inform(
       %CWMP.Protocol.Messages.Header{id: "100"},
-      %CWMP.Protocol.Messages.InformRequest{
+      %CWMP.Protocol.Messages.Inform{
         device_id: %CWMP.Protocol.Messages.DeviceIdStruct{
             manufacturer:   "ZyXEL",
             oui:            "EC43F6",
