@@ -1,4 +1,4 @@
-defmodule CWMP.Protocol.Parser.Messages.DownloadResponseRequest do
+defmodule CWMP.Protocol.Parser.Messages.DownloadResponse do
 
   use CWMP.Protocol.ParserHelpers
   alias CWMP.Protocol.Messages.DownloadResponse

@@ -73,7 +73,7 @@ defmodule CWMP.Protocol.Parser.Envelope do
      'AddObjectResponse' => CWMP.Protocol.Parser.Messages.AddObjectResponseRequest,
      'DeleteObject' => CWMP.Protocol.Parser.Messages.DeleteObject,
      'DeleteObjectResponse' => CWMP.Protocol.Parser.Messages.DeleteObjectResponse,
-     'DownloadResponse' => CWMP.Protocol.Parser.Messages.DownloadResponseRequest,
+     'DownloadResponse' => CWMP.Protocol.Parser.Messages.DownloadResponse,
      'RebootResponse' => CWMP.Protocol.Parser.Messages.RebootResponseRequest
   }
 
