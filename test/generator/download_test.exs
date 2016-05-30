@@ -22,7 +22,7 @@ defmodule CWMP.Protocol.Generator.DownloadTest do
 </SOAP-ENV:Envelope>|
 
   test "generates full Download request" do
-    assert(CWMP.Protocol.Generator.download(%CWMP.Protocol.Messages.Header{id: "API_69412286f02e475b44783c61972f0a91"},%CWMP.Protocol.Messages.DownloadRequest{commandkey: "CommandKey", filetype: "1 Firmware Upgrade Image", url: "http://example.com", username: "user", password: "pass", filesize: 100, target_filename: "foo", delay_seconds: 5, success_url: "http://example.com/success", failure_url: "http://example.com/failure"}) == @sample)
+    assert(CWMP.Protocol.Generator.download(%CWMP.Protocol.Messages.Header{id: "API_69412286f02e475b44783c61972f0a91"},%CWMP.Protocol.Messages.Download{commandkey: "CommandKey", filetype: "1 Firmware Upgrade Image", url: "http://example.com", username: "user", password: "pass", filesize: 100, target_filename: "foo", delay_seconds: 5, success_url: "http://example.com/success", failure_url: "http://example.com/failure"}) == @sample)
   end
 
   @sample2 ~s|<SOAP-ENV:Envelope xmlns:SOAP-ENC="http://schemas.xmlsoap.org/soap/encoding/" xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/" xmlns:cwmp="urn:dslforum-org:cwmp-1-0" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
@@ -45,7 +45,7 @@ defmodule CWMP.Protocol.Generator.DownloadTest do
 </SOAP-ENV:Envelope>|
 
   test "generates 2nd Download request" do
-    assert(CWMP.Protocol.Generator.download(%CWMP.Protocol.Messages.Header{id: "API_69412286f02e475b44783c61972f0a91"},%CWMP.Protocol.Messages.DownloadRequest{commandkey: "CommandKey", filetype: "1 Firmware Upgrade Image", url: "http://example.com", username: "user", password: "pass", filesize: 100, delay_seconds: 5, success_url: "http://example.com/success", failure_url: "http://example.com/failure"}) == @sample2)
+    assert(CWMP.Protocol.Generator.download(%CWMP.Protocol.Messages.Header{id: "API_69412286f02e475b44783c61972f0a91"},%CWMP.Protocol.Messages.Download{commandkey: "CommandKey", filetype: "1 Firmware Upgrade Image", url: "http://example.com", username: "user", password: "pass", filesize: 100, delay_seconds: 5, success_url: "http://example.com/success", failure_url: "http://example.com/failure"}) == @sample2)
   end
 
   @sample3 ~s|<SOAP-ENV:Envelope xmlns:SOAP-ENC="http://schemas.xmlsoap.org/soap/encoding/" xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/" xmlns:cwmp="urn:dslforum-org:cwmp-1-0" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
@@ -66,27 +66,27 @@ defmodule CWMP.Protocol.Generator.DownloadTest do
 </SOAP-ENV:Envelope>|
 
   test "generates 3nd Download request" do
-    assert(CWMP.Protocol.Generator.download(%CWMP.Protocol.Messages.Header{id: "API_69412286f02e475b44783c61972f0a91"},%CWMP.Protocol.Messages.DownloadRequest{commandkey: "CommandKey", filetype: "1 Firmware Upgrade Image", url: "http://example.com", username: "user", password: "pass", filesize: 100, delay_seconds: 5 }) == @sample3)
+    assert(CWMP.Protocol.Generator.download(%CWMP.Protocol.Messages.Header{id: "API_69412286f02e475b44783c61972f0a91"},%CWMP.Protocol.Messages.Download{commandkey: "CommandKey", filetype: "1 Firmware Upgrade Image", url: "http://example.com", username: "user", password: "pass", filesize: 100, delay_seconds: 5 }) == @sample3)
   end
 
   test "raise, nil filetype on Download request" do
-    assert(catch_error(CWMP.Protocol.Generator.download(%CWMP.Protocol.Messages.Header{id: "API_69412286f02e475b44783c61972f0a91"},%CWMP.Protocol.Messages.DownloadRequest{}))==%RuntimeError{message: "key filetype can not be nil"})
+    assert(catch_error(CWMP.Protocol.Generator.download(%CWMP.Protocol.Messages.Header{id: "API_69412286f02e475b44783c61972f0a91"},%CWMP.Protocol.Messages.Download{}))==%RuntimeError{message: "key filetype can not be nil"})
   end
 
   test "raise, nil url on Download request" do
-    assert(catch_error(CWMP.Protocol.Generator.download(%CWMP.Protocol.Messages.Header{id: "API_69412286f02e475b44783c61972f0a91"},%CWMP.Protocol.Messages.DownloadRequest{filetype: "1 Firmware Upgrade Image"}))==%RuntimeError{message: "key url can not be nil"})
+    assert(catch_error(CWMP.Protocol.Generator.download(%CWMP.Protocol.Messages.Header{id: "API_69412286f02e475b44783c61972f0a91"},%CWMP.Protocol.Messages.Download{filetype: "1 Firmware Upgrade Image"}))==%RuntimeError{message: "key url can not be nil"})
   end
 
   test "raise, Invalid filetype on Download request" do
-    assert(catch_error(CWMP.Protocol.Generator.download(%CWMP.Protocol.Messages.Header{id: "API_69412286f02e475b44783c61972f0a91"},%CWMP.Protocol.Messages.DownloadRequest{url: "http://example.com", filetype: "6 Something Bogus"}))==%RuntimeError{message: "Invalid filetype"})
+    assert(catch_error(CWMP.Protocol.Generator.download(%CWMP.Protocol.Messages.Header{id: "API_69412286f02e475b44783c61972f0a91"},%CWMP.Protocol.Messages.Download{url: "http://example.com", filetype: "6 Something Bogus"}))==%RuntimeError{message: "Invalid filetype"})
   end
 
   test "raise, Invalid filesize on Download request" do
-    assert(catch_error(CWMP.Protocol.Generator.download(%CWMP.Protocol.Messages.Header{id: "API_69412286f02e475b44783c61972f0a91"},%CWMP.Protocol.Messages.DownloadRequest{commandkey: "CommandKey", filetype: "1 Firmware Upgrade Image", url: "http://example.com", username: "user", password: "pass", filesize: "size", target_filename: "foo", delay_seconds: 5, success_url: "http://example.com/success", failure_url: "http://example.com/failure"}))==%RuntimeError{message: "Integer value does not parse"})
+    assert(catch_error(CWMP.Protocol.Generator.download(%CWMP.Protocol.Messages.Header{id: "API_69412286f02e475b44783c61972f0a91"},%CWMP.Protocol.Messages.Download{commandkey: "CommandKey", filetype: "1 Firmware Upgrade Image", url: "http://example.com", username: "user", password: "pass", filesize: "size", target_filename: "foo", delay_seconds: 5, success_url: "http://example.com/success", failure_url: "http://example.com/failure"}))==%RuntimeError{message: "Integer value does not parse"})
   end
 
   test "raise, negative filesize on Download request" do
-    assert(catch_error(CWMP.Protocol.Generator.download(%CWMP.Protocol.Messages.Header{id: "API_69412286f02e475b44783c61972f0a91"},%CWMP.Protocol.Messages.DownloadRequest{commandkey: "CommandKey", filetype: "1 Firmware Upgrade Image", url: "http://example.com", username: "user", password: "pass", filesize: -1, target_filename: "foo", delay_seconds: 5, success_url: "http://example.com/success", failure_url: "http://example.com/failure"}))==%RuntimeError{message: "Integer does not validate"})
+    assert(catch_error(CWMP.Protocol.Generator.download(%CWMP.Protocol.Messages.Header{id: "API_69412286f02e475b44783c61972f0a91"},%CWMP.Protocol.Messages.Download{commandkey: "CommandKey", filetype: "1 Firmware Upgrade Image", url: "http://example.com", username: "user", password: "pass", filesize: -1, target_filename: "foo", delay_seconds: 5, success_url: "http://example.com/success", failure_url: "http://example.com/failure"}))==%RuntimeError{message: "Integer does not validate"})
   end
 
 end

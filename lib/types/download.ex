@@ -1,4 +1,4 @@
-defmodule CWMP.Protocol.Messages.DownloadRequest do
+defmodule CWMP.Protocol.Messages.Download do
   @derive [Poison.Encoder]
   defstruct commandkey: "",
             filetype: nil,

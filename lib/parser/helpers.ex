@@ -45,5 +45,33 @@ defmodule CWMP.Protocol.ParserHelpers do
   def update_acc(state, fun) do
     %State{state | curstate: %ElemState{state.curstate | acc: fun.(state.curstate.acc)}}
   end
+
+  @doc """
+
+  Ensures that the passed value is an integer and that it satisfies
+  the restraints layed out by the anon function passed.
+
+  """
+  def integerValue(i, fun \\ fn(x) -> x end)
+
+  def integerValue(i, fun) when is_integer( i ) do
+    if fun.(i) do
+      i
+    else
+      raise "Integer does not validate"
+    end
+  end
+
+  def integerValue(i, fun) do
+    case Integer.parse(i) do
+      {v,""} -> if fun.(v) do
+                  v
+                else
+                  raise "Integer does not validate"
+                end
+      _ -> raise "Integer value does not parse"
+    end
+  end
+
 end
 
