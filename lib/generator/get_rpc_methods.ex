@@ -1,4 +1,4 @@
-defmodule CWMP.Protocol.Generator.Messages.GetRPCMethodsRequest do
+defmodule CWMP.Protocol.Generator.Messages.GetRPCMethods do
   import XmlBuilder
 
   def generate do

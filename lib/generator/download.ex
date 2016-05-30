@@ -1,4 +1,4 @@
-defmodule CWMP.Protocol.Generator.Messages.DownloadRequest do
+defmodule CWMP.Protocol.Generator.Messages.Download do
   import XmlBuilder
 
   use CWMP.Protocol.GeneratorHelpers

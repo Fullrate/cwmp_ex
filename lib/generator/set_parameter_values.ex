@@ -1,4 +1,4 @@
-defmodule CWMP.Protocol.Generator.Messages.SetParameterValuesRequest do
+defmodule CWMP.Protocol.Generator.Messages.SetParameterValues do
   import XmlBuilder
 
   def generate(req) do

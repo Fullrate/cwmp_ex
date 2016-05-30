@@ -11,7 +11,7 @@ defmodule CWMP.Protocol.Generator do
   end
 
   def get_parameter_values(header, req) do
-    envelope(header,CWMP.Protocol.Generator.Messages.GetParameterValuesRequest.generate(req))
+    envelope(header,CWMP.Protocol.Generator.Messages.GetParameterValues.generate(req))
   end
 
   def get_parameter_values_response(header, req) do
@@ -19,7 +19,7 @@ defmodule CWMP.Protocol.Generator do
   end
 
   def get_parameter_names(header, req) do
-    envelope(header,CWMP.Protocol.Generator.Messages.GetParameterNamesRequest.generate(req))
+    envelope(header,CWMP.Protocol.Generator.Messages.GetParameterNames.generate(req))
   end
 
   def get_parameter_names_response(header, req) do
@@ -27,7 +27,7 @@ defmodule CWMP.Protocol.Generator do
   end
 
   def set_parameter_values(header, req) do
-    envelope(header,CWMP.Protocol.Generator.Messages.SetParameterValuesRequest.generate(req))
+    envelope(header,CWMP.Protocol.Generator.Messages.SetParameterValues.generate(req))
   end
 
   def set_parameter_values_response(header, req) do
@@ -35,7 +35,7 @@ defmodule CWMP.Protocol.Generator do
   end
 
   def get_parameter_attributes(header, req) do
-    envelope(header,CWMP.Protocol.Generator.Messages.GetParameterAttributesRequest.generate(req))
+    envelope(header,CWMP.Protocol.Generator.Messages.GetParameterAttributes.generate(req))
   end
 
   def get_parameter_attributes_response(header, req) do
@@ -43,7 +43,7 @@ defmodule CWMP.Protocol.Generator do
   end
 
   def set_parameter_attributes(header, req) do
-    envelope(header,CWMP.Protocol.Generator.Messages.SetParameterAttributesRequest.generate(req))
+    envelope(header,CWMP.Protocol.Generator.Messages.SetParameterAttributes.generate(req))
   end
 
   def set_parameter_attributes_response(header) do
@@ -51,7 +51,7 @@ defmodule CWMP.Protocol.Generator do
   end
 
   def get_rpc_methods(header) do
-    envelope(header,CWMP.Protocol.Generator.Messages.GetRPCMethodsRequest.generate);
+    envelope(header,CWMP.Protocol.Generator.Messages.GetRPCMethods.generate);
   end
 
   def get_rpc_methods_response(header,req) do
@@ -59,7 +59,7 @@ defmodule CWMP.Protocol.Generator do
   end
 
   def add_object(header, req) do
-    envelope(header,CWMP.Protocol.Generator.Messages.AddObjectRequest.generate(req));
+    envelope(header,CWMP.Protocol.Generator.Messages.AddObject.generate(req));
   end
 
   def add_object_response(header, req) do
@@ -67,7 +67,7 @@ defmodule CWMP.Protocol.Generator do
   end
 
   def delete_object(header, req) do
-    envelope(header,CWMP.Protocol.Generator.Messages.DeleteObjectRequest.generate(req));
+    envelope(header,CWMP.Protocol.Generator.Messages.DeleteObject.generate(req));
   end
 
   def delete_object_response(header, req) do
@@ -75,7 +75,7 @@ defmodule CWMP.Protocol.Generator do
   end
 
   def download(header, req) do
-    envelope(header,CWMP.Protocol.Generator.Messages.DownloadRequest.generate(req));
+    envelope(header,CWMP.Protocol.Generator.Messages.Download.generate(req));
   end
 
   def download_response(header, req) do
@@ -83,7 +83,7 @@ defmodule CWMP.Protocol.Generator do
   end
 
   def reboot(header, req) do
-    envelope(header,CWMP.Protocol.Generator.Messages.RebootRequest.generate(req));
+    envelope(header,CWMP.Protocol.Generator.Messages.Reboot.generate(req));
   end
 
   def reboot_response(header) do
@@ -95,7 +95,7 @@ defmodule CWMP.Protocol.Generator do
   end
 
   def transfer_complete(header, req) do
-    envelope(header,CWMP.Protocol.Generator.Messages.TransferCompleteRequest.generate(req));
+    envelope(header,CWMP.Protocol.Generator.Messages.TransferComplete.generate(req));
   end
 
   def transfer_complete_response(header) do
@@ -103,7 +103,7 @@ defmodule CWMP.Protocol.Generator do
   end
 
   def autonomous_transfer_complete(header, req) do
-    envelope(header,CWMP.Protocol.Generator.Messages.AutonomousTransferCompleteRequest.generate(req));
+    envelope(header,CWMP.Protocol.Generator.Messages.AutonomousTransferComplete.generate(req));
   end
 
   def autonomous_transfer_complete_response(header) do

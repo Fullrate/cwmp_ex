@@ -1,4 +1,4 @@
-defmodule CWMP.Protocol.Generator.Messages.RebootRequest do
+defmodule CWMP.Protocol.Generator.Messages.Reboot do
   import XmlBuilder
 
   def generate(req) do

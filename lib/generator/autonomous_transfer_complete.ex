@@ -1,4 +1,4 @@
-defmodule CWMP.Protocol.Generator.Messages.AutonomousTransferCompleteRequest do
+defmodule CWMP.Protocol.Generator.Messages.AutonomousTransferComplete do
   import XmlBuilder
   use CWMP.Protocol.GeneratorHelpers
 

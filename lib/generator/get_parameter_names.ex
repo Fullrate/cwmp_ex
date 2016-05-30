@@ -1,4 +1,4 @@
-defmodule CWMP.Protocol.Generator.Messages.GetParameterNamesRequest do
+defmodule CWMP.Protocol.Generator.Messages.GetParameterNames do
   import XmlBuilder
 
   use CWMP.Protocol.GeneratorHelpers
