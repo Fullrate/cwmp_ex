@@ -1,4 +1,4 @@
-defmodule CWMP.Protocol.Messages.FaultRequest do
+defmodule CWMP.Protocol.Messages.Fault do
   @derive [Poison.Encoder]
   defstruct detail:      %CWMP.Protocol.Messages.FaultStruct{},
             faultcode:   nil,

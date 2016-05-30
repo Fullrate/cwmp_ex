@@ -21,9 +21,9 @@ defmodule CWMP.Protocol.Parser.FaultTest do
 </SOAP-ENV:Envelope>
   """
 
-  @sample_result %{entries: [%CWMP.Protocol.Messages.FaultRequest{
+  @sample_result %{entries: [%CWMP.Protocol.Messages.Fault{
                       detail: %CWMP.Protocol.Messages.FaultStruct{code: 9005, string: "Invalid parameter name"}, 
-                      faultcode: "SOAP-ENV:Client", 
+                      faultcode: "SOAP-ENV:Client",
                       faultstring: "CWMP fault"}],
                header: %CWMP.Protocol.Messages.Header{hold_requests: false, id: "50", no_more_requests: false, session_timeout: 30}}
 

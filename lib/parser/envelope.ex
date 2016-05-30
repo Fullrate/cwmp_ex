@@ -58,7 +58,7 @@ defmodule CWMP.Protocol.Parser.Envelope do
   end
 
   @message_types %{
-     'Fault' => CWMP.Protocol.Parser.Messages.FaultRequest,
+     'Fault' => CWMP.Protocol.Parser.Messages.Fault,
      'Inform' => CWMP.Protocol.Parser.Messages.InformRequest,
      'TransferComplete' => CWMP.Protocol.Parser.Messages.TransferCompleteRequest,
      'AutonomousTransferComplete' => CWMP.Protocol.Parser.Messages.AutonomousTransferCompleteRequest,
