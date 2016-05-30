@@ -1,4 +1,4 @@
-defmodule CWMP.Protocol.Parser.GetRPCMethodsTest do
+defmodule CWMP.Protocol.Parser.GetRPCMethodsResponseTest do
   use ExUnit.Case, async: true
 
   @sample """

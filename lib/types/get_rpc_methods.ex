@@ -1,4 +1,4 @@
-defmodule CWMP.Protocol.Messages.GetRPCMethodsResponse do
+defmodule CWMP.Protocol.Messages.GetRPCMethods do
   @derive [Poison.Encoder]
-  defstruct methods: []
+  defstruct naught: nil
 end

@@ -13,7 +13,7 @@ defmodule CWMP.Protocol.Generator.RebootTest do
 </SOAP-ENV:Envelope>|
 
   test "generates Reboot request" do
-    assert(CWMP.Protocol.Generator.reboot(%CWMP.Protocol.Messages.Header{id: "API_69412286f02e475b44783c61972f0a91"},%CWMP.Protocol.Messages.RebootRequest{commandkey: "CommandKey"}) == @sample)
+    assert(CWMP.Protocol.Generator.reboot(%CWMP.Protocol.Messages.Header{id: "API_69412286f02e475b44783c61972f0a91"},%CWMP.Protocol.Messages.Reboot{commandkey: "CommandKey"}) == @sample)
   end
 
 end

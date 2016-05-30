@@ -12,27 +12,17 @@ defmodule CWMP.Protocol.Parser.GetParameterNamesTest do
       <cwmp:ID SOAP-ENV:mustUnderstand="1">API_28edd28d788a784422413db3914c34b0</cwmp:ID>
     </SOAP-ENV:Header>
     <SOAP-ENV:Body>
-      <cwmp:GetParameterNamesResponse>
-        <ParameterList SOAP-ENC:arrayType="cwmp:ParameterInfoStruct[0002]">
-          <ParameterInfoStruct>
-            <Name>InternetGatewayDevice.DeviceInfo.</Name>
-            <Writable>0</Writable>
-          </ParameterInfoStruct>
-          <ParameterInfoStruct>
-            <Name>InternetGatewayDevice.DeviceInfo.Manufacturer</Name>
-            <Writable>1</Writable>
-          </ParameterInfoStruct>
-        </ParameterList>
-      </cwmp:GetParameterNamesResponse>
+      <cwmp:GetParameterNames>
+        <ParameterPath>InternetGatewayDevice.DeviceInfo.</ParameterPath>
+        <NextLevel>0</NextLevel>
+      </cwmp:GetParameterNames>
     </SOAP-ENV:Body>
 </SOAP-ENV:Envelope>
   """
 
-  @sample_result %{entries: [%CWMP.Protocol.Messages.GetParameterNamesResponse{
-        parameters: [%CWMP.Protocol.Messages.ParameterInfoStruct{name: "InternetGatewayDevice.DeviceInfo.",
-            writable: false},
-          %CWMP.Protocol.Messages.ParameterInfoStruct{name: "InternetGatewayDevice.DeviceInfo.Manufacturer",
-            writable: true}]}],
+  @sample_result %{entries: [%CWMP.Protocol.Messages.GetParameterNames{
+        parameter_path: "InternetGatewayDevice.DeviceInfo.",
+        next_level: false}],
     header: %CWMP.Protocol.Messages.Header{hold_requests: false, id: "API_28edd28d788a784422413db3914c34b0",
       session_timeout: 30, no_more_requests: false}}
 

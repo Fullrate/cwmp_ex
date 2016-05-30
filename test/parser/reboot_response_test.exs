@@ -1,4 +1,4 @@
-defmodule CWMP.Protocol.Parser.RebootTest do
+defmodule CWMP.Protocol.Parser.RebootResponseTest do
   use ExUnit.Case, async: true
 
   @sample """
@@ -12,18 +12,17 @@ defmodule CWMP.Protocol.Parser.RebootTest do
       <cwmp:ID SOAP-ENV:mustUnderstand="1">API_953323a9b674bb42b7cad250b2cf0607</cwmp:ID>
     </SOAP-ENV:Header>
     <SOAP-ENV:Body>
-      <cwmp:Reboot>
-        <CommandKey>cmdkey</CommandKey>
-      </cwmp:Reboot>
+      <cwmp:RebootResponse />
     </SOAP-ENV:Body>
 </SOAP-ENV:Envelope>
 """
 
-  @sample_result %{entries: [%CWMP.Protocol.Messages.Reboot{commandkey: "cmdkey"}],
+  @sample_result %{entries: [%CWMP.Protocol.Messages.RebootResponse{
+            naught: nil}],
     header: %CWMP.Protocol.Messages.Header{hold_requests: false, id: "API_953323a9b674bb42b7cad250b2cf0607",
       session_timeout: 30, no_more_requests: false}}
 
-  test "parses Reboot request" do
+  test "parses RebootResponse request" do
     assert(CWMP.Protocol.Parser.parse(@sample) == @sample_result)
   end
 

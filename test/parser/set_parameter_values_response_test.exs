@@ -1,4 +1,4 @@
-defmodule CWMP.Protocol.Parser.GetParameterValuesText do
+defmodule CWMP.Protocol.Parser.SetParameterValuesResponseTest do
   use ExUnit.Case, async: true
 
   @sample """
@@ -7,23 +7,19 @@ defmodule CWMP.Protocol.Parser.GetParameterValuesText do
                 <cwmp:ID SOAP-ENV:mustUnderstand="1">50</cwmp:ID>
         </SOAP-ENV:Header>
         <SOAP-ENV:Body>
-                <cwmp:GetParameterValues>
-                        <ParameterNames>
-                                <string>Device.IP.Interface.3.IPv4AddressNumberOfEntries</string>
-                                <string>Device.IP.Interface.3.IPv6AddressNumberOfEntries</string>
-                        </ParameterNames>
-                </cwmp:GetParameterValues>
+                <cwmp:SetParameterValuesResponse>
+                  <Status>0</Status>
+                </cwmp:SetParameterValuesResponse>
         </SOAP-ENV:Body>
 </SOAP-ENV:Envelope>
   """
 
-  @sample_result %{entries: [%CWMP.Protocol.Messages.GetParameterValues{
-        parameters: ["Device.IP.Interface.3.IPv4AddressNumberOfEntries", "Device.IP.Interface.3.IPv6AddressNumberOfEntries"]
-            }],
+  @sample_result %{entries: [%CWMP.Protocol.Messages.SetParameterValuesResponse{
+        status: 0}],
     header: %CWMP.Protocol.Messages.Header{hold_requests: false, id: "50",
       session_timeout: 30, no_more_requests: false}}
 
-  test "parses GetParameterValues request" do
+  test "parses SetParameterValuesResponse request" do
     assert(CWMP.Protocol.Parser.parse(@sample) == @sample_result)
   end
 
