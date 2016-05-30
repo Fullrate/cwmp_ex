@@ -46,6 +46,10 @@ defmodule CWMP.Protocol.Generator do
     envelope(header,CWMP.Protocol.Generator.Messages.SetParameterAttributesRequest.generate(req))
   end
 
+  def set_parameter_attributes_response(header) do
+    envelope(header,CWMP.Protocol.Generator.Messages.SetParameterAttributesResponse.generate)
+  end
+
   def get_rpc_methods(header) do
     envelope(header,CWMP.Protocol.Generator.Messages.GetRPCMethodsRequest.generate);
   end
@@ -82,6 +86,9 @@ defmodule CWMP.Protocol.Generator do
     envelope(header,CWMP.Protocol.Generator.Messages.RebootRequest.generate(req));
   end
 
+  def reboot_response(header) do
+    envelope(header,CWMP.Protocol.Generator.Messages.RebootResponse.generate);
+  end
 
   def inform(header, req) do
     envelope(header,CWMP.Protocol.Generator.Messages.InformRequest.generate(req));
@@ -91,12 +98,16 @@ defmodule CWMP.Protocol.Generator do
     envelope(header,CWMP.Protocol.Generator.Messages.TransferCompleteRequest.generate(req));
   end
 
+  def transfer_complete_response(header) do
+    envelope(header,CWMP.Protocol.Generator.Messages.TransferCompleteResponse.generate);
+  end
+
   def autonomous_transfer_complete(header, req) do
     envelope(header,CWMP.Protocol.Generator.Messages.AutonomousTransferCompleteRequest.generate(req));
   end
 
   def autonomous_transfer_complete_response(header) do
-    envelope(header,CWMP.Protocol.Generator.Messages.AutonomousTransferCompleteResponse.generate());
+    envelope(header,CWMP.Protocol.Generator.Messages.AutonomousTransferCompleteResponse.generate);
   end
 
   defp envelope(head,body) do

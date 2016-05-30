@@ -1,15 +1,11 @@
 defmodule CWMP.Protocol.Generator.Messages.SetParameterValuesResponse do
   import XmlBuilder
 
+  use CWMP.Protocol.GeneratorHelpers
+
   def generate(req) do
-    params=for p <- req.parameters, do: parameterValueStruct(p)
-    element('cwmp:SetParameterValues', [element(:ParameterList, %{'SOAP-ENC:arrayType': 'cwmp:ParameterValueStruct[#{length(params)}]'}, params), element(:ParameterKey,req.parameter_key)])
+    element('cwmp:SetParameterValuesResponse', [element(:Status, integerValue(req.status))])
   end
 
-  defp parameterValueStruct( param ) do
-    element(:ParameterValueStruct, [
-      element(:Name, param.name),
-      element(:Value, %{'xsi:type': param.type}, param.value)])
-  end
 end
 
