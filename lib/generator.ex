@@ -14,6 +14,10 @@ defmodule CWMP.Protocol.Generator do
     envelope(header,CWMP.Protocol.Generator.Messages.GetParameterValuesRequest.generate(req))
   end
 
+  def get_parameter_values_response(header, req) do
+    envelope(header,CWMP.Protocol.Generator.Messages.GetParameterValuesResponse.generate(req))
+  end
+
   def get_parameter_names(header, req) do
     envelope(header,CWMP.Protocol.Generator.Messages.GetParameterNamesRequest.generate(req))
   end
@@ -24,6 +28,10 @@ defmodule CWMP.Protocol.Generator do
 
   def set_parameter_values(header, req) do
     envelope(header,CWMP.Protocol.Generator.Messages.SetParameterValuesRequest.generate(req))
+  end
+
+  def set_parameter_values_response(header, req) do
+    envelope(header,CWMP.Protocol.Generator.Messages.SetParameterValuesResponse.generate(req))
   end
 
   def get_parameter_attributes(header, req) do
@@ -40,6 +48,10 @@ defmodule CWMP.Protocol.Generator do
 
   def get_rpc_methods(header) do
     envelope(header,CWMP.Protocol.Generator.Messages.GetRPCMethodsRequest.generate);
+  end
+
+  def get_rpc_methods_response(header,req) do
+    envelope(header,CWMP.Protocol.Generator.Messages.GetRPCMethodsResponse.generate(req));
   end
 
   def add_object(header, req) do

@@ -1,14 +1,14 @@
 defmodule CWMP.Protocol.Parser.Messages.GetRPCMethodsResponseRequest do
 
   use CWMP.Protocol.ParserHelpers
-  alias CWMP.Protocol.Messages.GetRPCMethods
+  alias CWMP.Protocol.Messages.GetRPCMethodsResponse
 
   def initial_acc do
-    %GetRPCMethods{}
+    %GetRPCMethodsResponse{}
   end
 
   def end_element(state, ['string', 'MethodList']) do
-    update_acc(state, fn acc -> %GetRPCMethods{acc | methods: acc.methods ++ [state.last_text]} end)
+    update_acc(state, fn acc -> %GetRPCMethodsResponse{acc | methods: acc.methods ++ [state.last_text]} end)
   end
 end
 
