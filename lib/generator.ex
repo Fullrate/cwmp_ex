@@ -127,6 +127,14 @@ defmodule CWMP.Protocol.Generator do
     envelope(header,CWMP.Protocol.Generator.Messages.ScheduleInformResponse.generate);
   end
 
+  def set_vouchers(header,req) do
+    envelope(header,CWMP.Protocol.Generator.Messages.SetVouchers.generate(req));
+  end
+
+  def set_vouchers_response(header) do
+    envelope(header,CWMP.Protocol.Generator.Messages.SetVouchersResponse.generate);
+  end
+
   defp envelope(head,body) do
     header=CWMP.Protocol.Generator.Messages.Header.generate(head)
     element('SOAP-ENV:Envelope',

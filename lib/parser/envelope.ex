@@ -88,7 +88,9 @@ defmodule CWMP.Protocol.Parser.Envelope do
      'GetQueuedTransfers' => CWMP.Protocol.Parser.Messages.GetQueuedTransfers,
      'GetQueuedTransfersResponse' => CWMP.Protocol.Parser.Messages.GetQueuedTransfersResponse,
      'ScheduleInform' => CWMP.Protocol.Parser.Messages.ScheduleInform,
-     'ScheduleInformResponse' => CWMP.Protocol.Parser.Messages.ScheduleInformResponse
+     'ScheduleInformResponse' => CWMP.Protocol.Parser.Messages.ScheduleInformResponse,
+     'SetVouchers' => CWMP.Protocol.Parser.Messages.SetVouchers,
+     'SetVouchersResponse' => CWMP.Protocol.Parser.Messages.SetVouchersResponse
   }
 
   def start_element(state, [msgtype, 'Body', 'Envelope'], _attribs) do
