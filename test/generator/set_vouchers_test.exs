@@ -72,7 +72,7 @@ axfzzIKiXsXwkA=="]
             }
           },
           options: [
-            %CWMP.Protocol.Messages.OptionStruct{
+            %CWMP.Protocol.Messages.SVOptionStruct{
               v_serial_num: "987654321",
               deviceid: %CWMP.Protocol.Messages.DeviceIdStruct{
                 manufacturer: "Example",
@@ -102,7 +102,7 @@ axfzzIKiXsXwkA=="]
               mode: "EnableWithExpiration",
               sha1_digest: "TUuSqr2utLtQM5tY2DB1jL3nV00="
             },
-            %CWMP.Protocol.Messages.OptionStruct{
+            %CWMP.Protocol.Messages.SVOptionStruct{
               v_serial_num: "987654321",
               deviceid: %CWMP.Protocol.Messages.DeviceIdStruct{
                 manufacturer: "Example",

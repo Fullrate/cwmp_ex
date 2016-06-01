@@ -1,4 +1,4 @@
-defmodule CWMP.Protocol.Messages.OptionStruct do
+defmodule CWMP.Protocol.Messages.SVOptionStruct do
   @derive [Poison.Encoder]
 
   @moduledoc """
