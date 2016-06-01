@@ -73,5 +73,28 @@ defmodule CWMP.Protocol.ParserHelpers do
     end
   end
 
+  @accepted_time_formats ["{YYYY}-{0M}-{0D}T{0h24}:{0m}:{0s}",
+                          "{YYYY}-{0M}-{0D}T{0h24}:{0m}:{0s}{Z:}",
+                          "{YYYY}-{0M}-{0D}T{0h24}:{0m}:{0s}Z"]
+  def datetimeStructure(timestring) do
+    times = @accepted_time_formats
+    |> Enum.map(&Timex.Parse.DateTime.Parser.parse(timestring, &1))
+    |> Enum.filter(fn
+      {:ok, _} -> true
+      _ -> false
+    end)
+    case times do
+      [{:ok, val} | _] -> val
+      _ -> raise "timestring '#{timestring}' has unacceptable format"
+    end
+  end
+
+  def boolValue(s) do
+    case s do
+      "0" -> false
+      _ -> true
+    end
+  end
+
 end
 

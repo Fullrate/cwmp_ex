@@ -90,7 +90,9 @@ defmodule CWMP.Protocol.Parser.Envelope do
      'ScheduleInform' => CWMP.Protocol.Parser.Messages.ScheduleInform,
      'ScheduleInformResponse' => CWMP.Protocol.Parser.Messages.ScheduleInformResponse,
      'SetVouchers' => CWMP.Protocol.Parser.Messages.SetVouchers,
-     'SetVouchersResponse' => CWMP.Protocol.Parser.Messages.SetVouchersResponse
+     'SetVouchersResponse' => CWMP.Protocol.Parser.Messages.SetVouchersResponse,
+     'GetOptions' => CWMP.Protocol.Parser.Messages.GetOptions,
+     'GetOptionsResponse' => CWMP.Protocol.Parser.Messages.GetOptionsResponse
   }
 
   def start_element(state, [msgtype, 'Body', 'Envelope'], _attribs) do
