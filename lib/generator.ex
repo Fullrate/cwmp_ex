@@ -159,6 +159,14 @@ defmodule CWMP.Protocol.Generator do
     envelope(header,CWMP.Protocol.Generator.Messages.FactoryResetResponse.generate);
   end
 
+  def get_all_queued_transfers(header) do
+    envelope(header,CWMP.Protocol.Generator.Messages.GetAllQueuedTransfers.generate);
+  end
+
+  def get_all_queued_transfers_response(header,req) do
+    envelope(header,CWMP.Protocol.Generator.Messages.GetAllQueuedTransfersResponse.generate(req));
+  end
+
   defp envelope(head,body) do
     header=CWMP.Protocol.Generator.Messages.Header.generate(head)
     element('SOAP-ENV:Envelope',
