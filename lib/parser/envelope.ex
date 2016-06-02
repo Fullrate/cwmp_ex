@@ -81,7 +81,9 @@ defmodule CWMP.Protocol.Parser.Envelope do
      'GetOptions' => CWMP.Protocol.Parser.Messages.GetOptions,
      'GetOptionsResponse' => CWMP.Protocol.Parser.Messages.GetOptionsResponse,
      'Upload' => CWMP.Protocol.Parser.Messages.Upload,
-     'UploadResponse' => CWMP.Protocol.Parser.Messages.UploadResponse
+     'UploadResponse' => CWMP.Protocol.Parser.Messages.UploadResponse,
+     'FactoryReset' => CWMP.Protocol.Parser.Messages.FactoryReset,
+     'FactoryResetResponse' => CWMP.Protocol.Parser.Messages.FactoryResetResponse
   }
 
   def start_element(state, [msgtype, 'Body', 'Envelope'], _attribs) do

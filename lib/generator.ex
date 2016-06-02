@@ -151,6 +151,14 @@ defmodule CWMP.Protocol.Generator do
     envelope(header,CWMP.Protocol.Generator.Messages.UploadResponse.generate(req));
   end
 
+  def factory_reset(header) do
+    envelope(header,CWMP.Protocol.Generator.Messages.FactoryReset.generate);
+  end
+
+  def factory_reset_response(header) do
+    envelope(header,CWMP.Protocol.Generator.Messages.FactoryResetResponse.generate);
+  end
+
   defp envelope(head,body) do
     header=CWMP.Protocol.Generator.Messages.Header.generate(head)
     element('SOAP-ENV:Envelope',
