@@ -167,6 +167,14 @@ defmodule CWMP.Protocol.Generator do
     envelope(header,CWMP.Protocol.Generator.Messages.GetAllQueuedTransfersResponse.generate(req));
   end
 
+  def schedule_download(header,req) do
+    envelope(header,CWMP.Protocol.Generator.Messages.ScheduleDownload.generate(req));
+  end
+
+  def schedule_download_response(header) do
+    envelope(header,CWMP.Protocol.Generator.Messages.ScheduleDownloadResponse.generate);
+  end
+
   defp envelope(head,body) do
     header=CWMP.Protocol.Generator.Messages.Header.generate(head)
     element('SOAP-ENV:Envelope',
