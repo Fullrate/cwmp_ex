@@ -8,10 +8,7 @@ defmodule CWMP.Protocol.Parser.Messages.DeleteObjectResponse do
   end
 
   def end_element(state, ['Status']) do
-    case Integer.parse(state.last_text) do
-      {val, ""} when val in 0..1 -> update_acc(state, fn cur -> %DeleteObjectResponse{cur | status: val} end)
-      _ -> raise "Invalid status value"
-    end
+    update_acc(state, fn cur -> %DeleteObjectResponse{cur | status: integerValue(state.last_text, fn(x) -> x in 0..1 end)} end)
   end
 end
 

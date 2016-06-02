@@ -23,28 +23,15 @@ defmodule CWMP.Protocol.Parser.Envelope do
     end
 
     def end_element(state, ['SessionTimeout']) do
-      case Integer.parse(state.last_text) do
-        {val, ""} when val > 0 -> update_acc(state, fn cur -> %Header{cur | session_timeout: val} end)
-        _ -> raise "Session timeout is invalid"
-      end
+      update_acc(state, fn cur -> %Header{cur | session_timeout: integerValue(state.last_text, fn(x) -> x > 0 end)} end)
     end
 
     def end_element(state, ['HoldRequests']) do
-      val = case state.last_text do
-        "0" -> false
-        "1" -> true
-        _ -> raise "Invalid value '#{state.last_text}' for hold_requests"
-      end
-      update_acc(state, fn cur -> %Header{cur | hold_requests: val} end)
+      update_acc(state, fn cur -> %Header{cur | hold_requests: integerValue(state.last_text, fn(x) -> x in 0..1 end)} end)
     end
 
     def end_element(state, ['NoMoreRequests']) do
-      val = case state.last_text do
-        "0" -> false
-        "1" -> true
-        _ -> raise "Invalid value '#{state.last_text}' for no_more_requests"
-      end
-      update_acc(state, fn cur -> %Header{cur | no_more_requests: val} end)
+      update_acc(state, fn cur -> %Header{cur | no_more_requests: boolValue(state.last_text)} end)
     end
   end
 
@@ -92,7 +79,9 @@ defmodule CWMP.Protocol.Parser.Envelope do
      'SetVouchers' => CWMP.Protocol.Parser.Messages.SetVouchers,
      'SetVouchersResponse' => CWMP.Protocol.Parser.Messages.SetVouchersResponse,
      'GetOptions' => CWMP.Protocol.Parser.Messages.GetOptions,
-     'GetOptionsResponse' => CWMP.Protocol.Parser.Messages.GetOptionsResponse
+     'GetOptionsResponse' => CWMP.Protocol.Parser.Messages.GetOptionsResponse,
+     'Upload' => CWMP.Protocol.Parser.Messages.Upload,
+     'UploadResponse' => CWMP.Protocol.Parser.Messages.UploadResponse
   }
 
   def start_element(state, [msgtype, 'Body', 'Envelope'], _attribs) do

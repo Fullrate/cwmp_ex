@@ -143,6 +143,14 @@ defmodule CWMP.Protocol.Generator do
     envelope(header,CWMP.Protocol.Generator.Messages.GetOptionsResponse.generate(req));
   end
 
+  def upload(header,req) do
+    envelope(header,CWMP.Protocol.Generator.Messages.Upload.generate(req));
+  end
+
+  def upload_response(header,req) do
+    envelope(header,CWMP.Protocol.Generator.Messages.UploadResponse.generate(req));
+  end
+
   defp envelope(head,body) do
     header=CWMP.Protocol.Generator.Messages.Header.generate(head)
     element('SOAP-ENV:Envelope',

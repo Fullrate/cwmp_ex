@@ -1,4 +1,4 @@
-defmodule CWMP.Protocol.Parser.DownloadResponseTest do
+defmodule CWMP.Protocol.Parser.UploadResponseTest do
   use ExUnit.Case, async: true
 
   @sample """
@@ -12,16 +12,16 @@ defmodule CWMP.Protocol.Parser.DownloadResponseTest do
       <cwmp:ID SOAP-ENV:mustUnderstand="1">API_aa0642e34b23820801e7642ad7cb536c</cwmp:ID>
     </SOAP-ENV:Header>
     <SOAP-ENV:Body>
-      <cwmp:DownloadResponse>
+      <cwmp:UploadResponse>
         <Status>1</Status>
         <StartTime>2015-01-19T23:08:24</StartTime>
         <CompleteTime>2015-01-19T23:09:24</CompleteTime>
-      </cwmp:DownloadResponse>
+      </cwmp:UploadResponse>
     </SOAP-ENV:Body>
 </SOAP-ENV:Envelope>
   """
 
-  @sample_result %{entries: [%CWMP.Protocol.Messages.DownloadResponse{
+  @sample_result %{entries: [%CWMP.Protocol.Messages.UploadResponse{
         status: 1,
         complete_time: %Timex.DateTime{calendar: :gregorian,
           day: 19, hour: 23, minute: 9, month: 1, millisecond: 0, second: 24,
@@ -50,11 +50,11 @@ defmodule CWMP.Protocol.Parser.DownloadResponseTest do
       <cwmp:ID SOAP-ENV:mustUnderstand="1">API_aa0642e34b23820801e7642ad7cb536c</cwmp:ID>
     </SOAP-ENV:Header>
     <SOAP-ENV:Body>
-      <cwmp:DownloadResponse>
+      <cwmp:UploadResponse>
         <Status>2</Status>
         <StartTime>2015-01-19T23:08:24</StartTime>
         <CompleteTime>2015-01-19T23:09:24</CompleteTime>
-      </cwmp:DownloadResponse>
+      </cwmp:UploadResponse>
     </SOAP-ENV:Body>
 </SOAP-ENV:Envelope>
   """
@@ -74,15 +74,15 @@ defmodule CWMP.Protocol.Parser.DownloadResponseTest do
       <cwmp:ID SOAP-ENV:mustUnderstand="1">API_aa0642e34b23820801e7642ad7cb536c</cwmp:ID>
     </SOAP-ENV:Header>
     <SOAP-ENV:Body>
-      <cwmp:DownloadResponse>
+      <cwmp:UploadResponse>
         <Status>1</Status>
         <CompleteTime>2015-01-19T23:09:24</CompleteTime>
-      </cwmp:DownloadResponse>
+      </cwmp:UploadResponse>
     </SOAP-ENV:Body>
 </SOAP-ENV:Envelope>
   """
 
-  @sample_result3 %{entries: [%CWMP.Protocol.Messages.DownloadResponse{
+  @sample_result3 %{entries: [%CWMP.Protocol.Messages.UploadResponse{
         status: 1,
         complete_time: %Timex.DateTime{calendar: :gregorian,
           day: 19, hour: 23, minute: 9, month: 1, millisecond: 0, second: 24,
@@ -93,7 +93,7 @@ defmodule CWMP.Protocol.Parser.DownloadResponseTest do
     header: %CWMP.Protocol.Messages.Header{hold_requests: false, id: "API_aa0642e34b23820801e7642ad7cb536c",
       session_timeout: 30, no_more_requests: false}}
 
-  test "parses DownloadResponse request, missing StartTime" do
+  test "parses UploadResponse request, missing StartTime" do
     assert(CWMP.Protocol.Parser.parse(@sample3) == @sample_result3)
   end
 
@@ -108,16 +108,16 @@ defmodule CWMP.Protocol.Parser.DownloadResponseTest do
       <cwmp:ID SOAP-ENV:mustUnderstand="1">API_aa0642e34b23820801e7642ad7cb536c</cwmp:ID>
     </SOAP-ENV:Header>
     <SOAP-ENV:Body>
-      <cwmp:DownloadResponse>
+      <cwmp:UploadResponse>
         <Status>1</Status>
         <StartTime>foo</StartTime>
         <CompleteTime>2015-01-19T23:09:24</CompleteTime>
-      </cwmp:DownloadResponse>
+      </cwmp:UploadResponse>
     </SOAP-ENV:Body>
 </SOAP-ENV:Envelope>
   """
 
-  test "parses DownloadResponse request, invalid StartTime" do
+  test "parses UploadResponse request, invalid StartTime" do
     assert(catch_error(CWMP.Protocol.Parser.parse(@sample4))==%RuntimeError{message: "timestring 'foo' has unacceptable format"})
   end
 

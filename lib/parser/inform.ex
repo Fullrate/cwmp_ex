@@ -73,33 +73,15 @@ defmodule CWMP.Protocol.Parser.Messages.Inform do
   end
 
   def end_element(state, ['MaxEnvelopes']) do
-    case Integer.parse(state.last_text) do
-      {val, ""} when val > 0 -> update_acc(state, fn cur -> %Inform{cur | max_envelopes: val} end)
-      _ -> raise "Invalid number of maximum envelopes"
-    end
+    update_acc(state, fn cur -> %Inform{cur | max_envelopes: integerValue(state.last_text, fn(x) -> x > 0 end)} end)
   end
 
-  @accepted_time_formats ["{YYYY}-{0M}-{0D}T{0h24}:{0m}:{0s}",
-                          "{YYYY}-{0M}-{0D}T{0h24}:{0m}:{0s}{Z:}",
-                          "{YYYY}-{0M}-{0D}T{0h24}:{0m}:{0s}Z"]
   def end_element(state, ['CurrentTime']) do
-    times = @accepted_time_formats
-    |> Enum.map(&Timex.Parse.DateTime.Parser.parse(state.last_text, &1))
-    |> Enum.filter(fn
-      {:ok, _} -> true
-      _ -> false
-    end)
-    case times do
-      [{:ok, val} | _] -> update_acc(state, fn cur -> %Inform{cur | current_time: val} end)
-      _ -> raise "Current time '#{state.last_text}' has unacceptable format"
-    end
+    update_acc(state, fn cur -> %Inform{cur | current_time: datetimeStructure(state.last_text)} end)
   end
 
   def end_element(state, ['RetryCount']) do
-    case Integer.parse(state.last_text) do
-      {val, ""} when val >= 0 -> update_acc(state, fn cur -> %Inform{cur | retry_count: val} end)
-      _ -> raise "Invalid retry count"
-    end
+    update_acc(state, fn cur -> %Inform{cur | retry_count: integerValue(state.last_text, fn(x) -> x >= 0 end)} end)
   end
 end
 

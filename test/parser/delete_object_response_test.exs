@@ -76,7 +76,7 @@ defmodule CWMP.Protocol.Parser.DeleteObjectResponseTest do
   """
 
   test "raise RuntimeError on DeleteObjectResponse request parse" do
-    assert(catch_error(CWMP.Protocol.Parser.parse(@sample3)) == %RuntimeError{message: "Invalid status value"})
+    assert(catch_error(CWMP.Protocol.Parser.parse(@sample3)) == %RuntimeError{message: "Integer does not validate"})
   end
 
 end

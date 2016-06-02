@@ -11,11 +11,6 @@ defmodule CWMP.Protocol.Parser.Messages.ParameterInfoStruct do
   end
 
   def end_element(state, ['Writable']) do
-    val = case state.last_text do
-      "0" -> false
-      "1" -> true
-      _ -> raise "Invalid value '#{state.last_text}' for writable"
-    end
-    update_acc(state, fn acc -> %ParameterInfoStruct{acc | writable: val} end)
+    update_acc(state, fn acc -> %ParameterInfoStruct{acc | writable: boolValue(state.last_text)} end)
   end
 end

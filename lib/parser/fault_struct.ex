@@ -7,10 +7,7 @@ defmodule FaultStruct do
   end
 
   def end_element(state, ['FaultCode']) do
-    case Integer.parse(state.last_text) do
-      {val, ""} when val >= 0 -> update_acc(state, fn cur -> %FaultStruct{cur | code: val} end)
-      _ -> raise "Invalid fault code"
-    end
+    update_acc(state, fn cur -> %FaultStruct{cur | code: integerValue(state.last_text, fn(x) -> x >= 0 end)} end)
   end
 
   def end_element(state, ['FaultString']) do

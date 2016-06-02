@@ -12,10 +12,7 @@ defmodule CWMP.Protocol.Parser.Messages.ParameterAttributeStruct do
 
   # Notification must be int, 0-6 in value
   def end_element(state, ['Notification']) do
-    case Integer.parse(state.last_text) do
-      {val, ""} when val in 0..6 -> update_acc(state, fn cur -> %ParameterAttributeStruct{cur | notification: val} end)
-      _ -> raise "Invalid notification value: #{state.last_text}"
-    end
+    update_acc(state, fn cur -> %ParameterAttributeStruct{cur | notification: integerValue(state.last_text, fn(x) -> x in 0..6 end)} end)
   end
 
   def end_element(state, ['string','AccessList']) do
