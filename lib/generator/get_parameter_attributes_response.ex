@@ -5,7 +5,7 @@ defmodule CWMP.Protocol.Generator.Messages.GetParameterAttributesResponse do
 
   def generate(req) do
     params=for p <- req.parameters, do: parameterAttributeStruct(p)
-    element('cwmp:GetParameterAttributesResponse', [element(:ParameterList, %{'SOAP-ENC:arrayType': 'cwmp:ParameterAttributeStruct[#{length(params)}]'}, [params])])
+    element("cwmp:GetParameterAttributesResponse", [element(:ParameterList, %{"SOAP-ENC:arrayType": "cwmp:ParameterAttributeStruct[#{length(params)}]"}, [params])])
   end
 
   defp parameterAttributeStruct(pas) do

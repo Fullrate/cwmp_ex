@@ -4,6 +4,6 @@ defmodule CWMP.Protocol.Generator.Messages.ScheduleDownloadResponse do
   use CWMP.Protocol.GeneratorHelpers
 
   def generate do
-    element('cwmp:ScheduleDownloadResponse', '')
+    element("cwmp:ScheduleDownloadResponse", nil)
   end
 end

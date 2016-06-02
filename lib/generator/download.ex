@@ -25,14 +25,14 @@ defmodule CWMP.Protocol.Generator.Messages.Download do
                    end
       end
     end)
-    element('cwmp:Download', [
-      element('CommandKey',req.commandkey),
-      element('FileType',req.filetype),
-      element('URL',req.url),
-      element('Username',req.username),
-      element('Password',req.password),
-      element('FileSize',filesize),
-      element('DelaySeconds',req.delay_seconds)] ++
+    element("cwmp:Download", [
+      element(:CommandKey,req.commandkey),
+      element(:FileType,req.filetype),
+      element(:URL,req.url),
+      element(:Username,req.username),
+      element(:Password,req.password),
+      element(:FileSize,filesize),
+      element(:DelaySeconds,req.delay_seconds)] ++
       Enum.filter(optionals, fn(x) -> x != nil end)
     )
   end

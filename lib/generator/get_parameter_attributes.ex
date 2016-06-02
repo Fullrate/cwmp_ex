@@ -3,7 +3,7 @@ defmodule CWMP.Protocol.Generator.Messages.GetParameterAttributes do
 
   def generate(req) do
     params=for p <- req.parameters, do: element(:string, p)
-    element('cwmp:GetParameterAttributes', [element(:ParameterNames,[params])])
+    element("cwmp:GetParameterAttributes", [element(:ParameterNames,[params])])
   end
 end
 

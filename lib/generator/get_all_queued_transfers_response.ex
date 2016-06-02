@@ -6,7 +6,7 @@ defmodule CWMP.Protocol.Generator.Messages.GetAllQueuedTransfersResponse do
   def generate(req) do
     transferlist=for t <- req.transferlist, do: generateTransferStruct(t)
 
-    element('cwmp:GetAllQueuedTransfersResponse', [
+    element("cwmp:GetAllQueuedTransfersResponse", [
       element(:TransferList, %{"SOAP-ENC:arrayType": "cwmp:AllQueuedTransferStruct[#{length(transferlist)}]"}, transferlist)])
   end
 

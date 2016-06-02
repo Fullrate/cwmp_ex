@@ -5,7 +5,7 @@ defmodule CWMP.Protocol.Generator.Messages.GetOptionsResponse do
 
   def generate(req) do
     olist = generateOptions(req.optionlist)
-    element('cwmp:GetOptionsResponse', [
+    element("cwmp:GetOptionsResponse", [
       element(:OptionList, %{"SOAP-ENC:arrayType": "cwmp:OptionStruct[#{length(olist)}]"}, olist) ])
   end
 

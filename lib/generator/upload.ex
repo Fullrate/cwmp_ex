@@ -15,13 +15,13 @@ defmodule CWMP.Protocol.Generator.Messages.Upload do
     if not hd(to_char_list(req.filetype)) in [49,50,51,52,88] do
       raise "Invalid filetype"
     end
-    element('cwmp:Upload', [
-      element('CommandKey',req.commandkey),
-      element('FileType',req.filetype),
-      element('URL',req.url),
-      element('Username',req.username),
-      element('Password',req.password),
-      element('DelaySeconds',req.delay_seconds)]
+    element("cwmp:Upload", [
+      element(:CommandKey,req.commandkey),
+      element(:FileType,req.filetype),
+      element(:URL,req.url),
+      element(:Username,req.username),
+      element(:Password,req.password),
+      element(:DelaySeconds,req.delay_seconds)]
     )
   end
 end

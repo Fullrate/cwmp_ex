@@ -175,6 +175,14 @@ defmodule CWMP.Protocol.Generator do
     envelope(header,CWMP.Protocol.Generator.Messages.ScheduleDownloadResponse.generate);
   end
 
+  def cancel_transfer(header,req) do
+    envelope(header,CWMP.Protocol.Generator.Messages.CancelTransfer.generate(req));
+  end
+
+  def cancel_transfer_response(header) do
+    envelope(header,CWMP.Protocol.Generator.Messages.CancelTransferResponse.generate);
+  end
+
   defp envelope(head,body) do
     header=CWMP.Protocol.Generator.Messages.Header.generate(head)
     element('SOAP-ENV:Envelope',

@@ -40,7 +40,7 @@ defmodule CWMP.Protocol.Generator.Messages.SetVouchers do
     signatures_xml=for s <- signatures, do: XmlBuilder.generate(s)
     signatures_base64=for s <- signatures_xml, do: Base.encode64(s)
     signatures_wrapped=for s <- signatures_base64, do: element(:base64,s)
-    element('cwmp:SetVouchers', [element(:VoucherList,%{'SOAP-ENC:arrayType': 'base64[#{length(signatures_wrapped)}]'},signatures_wrapped)])
+    element("cwmp:SetVouchers", [element(:VoucherList,%{"SOAP-ENC:arrayType": "base64[#{length(signatures_wrapped)}]"},signatures_wrapped)])
   end
 
   @doc """

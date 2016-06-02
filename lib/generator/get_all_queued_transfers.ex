@@ -4,6 +4,6 @@ defmodule CWMP.Protocol.Generator.Messages.GetAllQueuedTransfers do
   use CWMP.Protocol.GeneratorHelpers
 
   def generate do
-    element('cwmp:GetAllQueuedTransfers', '')
+    element("cwmp:GetAllQueuedTransfers", nil)
   end
 end

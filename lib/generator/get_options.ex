@@ -4,7 +4,7 @@ defmodule CWMP.Protocol.Generator.Messages.GetOptions do
   use CWMP.Protocol.GeneratorHelpers
 
   def generate(req) do
-    element('cwmp:GetOptions', [
+    element("cwmp:GetOptions", [
       element(:OptionName, req.option_name)])
   end
 

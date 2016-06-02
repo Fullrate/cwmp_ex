@@ -4,7 +4,7 @@ defmodule CWMP.Protocol.Generator.Messages.TransferCompleteResponse do
   use CWMP.Protocol.GeneratorHelpers
 
   def generate do
-    element('cwmp:TransferCompleteResponse', '')
+    element("cwmp:TransferCompleteResponse", nil)
   end
 
 end

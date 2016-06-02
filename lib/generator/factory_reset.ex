@@ -4,6 +4,6 @@ defmodule CWMP.Protocol.Generator.Messages.FactoryReset do
   use CWMP.Protocol.GeneratorHelpers
 
   def generate do
-    element('cwmp:FactoryReset', '')
+    element("cwmp:FactoryReset", nil)
   end
 end
