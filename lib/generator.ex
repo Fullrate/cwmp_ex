@@ -183,6 +183,14 @@ defmodule CWMP.Protocol.Generator do
     envelope(header,CWMP.Protocol.Generator.Messages.CancelTransferResponse.generate);
   end
 
+  def change_du_state(header,req) do
+    envelope(header,CWMP.Protocol.Generator.Messages.ChangeDUState.generate(req));
+  end
+
+  def change_du_state_response(header) do
+    envelope(header,CWMP.Protocol.Generator.Messages.ChangeDUStateResponse.generate);
+  end
+
   defp envelope(head,body) do
     header=CWMP.Protocol.Generator.Messages.Header.generate(head)
     element('SOAP-ENV:Envelope',

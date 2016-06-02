@@ -87,7 +87,11 @@ defmodule CWMP.Protocol.Parser.Envelope do
      'GetAllQueuedTransfers' => CWMP.Protocol.Parser.Messages.GetAllQueuedTransfers,
      'GetAllQueuedTransfersResponse' => CWMP.Protocol.Parser.Messages.GetAllQueuedTransfersResponse,
      'ScheduleDownload' => CWMP.Protocol.Parser.Messages.ScheduleDownload,
-     'ScheduleDownloadResponse' => CWMP.Protocol.Parser.Messages.ScheduleDownloadResponse
+     'ScheduleDownloadResponse' => CWMP.Protocol.Parser.Messages.ScheduleDownloadResponse,
+     'CancelTransfer' => CWMP.Protocol.Parser.Messages.CancelTransfer,
+     'CancelTransferResponse' => CWMP.Protocol.Parser.Messages.CancelTransferResponse,
+     'ChangeDUState' => CWMP.Protocol.Parser.Messages.ChangeDUState,
+     'ChangeDUStateResponse' => CWMP.Protocol.Parser.Messages.ChangeDUStateResponse
   }
 
   def start_element(state, [msgtype, 'Body', 'Envelope'], _attribs) do
