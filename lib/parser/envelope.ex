@@ -91,7 +91,11 @@ defmodule CWMP.Protocol.Parser.Envelope do
      'CancelTransfer' => CWMP.Protocol.Parser.Messages.CancelTransfer,
      'CancelTransferResponse' => CWMP.Protocol.Parser.Messages.CancelTransferResponse,
      'ChangeDUState' => CWMP.Protocol.Parser.Messages.ChangeDUState,
-     'ChangeDUStateResponse' => CWMP.Protocol.Parser.Messages.ChangeDUStateResponse
+     'ChangeDUStateResponse' => CWMP.Protocol.Parser.Messages.ChangeDUStateResponse,
+     'Kicked' => CWMP.Protocol.Parser.Messages.Kicked,
+     'KickedResponse' => CWMP.Protocol.Parser.Messages.KickedResponse,
+     'RequestDownload' => CWMP.Protocol.Parser.Messages.RequestDownload,
+     'RequestDownloadResponse' => CWMP.Protocol.Parser.Messages.RequestDownloadResponse
   }
 
   def start_element(state, [msgtype, 'Body', 'Envelope'], _attribs) do

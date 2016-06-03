@@ -2,8 +2,8 @@ defmodule CWMP.Protocol.Generator.Messages.SetVouchers do
   import XmlBuilder
   use CWMP.Protocol.GeneratorHelpers
 
-  @doc """
-    TODO:
+  @moduledoc """
+
     The SetVouchers feature involves an OptionStruct and
     XML-Signature format. The XML-Signature format will
     require its own XMLSignatureStruct to define signatures
@@ -35,13 +35,7 @@ defmodule CWMP.Protocol.Generator.Messages.SetVouchers do
     CWMP.Protocol.Messages.OptionStruct
 
   """
-  def generate(req) do
-    signatures=for s <- req, do: generateSignature(s)
-    signatures_xml=for s <- signatures, do: XmlBuilder.generate(s)
-    signatures_base64=for s <- signatures_xml, do: Base.encode64(s)
-    signatures_wrapped=for s <- signatures_base64, do: element(:base64,s)
-    element("cwmp:SetVouchers", [element(:VoucherList,%{"SOAP-ENC:arrayType": "base64[#{length(signatures_wrapped)}]"},signatures_wrapped)])
-  end
+
 
   @doc """
 
@@ -52,6 +46,14 @@ defmodule CWMP.Protocol.Generator.Messages.SetVouchers do
     https://www.w3.org/TR/2002/REC-xmldsig-core-20020212/xmldsig-core-schema.xsd
 
   """
+  def generate(req) do
+    signatures=for s <- req, do: generateSignature(s)
+    signatures_xml=for s <- signatures, do: XmlBuilder.generate(s)
+    signatures_base64=for s <- signatures_xml, do: Base.encode64(s)
+    signatures_wrapped=for s <- signatures_base64, do: element(:base64,s)
+    element("cwmp:SetVouchers", [element(:VoucherList,%{"SOAP-ENC:arrayType": "base64[#{length(signatures_wrapped)}]"},signatures_wrapped)])
+  end
+
   defp generateSignature(signature) do
     if length(signature.options) < 1 do
       raise "Some options must be set"
@@ -76,22 +78,9 @@ defmodule CWMP.Protocol.Generator.Messages.SetVouchers do
       generateOptions(signature.options))
   end
 
-  @doc """
-
-  Generates a series of X509 certificate element based on the passed list of
-  certificate data.
-
-  """
   defp generateCertificates(certs) do
     for c <- certs, do: element(:X509Certificate, c)
   end
-
-  @doc """
-
-  Generated the SignedInfo XML element based on the passed options. The
-  SignedInfo part is mostly static, apart from the digest_value in the options,
-  therefore the options are passed to this method.
-  """
 
   defp generateSignedInfo(options) do
     references=for o <- Enum.with_index(options), do: element(:Reference, %{URI: "#option#{elem(o,1)}"}, [
@@ -106,11 +95,6 @@ defmodule CWMP.Protocol.Generator.Messages.SetVouchers do
       references)
   end
 
-  @doc """
-
-  The passed options is a list of CWMP.Protocol.Messages.OptionStruct structures.
-
-  """
   defp generateOptions(options) do
     for option <- Enum.with_index(options), do: element("dsig:Object", %{xmlns: "", "xmlns:dsig": "http://www.w3.org/2000/09/xmldsig#", "Id": "#option#{elem(option,1)}"}, [generateOption(elem(option,0))])
   end
