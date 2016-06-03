@@ -1,4 +1,4 @@
-defimpl CWMP.Protocol.Generate, for: CWMP.Protocol.Generator.Messages.GetParameterNames do
+defimpl CWMP.Protocol.Generate, for: CWMP.Protocol.Messages.GetParameterNames do
   import XmlBuilder
 
   use CWMP.Protocol.GenerateHelpers

@@ -66,7 +66,7 @@ defmodule CWMP.Protocol.GenerateHelpers do
     end
   end
 
-  def boolValue(s) do
+  def boolValue(_s) do
     raise "Not a boolean value"
   end
 

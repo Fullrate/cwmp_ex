@@ -17,7 +17,8 @@ defmodule CWMP.Protocol.Generator.SetVouchersTest do
   test "generates SetVouchers request" do
     assert(CWMP.Protocol.Generator.generate(
       %CWMP.Protocol.Messages.Header{id: "API_69412286f02e475b44783c61972f0a91"},
-      [%CWMP.Protocol.Messages.XMLSignatureStruct{
+      %CWMP.Protocol.Messages.SetVouchers{
+        voucherlist: [%CWMP.Protocol.Messages.XMLSignatureStruct{
           signature_value: "KAMfqOSnmGH52qRVGLNFEEM4PPkRSmMUGr2D8E3vwwW280e1Bn5pwQ==",
           key_info: %CWMP.Protocol.Messages.KeyInfoStruct{
             key_value: %CWMP.Protocol.Messages.KeyValueStruct{
@@ -134,12 +135,14 @@ axfzzIKiXsXwkA=="]
             }
           ]
         }
-    ]) == @sample)
+    ]}) == @sample)
   end
 
   test "raise, SetVouchers, no options" do
     assert( catch_error( CWMP.Protocol.Generator.generate(
     %CWMP.Protocol.Messages.Header{id: "API_69412286f02e475b44783c61972f0a91"},
-    [%CWMP.Protocol.Messages.XMLSignatureStruct{}] ) ) == %RuntimeError{message: "Some options must be set"} )
+    %CWMP.Protocol.Messages.SetVouchers{
+      voucherlist: [%CWMP.Protocol.Messages.XMLSignatureStruct{}]
+    })) == %RuntimeError{message: "Some options must be set"} )
   end
 end

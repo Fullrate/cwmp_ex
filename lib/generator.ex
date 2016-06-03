@@ -7,12 +7,7 @@ defmodule CWMP.Protocol.Generator do
 
   """
 
-  def generate(header, req, version \\ "1-4") do
-    envelope(header,CWMP.Protocol.Generate.generate(req),version)
-  end
-
-  defp envelope(head,body,version \\ "1-4") do
-    header=CWMP.Protocol.Generate.generate(head)
+  def generate(head, req, version \\ "1-4") do
     element('SOAP-ENV:Envelope',
       %{
         'xmlns:SOAP-ENV': "http://schemas.xmlsoap.org/soap/envelope/",
@@ -21,6 +16,6 @@ defmodule CWMP.Protocol.Generator do
         'xmlns:xsd': "http://www.w3.org/2001/XMLSchema",
         'xmlns:cwmp': "urn:dslforum-org:cwmp-#{version}"
       },
-      [ element('SOAP-ENV:Header', [header]), element('SOAP-ENV:Body', [body]) ] ) |> generate;
+      [ element('SOAP-ENV:Header', [CWMP.Protocol.Generate.generate(head)]), element('SOAP-ENV:Body', [CWMP.Protocol.Generate.generate(req)]) ] ) |> generate;
   end
 end

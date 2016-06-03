@@ -47,7 +47,7 @@ defimpl CWMP.Protocol.Generate, for: CWMP.Protocol.Messages.SetVouchers do
 
   """
   def generate(req) do
-    signatures=for s <- req, do: generateSignature(s)
+    signatures=for s <- req.voucherlist, do: generateSignature(s)
     signatures_xml=for s <- signatures, do: XmlBuilder.generate(s)
     signatures_base64=for s <- signatures_xml, do: Base.encode64(s)
     signatures_wrapped=for s <- signatures_base64, do: element(:base64,s)

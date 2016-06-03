@@ -1,7 +1,7 @@
 defimpl CWMP.Protocol.Generate, for: CWMP.Protocol.Messages.DownloadResponse do
   import XmlBuilder
 
-  use CWMP.Protocol.GeneratorHelpers
+  use CWMP.Protocol.GenerateHelpers
 
   def generate(req) do
     element("cwmp:DownloadResponse", [

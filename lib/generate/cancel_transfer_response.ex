@@ -1,4 +1,4 @@
-defimpl CWMP.Procol.Generate, for: CWMP.Protocol.Messages.CancelTransferResponse do
+defimpl CWMP.Protocol.Generate, for: CWMP.Protocol.Messages.CancelTransferResponse do
   import XmlBuilder
 
   def generate(_req) do

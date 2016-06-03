@@ -11,7 +11,9 @@ defmodule CWMP.Protocol.Generator.TransferCompleteResponseTest do
 </SOAP-ENV:Envelope>|
 
   test "generates TransferComplete response" do
-    assert(CWMP.Protocol.Generator.generate(%CWMP.Protocol.Messages.Header{id: "API_69412286f02e475b44783c61972f0a91"}) == @sample)
+    assert(CWMP.Protocol.Generator.generate(
+      %CWMP.Protocol.Messages.Header{id: "API_69412286f02e475b44783c61972f0a91"},
+      %CWMP.Protocol.Messages.TransferCompleteResponse{}) == @sample)
   end
 
 end
