@@ -1,7 +1,7 @@
 defmodule CWMP.Protocol.Generator.Messages.GetRPCMethods do
   import XmlBuilder
 
-  def generate do
+  def generate(req) do
     element("cwmp:GetRPCMethods", nil)
   end
 end
