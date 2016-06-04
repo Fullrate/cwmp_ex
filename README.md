@@ -9,7 +9,7 @@ If [available in Hex](https://hex.pm/docs/publish), the package can be installed
   1. Add cwmp_ex to your list of dependencies in `mix.exs`:
 
         def deps do
-          [{:cwmp_ex, "~> 0.0.1"}]
+          [{:cwmp_ex, "~> 0.1.0"}]
         end
 
   2. Ensure cwmp_ex is started before your application:
