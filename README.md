@@ -60,6 +60,8 @@ CWMP.Protocol.Generator.generate(header, body)
 
 "<SOAP-ENV:Envelope xmlns:SOAP-ENC=\"http://schemas.xmlsoap.org/soap/encoding/\" xmlns:SOAP-ENV=\"http://schemas.xmlsoap.org/soap/envelope/\" xmlns:cwmp=\"urn:dslforum-org:cwmp-1-4\" xmlns:xsd=\"http://www.w3.org/2001/XMLSchema\" xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\">\n\t<SOAP-ENV:Header>\n\t\t<cwmp:ID SOAP-ENV:mustUnderstand=\"1\">50</cwmp:ID>\n\t</SOAP-ENV:Header>\n\t<SOAP-ENV:Body>\n\t\t<cwmp:AddObject>\n\t\t\t<ObjectName>Device.Test.</ObjectName>\n\t\t\t<ParameterKey>ParamKey</ParameterKey>\n\t\t</cwmp:AddObject>\n\t</SOAP-ENV:Body>\n</SOAP-ENV:Envelope>"
 
+```
+
 ## Installation ##
 
 If [available in Hex](https://hex.pm/docs/publish), the package can be installed as:
