@@ -36,11 +36,11 @@ doc="""
 
 CWMP.Protocol.Parser.parse(body)
 
-%{entries: [%CWMP.Protocol.Messages.AddObject{object_name: "Device.Test.",
+{:ok, %{entries: [%CWMP.Protocol.Messages.AddObject{object_name: "Device.Test.",
     parameter_key: "ParamKey"}],
   header: %CWMP.Protocol.Messages.Header{hold_requests: false,
    id: "API_aa0642e34b23820801e7642ad7cb536c", no_more_requests: false,
-   session_timeout: 30}}
+   session_timeout: 30}}}
 
 ```
 
