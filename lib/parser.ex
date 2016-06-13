@@ -11,7 +11,10 @@ defmodule CWMP.Protocol.Parser do
 
   def parse(source, opts \\ []) do
     try do
-      parse!(source,opts)
+      case :erlsom.parse_sax(source, initial_state, &parse_step/2) do
+        {:ok, %State{curstate: %ElemState{acc: acc}}, _} -> {:ok,acc}
+        err -> err
+      end
     catch
       {:error,err} -> {:error,to_string(err)}
     end
