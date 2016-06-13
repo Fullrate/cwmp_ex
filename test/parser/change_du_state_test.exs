@@ -23,7 +23,7 @@ defmodule CWMP.Protocol.Parser.ChangeDUStateTest do
 </SOAP-ENV:Envelope>
   """
 
-  @sample_result %{entries: [%CWMP.Protocol.Messages.ChangeDUState{
+  @sample_result {:ok,%{entries: [%CWMP.Protocol.Messages.ChangeDUState{
         commandkey: "cmdkey",
         operations: [
           %CWMP.Protocol.Messages.InstallOpStruct{
@@ -33,7 +33,7 @@ defmodule CWMP.Protocol.Parser.ChangeDUStateTest do
             password: "pass",
             execution_env_ref: "env"}]}],
     header: %CWMP.Protocol.Messages.Header{hold_requests: false, id: "50",
-      session_timeout: 30, no_more_requests: false}}
+      session_timeout: 30, no_more_requests: false}}}
 
   test "parses ChangeDUState request, one install" do
     assert(CWMP.Protocol.Parser.parse(@sample) == @sample_result)
@@ -66,7 +66,7 @@ defmodule CWMP.Protocol.Parser.ChangeDUStateTest do
 </SOAP-ENV:Envelope>
   """
 
-  @sample2_result %{entries: [%CWMP.Protocol.Messages.ChangeDUState{
+  @sample2_result {:ok,%{entries: [%CWMP.Protocol.Messages.ChangeDUState{
         commandkey: "cmdkey",
         operations: [
           %CWMP.Protocol.Messages.InstallOpStruct{
@@ -81,7 +81,7 @@ defmodule CWMP.Protocol.Parser.ChangeDUStateTest do
             execution_env_ref: "env"}
         ]}],
     header: %CWMP.Protocol.Messages.Header{hold_requests: false, id: "50",
-      session_timeout: 30, no_more_requests: false}}
+      session_timeout: 30, no_more_requests: false}}}
 
   test "parses ChangeDUState request, one install, one uninstall" do
     assert(CWMP.Protocol.Parser.parse(@sample2) == @sample2_result)
@@ -121,7 +121,7 @@ defmodule CWMP.Protocol.Parser.ChangeDUStateTest do
 </SOAP-ENV:Envelope>
   """
 
-  @sample3_result %{entries: [%CWMP.Protocol.Messages.ChangeDUState{
+  @sample3_result {:ok,%{entries: [%CWMP.Protocol.Messages.ChangeDUState{
         commandkey: "cmdkey",
         operations: [
           %CWMP.Protocol.Messages.InstallOpStruct{
@@ -142,7 +142,7 @@ defmodule CWMP.Protocol.Parser.ChangeDUStateTest do
             execution_env_ref: "env"}
         ]}],
     header: %CWMP.Protocol.Messages.Header{hold_requests: false, id: "50",
-      session_timeout: 30, no_more_requests: false}}
+      session_timeout: 30, no_more_requests: false}}}
 
   test "parses ChangeDUState request, one of each" do
     assert(CWMP.Protocol.Parser.parse(@sample3) == @sample3_result)

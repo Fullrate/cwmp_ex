@@ -23,7 +23,7 @@ defmodule CWMP.Protocol.Parser.SetParameterValuesTest do
 </SOAP-ENV:Envelope>
   """
 
-  @sample_result %{entries: [%CWMP.Protocol.Messages.SetParameterValues{
+  @sample_result {:ok,%{entries: [%CWMP.Protocol.Messages.SetParameterValues{
         parameters: [
           %CWMP.Protocol.Messages.ParameterValueStruct{name: "Device.Test", type: "xsi:string", value: "Foo"},
           %CWMP.Protocol.Messages.ParameterValueStruct{name: "Device.Test.Whatever", type: "xsi:int", value: "1"}
@@ -31,7 +31,7 @@ defmodule CWMP.Protocol.Parser.SetParameterValuesTest do
         parameter_key: ""
       }],
     header: %CWMP.Protocol.Messages.Header{hold_requests: false, id: "50",
-      session_timeout: 30, no_more_requests: false}}
+      session_timeout: 30, no_more_requests: false}}}
 
   test "parses SetParameterValues request" do
     assert(CWMP.Protocol.Parser.parse(@sample) == @sample_result)
@@ -60,7 +60,7 @@ defmodule CWMP.Protocol.Parser.SetParameterValuesTest do
 </SOAP-ENV:Envelope>
   """
 
-  @sample2_result %{entries: [%CWMP.Protocol.Messages.SetParameterValues{
+  @sample2_result {:ok,%{entries: [%CWMP.Protocol.Messages.SetParameterValues{
         parameters: [
           %CWMP.Protocol.Messages.ParameterValueStruct{name: "Device.Test", type: "xsi:string", value: "Foo"},
           %CWMP.Protocol.Messages.ParameterValueStruct{name: "Device.Test.Whatever", type: "xsi:int", value: "1"}
@@ -68,7 +68,7 @@ defmodule CWMP.Protocol.Parser.SetParameterValuesTest do
         parameter_key: "foo"
       }],
     header: %CWMP.Protocol.Messages.Header{hold_requests: false, id: "50",
-      session_timeout: 30, no_more_requests: false}}
+      session_timeout: 30, no_more_requests: false}}}
 
   test "parses 2nd SetParameterValues request" do
     assert(CWMP.Protocol.Parser.parse(@sample2) == @sample2_result)

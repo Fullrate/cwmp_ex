@@ -20,7 +20,7 @@ defmodule CWMP.Protocol.Parser.RequestDownloadTest do
 </SOAP-ENV:Envelope>
   """
 
-  @sample_result %{
+  @sample_result {:ok,%{
     entries: [%CWMP.Protocol.Messages.RequestDownload{
         filetype: "2 Web Content",
         filetype_arg: [
@@ -28,7 +28,7 @@ defmodule CWMP.Protocol.Parser.RequestDownloadTest do
             name: "Version",
             value: "v2.0"}]}],
     header: %CWMP.Protocol.Messages.Header{hold_requests: false, id: "50",
-      session_timeout: 30, no_more_requests: false}}
+      session_timeout: 30, no_more_requests: false}}}
 
   test "parses RequestDownload request" do
     assert(CWMP.Protocol.Parser.parse(@sample) == @sample_result)

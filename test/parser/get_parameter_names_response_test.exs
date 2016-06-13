@@ -28,13 +28,13 @@ defmodule CWMP.Protocol.Parser.GetParameterNamesResponseTest do
 </SOAP-ENV:Envelope>
   """
 
-  @sample_result %{entries: [%CWMP.Protocol.Messages.GetParameterNamesResponse{
+  @sample_result {:ok,%{entries: [%CWMP.Protocol.Messages.GetParameterNamesResponse{
         parameters: [%CWMP.Protocol.Messages.ParameterInfoStruct{name: "InternetGatewayDevice.DeviceInfo.",
             writable: false},
           %CWMP.Protocol.Messages.ParameterInfoStruct{name: "InternetGatewayDevice.DeviceInfo.Manufacturer",
             writable: true}]}],
     header: %CWMP.Protocol.Messages.Header{hold_requests: false, id: "API_28edd28d788a784422413db3914c34b0",
-      session_timeout: 30, no_more_requests: false}}
+      session_timeout: 30, no_more_requests: false}}}
 
   test "parses GetParameterNamesResponse request" do
     assert(CWMP.Protocol.Parser.parse(@sample) == @sample_result)

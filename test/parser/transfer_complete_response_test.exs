@@ -12,9 +12,9 @@ defmodule CWMP.Protocol.Parser.TransferCompleteResponseTest do
 </SOAP-ENV:Envelope>
   """
 
-  @sample_result %{entries: [%CWMP.Protocol.Messages.TransferCompleteResponse{}],
+  @sample_result {:ok,%{entries: [%CWMP.Protocol.Messages.TransferCompleteResponse{}],
     header: %CWMP.Protocol.Messages.Header{hold_requests: false, id: "1",
-      session_timeout: 30, no_more_requests: false}}
+      session_timeout: 30, no_more_requests: false}}}
 
   test "parses TransferCompleteResponse request" do
     assert(CWMP.Protocol.Parser.parse(@sample) == @sample_result)

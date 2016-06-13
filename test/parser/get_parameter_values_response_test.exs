@@ -23,14 +23,14 @@ defmodule CWMP.Protocol.Parser.GetParameterValuesResponseTest do
 </SOAP-ENV:Envelope>
   """
 
-  @sample_result %{entries: [%CWMP.Protocol.Messages.GetParameterValuesResponse{
+  @sample_result {:ok,%{entries: [%CWMP.Protocol.Messages.GetParameterValuesResponse{
         parameters: [%CWMP.Protocol.Messages.ParameterValueStruct{name: "Device.IP.Interface.3.IPv4AddressNumberOfEntries",
             type: "xsd:unsignedInt",
             value: "1"},
           %CWMP.Protocol.Messages.ParameterValueStruct{name: "Device.IP.Interface.3.IPv6AddressNumberOfEntries",
             type: "xsd:unsignedInt", value: "1"}]}],
     header: %CWMP.Protocol.Messages.Header{hold_requests: false, id: "50",
-      session_timeout: 30, no_more_requests: false}}
+      session_timeout: 30, no_more_requests: false}}}
 
   test "parses get parameter values response request" do
     assert(CWMP.Protocol.Parser.parse(@sample) == @sample_result)

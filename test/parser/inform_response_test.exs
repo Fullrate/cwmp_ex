@@ -21,9 +21,9 @@ defmodule CWMP.Protocol.Parser.InformResponseTest do
   </SOAP-ENV:Envelope>
   """
 
-  @sample_result %{entries: [%CWMP.Protocol.Messages.InformResponse{max_envelopes: 1}],
+  @sample_result {:ok,%{entries: [%CWMP.Protocol.Messages.InformResponse{max_envelopes: 1}],
     header: %CWMP.Protocol.Messages.Header{hold_requests: false, id: "100",
-      session_timeout: 30, no_more_requests: true}}
+      session_timeout: 30, no_more_requests: true}}}
 
   test "parses InformResponse" do
     assert(CWMP.Protocol.Parser.parse(@sample) == @sample_result)

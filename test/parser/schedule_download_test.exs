@@ -34,7 +34,7 @@ defmodule CWMP.Protocol.Parser.ScheduleDownloadTest do
 </SOAP-ENV:Envelope>
   """
 
-  @sample_result %{entries: [%CWMP.Protocol.Messages.ScheduleDownload{
+  @sample_result {:ok,%{entries: [%CWMP.Protocol.Messages.ScheduleDownload{
         commandkey: "cmdkey",
         filetype: "1 Firmware Upgrade Image",
         url: "http://example.com/url",
@@ -53,7 +53,7 @@ defmodule CWMP.Protocol.Parser.ScheduleDownloadTest do
         ]
       }],
     header: %CWMP.Protocol.Messages.Header{hold_requests: false, id: "API_aa0642e34b23820801e7642ad7cb536c",
-      session_timeout: 30, no_more_requests: false}}
+      session_timeout: 30, no_more_requests: false}}}
 
   test "parse ScheduleDownload request, full" do
     assert(CWMP.Protocol.Parser.parse(@sample)==@sample_result)

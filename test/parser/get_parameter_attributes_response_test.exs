@@ -34,7 +34,7 @@ defmodule CWMP.Protocol.Parser.GetParameterAttributesResponseTest do
 </SOAP-ENV:Envelope>
 """
 
-  @sample_result %{entries: [%CWMP.Protocol.Messages.GetParameterAttributesResponse{
+  @sample_result {:ok,%{entries: [%CWMP.Protocol.Messages.GetParameterAttributesResponse{
         parameters: [%CWMP.Protocol.Messages.ParameterAttributeStruct{name: "InternetGatewayDevice.DeviceInfo.HardwareVersion",
             notification: 0,
             accesslist: ["Subscriber"]},
@@ -42,7 +42,7 @@ defmodule CWMP.Protocol.Parser.GetParameterAttributesResponseTest do
             notification: 2,
             accesslist: ["Subscriber"]}]}],
     header: %CWMP.Protocol.Messages.Header{hold_requests: false, id: "API_953323a9b674bb42b7cad250b2cf0607",
-      session_timeout: 30, no_more_requests: false}}
+      session_timeout: 30, no_more_requests: false}}}
 
   test "parses GetParameterAttributesResponse request" do
     assert(CWMP.Protocol.Parser.parse(@sample) == @sample_result)

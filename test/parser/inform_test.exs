@@ -79,7 +79,7 @@ defmodule CWMP.Protocol.Parser.InformTest do
   </SOAP-ENV:Envelope>
   """
 
-  @sample_2601_result %{entries: [%CWMP.Protocol.Messages.Inform{current_time: %Timex.DateTime{calendar: :gregorian,
+  @sample_2601_result {:ok,%{entries: [%CWMP.Protocol.Messages.Inform{current_time: %Timex.DateTime{calendar: :gregorian,
           day: 19, hour: 23, minute: 8, month: 1, millisecond: 0, second: 24,
           timezone: %Timex.TimezoneInfo{abbreviation: "UTC", from: :min,
             full_name: "UTC", offset_std: 0, offset_utc: 0, until: :max}, year: 2015},
@@ -106,7 +106,7 @@ defmodule CWMP.Protocol.Parser.InformTest do
           %CWMP.Protocol.Messages.ParameterValueStruct{name: "InternetGatewayDevice.WANDevice.1.WANConnectionDevice.1.WANIPConnection.1.ExternalIPAddress",
             type: "xsd:string", value: "2.110.157.83"}], retry_count: 0}],
     header: %CWMP.Protocol.Messages.Header{hold_requests: false, id: "100",
-      session_timeout: 30, no_more_requests: true}}
+      session_timeout: 30, no_more_requests: true}}}
 
   test "parses 2601 inform" do
     assert(CWMP.Protocol.Parser.parse(@sample_2601) == @sample_2601_result)
@@ -178,7 +178,7 @@ defmodule CWMP.Protocol.Parser.InformTest do
   </SOAP-ENV:Envelope>
   """
 
-  @sample_vmg_result %{entries: [%CWMP.Protocol.Messages.Inform{current_time: %Timex.DateTime{calendar: :gregorian,
+  @sample_vmg_result {:ok,%{entries: [%CWMP.Protocol.Messages.Inform{current_time: %Timex.DateTime{calendar: :gregorian,
           day: 30, hour: 13, minute: 20, month: 1, millisecond: 0, second: 27,
           timezone: %Timex.TimezoneInfo{abbreviation: "GMT-1", from: :min,
             full_name: "Etc/GMT-1", offset_std: 0, offset_utc: 60, until: :max},
@@ -207,7 +207,7 @@ defmodule CWMP.Protocol.Parser.InformTest do
           %CWMP.Protocol.Messages.ParameterValueStruct{name: "InternetGatewayDevice.WANDevice.2.WANConnectionDevice.1.WANIPConnection.2.X_5067F0_ExternalIPv6Address",
             type: "xsd:string", value: "2a02:980:1400::1ff/64"}], retry_count: 0}],
     header: %CWMP.Protocol.Messages.Header{hold_requests: false, id: "844317904",
-      session_timeout: 30}}
+      session_timeout: 30}}}
 
   test "parses VMG inform" do
     assert(CWMP.Protocol.Parser.parse(@sample_vmg) == @sample_vmg_result)
@@ -275,7 +275,7 @@ defmodule CWMP.Protocol.Parser.InformTest do
   </SOAP-ENV:Envelope>
   """
 
-  @sample_hgw4_result %{entries: [%CWMP.Protocol.Messages.Inform{current_time: %Timex.DateTime{calendar: :gregorian,
+  @sample_hgw4_result {:ok,%{entries: [%CWMP.Protocol.Messages.Inform{current_time: %Timex.DateTime{calendar: :gregorian,
           day: 31, hour: 13, minute: 28, month: 1, millisecond: 0, second: 9,
           timezone: %Timex.TimezoneInfo{abbreviation: "GMT-1", from: :min,
             full_name: "Etc/GMT-1", offset_std: 0, offset_utc: 60,
@@ -304,7 +304,7 @@ defmodule CWMP.Protocol.Parser.InformTest do
             type: "xsd:string", value: "172.21.135.245"}],
         retry_count: 0}],
     header: %CWMP.Protocol.Messages.Header{hold_requests: false,
-      id: "0", session_timeout: 30}}
+      id: "0", session_timeout: 30}}}
 
   test "parses HGW4 inform" do
     assert(CWMP.Protocol.Parser.parse(@sample_hgw4) == @sample_hgw4_result)
@@ -381,7 +381,7 @@ defmodule CWMP.Protocol.Parser.InformTest do
   </soap:Envelope>
   """
 
-  @sample_vap_result %{entries: [%CWMP.Protocol.Messages.Inform{current_time: %Timex.DateTime{calendar: :gregorian,
+  @sample_vap_result {:ok,%{entries: [%CWMP.Protocol.Messages.Inform{current_time: %Timex.DateTime{calendar: :gregorian,
           day: 22, hour: 5, minute: 4, month: 9, millisecond: 0, second: 58,
           timezone: %Timex.TimezoneInfo{abbreviation: "GMT+7", from: :min,
             full_name: "Etc/GMT+7", offset_std: 0, offset_utc: -420,
@@ -415,7 +415,7 @@ defmodule CWMP.Protocol.Parser.InformTest do
             type: "xsd:string", value: "2.110.24.198"},
           %CWMP.Protocol.Messages.ParameterValueStruct{name: "Device.LAN.MACAddress",
             type: "xsd:string", value: "30:60:23:06:C6:8E"}],
-        retry_count: 0}], header: nil}
+        retry_count: 0}], header: nil}}
 
   test "parses VAP inform" do
     assert(CWMP.Protocol.Parser.parse(@sample_vap) == @sample_vap_result)

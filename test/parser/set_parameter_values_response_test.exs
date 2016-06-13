@@ -14,10 +14,10 @@ defmodule CWMP.Protocol.Parser.SetParameterValuesResponseTest do
 </SOAP-ENV:Envelope>
   """
 
-  @sample_result %{entries: [%CWMP.Protocol.Messages.SetParameterValuesResponse{
+  @sample_result {:ok,%{entries: [%CWMP.Protocol.Messages.SetParameterValuesResponse{
         status: 0}],
     header: %CWMP.Protocol.Messages.Header{hold_requests: false, id: "50",
-      session_timeout: 30, no_more_requests: false}}
+      session_timeout: 30, no_more_requests: false}}}
 
   test "parses SetParameterValuesResponse request" do
     assert(CWMP.Protocol.Parser.parse(@sample) == @sample_result)

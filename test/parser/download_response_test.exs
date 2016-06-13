@@ -21,7 +21,7 @@ defmodule CWMP.Protocol.Parser.DownloadResponseTest do
 </SOAP-ENV:Envelope>
   """
 
-  @sample_result %{entries: [%CWMP.Protocol.Messages.DownloadResponse{
+  @sample_result {:ok,%{entries: [%CWMP.Protocol.Messages.DownloadResponse{
         status: 1,
         complete_time: %Timex.DateTime{calendar: :gregorian,
           day: 19, hour: 23, minute: 9, month: 1, millisecond: 0, second: 24,
@@ -33,7 +33,7 @@ defmodule CWMP.Protocol.Parser.DownloadResponseTest do
             full_name: "UTC", offset_std: 0, offset_utc: 0, until: :max}, year: 2015},
       }],
     header: %CWMP.Protocol.Messages.Header{hold_requests: false, id: "API_aa0642e34b23820801e7642ad7cb536c",
-      session_timeout: 30, no_more_requests: false}}
+      session_timeout: 30, no_more_requests: false}}}
 
   test "parses DownloadResponse request" do
     assert(CWMP.Protocol.Parser.parse(@sample) == @sample_result)
@@ -82,7 +82,7 @@ defmodule CWMP.Protocol.Parser.DownloadResponseTest do
 </SOAP-ENV:Envelope>
   """
 
-  @sample_result3 %{entries: [%CWMP.Protocol.Messages.DownloadResponse{
+  @sample_result3 {:ok,%{entries: [%CWMP.Protocol.Messages.DownloadResponse{
         status: 1,
         complete_time: %Timex.DateTime{calendar: :gregorian,
           day: 19, hour: 23, minute: 9, month: 1, millisecond: 0, second: 24,
@@ -91,7 +91,7 @@ defmodule CWMP.Protocol.Parser.DownloadResponseTest do
         start_time: nil
       }],
     header: %CWMP.Protocol.Messages.Header{hold_requests: false, id: "API_aa0642e34b23820801e7642ad7cb536c",
-      session_timeout: 30, no_more_requests: false}}
+      session_timeout: 30, no_more_requests: false}}}
 
   test "parses DownloadResponse request, missing StartTime" do
     assert(CWMP.Protocol.Parser.parse(@sample3) == @sample_result3)

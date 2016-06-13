@@ -14,10 +14,10 @@ defmodule CWMP.Protocol.Parser.GetOptionsTest do
 </SOAP-ENV:Envelope>
 """
 
-  @sample_result %{entries: [%CWMP.Protocol.Messages.GetOptions{
+  @sample_result {:ok,%{entries: [%CWMP.Protocol.Messages.GetOptions{
         option_name: "Some Option" }],
     header: %CWMP.Protocol.Messages.Header{hold_requests: false, id: "API_69412286f02e475b44783c61972f0a91",
-      session_timeout: 30, no_more_requests: false}}
+      session_timeout: 30, no_more_requests: false}}}
 
   test "parses GetOptions request" do
     assert(CWMP.Protocol.Parser.parse(@sample) == @sample_result)

@@ -36,7 +36,7 @@ defmodule CWMP.Protocol.Parser.GetAllQueuedTransfersResponseTest do
 </SOAP-ENV:Envelope>
 """
 
-  @sample_result %{entries: [%CWMP.Protocol.Messages.GetAllQueuedTransfersResponse{
+  @sample_result {:ok,%{entries: [%CWMP.Protocol.Messages.GetAllQueuedTransfersResponse{
         transferlist: [
           %CWMP.Protocol.Messages.AllQueuedTransferStruct{
             commandkey: "cmdkey",
@@ -56,7 +56,7 @@ defmodule CWMP.Protocol.Parser.GetAllQueuedTransfersResponseTest do
           },
         ]}],
     header: %CWMP.Protocol.Messages.Header{hold_requests: false, id: "API_953323a9b674bb42b7cad250b2cf0607",
-      session_timeout: 30, no_more_requests: false}}
+      session_timeout: 30, no_more_requests: false}}}
 
   test "parses GetAllQueuedTransfersResponse" do
     assert(CWMP.Protocol.Parser.parse(@sample) == @sample_result)

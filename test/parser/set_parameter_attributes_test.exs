@@ -24,7 +24,7 @@ defmodule CWMP.Protocol.Parser.SetParameterAttributesTest do
 </SOAP-ENV:Envelope>
 """
 
-  @sample_result %{entries: [%CWMP.Protocol.Messages.SetParameterAttributes{
+  @sample_result {:ok,%{entries: [%CWMP.Protocol.Messages.SetParameterAttributes{
         parameters: [ %CWMP.Protocol.Messages.SetParameterAttributesStruct{
             accesslist: ["Subscriber"],
             accesslist_change: true,
@@ -32,7 +32,7 @@ defmodule CWMP.Protocol.Parser.SetParameterAttributesTest do
             notification: 2,
             notification_change: false}]}],
     header: %CWMP.Protocol.Messages.Header{hold_requests: false, id: "API_7bfc27c1f4f0a2c1d775f8aa1840439e",
-      session_timeout: 30, no_more_requests: false}}
+      session_timeout: 30, no_more_requests: false}}}
 
   test "parses SetParameterAttributes request" do
     assert(CWMP.Protocol.Parser.parse(@sample) == @sample_result)

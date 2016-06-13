@@ -20,12 +20,12 @@ defmodule CWMP.Protocol.Parser.DeleteObjectTest do
 </SOAP-ENV:Envelope>
   """
 
-  @sample_result %{entries: [%CWMP.Protocol.Messages.DeleteObject{
+  @sample_result {:ok,%{entries: [%CWMP.Protocol.Messages.DeleteObject{
         object_name: "Device.Test.",
         parameter_key: "ParamKey"
       }],
     header: %CWMP.Protocol.Messages.Header{hold_requests: false, id: "API_aa0642e34b23820801e7642ad7cb536c",
-      session_timeout: 30, no_more_requests: false}}
+      session_timeout: 30, no_more_requests: false}}}
 
   test "parses DeleteObject request" do
     assert(CWMP.Protocol.Parser.parse(@sample) == @sample_result)

@@ -24,7 +24,7 @@ defmodule CWMP.Protocol.Parser.UploadTest do
 </SOAP-ENV:Envelope>
   """
 
-  @sample_result %{entries: [%CWMP.Protocol.Messages.Upload{
+  @sample_result {:ok,%{entries: [%CWMP.Protocol.Messages.Upload{
         commandkey: "cmdkey",
         filetype: "1 Firmware Upgrade Image",
         url: "http://example.com/url",
@@ -33,7 +33,7 @@ defmodule CWMP.Protocol.Parser.UploadTest do
         delay_seconds: 5
       }],
     header: %CWMP.Protocol.Messages.Header{hold_requests: false, id: "API_aa0642e34b23820801e7642ad7cb536c",
-      session_timeout: 30, no_more_requests: false}}
+      session_timeout: 30, no_more_requests: false}}}
 
   test "parse Upload request, full" do
     assert(CWMP.Protocol.Parser.parse(@sample)==@sample_result)
@@ -59,13 +59,13 @@ defmodule CWMP.Protocol.Parser.UploadTest do
 </SOAP-ENV:Envelope>
   """
 
-  @sample2_result %{entries: [%CWMP.Protocol.Messages.Upload{
+  @sample2_result {:ok,%{entries: [%CWMP.Protocol.Messages.Upload{
         commandkey: "cmdkey",
         filetype: "1 Firmware Upgrade Image",
         url: "http://example.com/url"
       }],
     header: %CWMP.Protocol.Messages.Header{hold_requests: false, id: "API_aa0642e34b23820801e7642ad7cb536c",
-      session_timeout: 30, no_more_requests: false}}
+      session_timeout: 30, no_more_requests: false}}}
 
   test "parse Upload request, small" do
     assert(CWMP.Protocol.Parser.parse(@sample2)==@sample2_result)

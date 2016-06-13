@@ -25,7 +25,7 @@ defmodule CWMP.Protocol.Parser.AutonomousTransferCompleteTest do
 </SOAP-ENV:Envelope>
   """
 
-  @sample_result %{entries: [%CWMP.Protocol.Messages.AutonomousTransferComplete{complete_time: %Timex.DateTime{calendar: :gregorian,
+  @sample_result {:ok,%{entries: [%CWMP.Protocol.Messages.AutonomousTransferComplete{complete_time: %Timex.DateTime{calendar: :gregorian,
           day: 7, hour: 8, minute: 45, month: 4, millisecond: 0, second: 6,
           timezone: %Timex.TimezoneInfo{abbreviation: "UTC", from: :min,
             full_name: "UTC", offset_std: 0, offset_utc: 0, until: :max}, year: 2016},
@@ -41,7 +41,7 @@ defmodule CWMP.Protocol.Parser.AutonomousTransferCompleteTest do
       target_filename: "/bin/image",
       fault_struct: %CWMP.Protocol.Messages.FaultStruct{code: 0, string: ""}}],
     header: %CWMP.Protocol.Messages.Header{hold_requests: false, id: "1",
-      session_timeout: 30, no_more_requests: false}}
+      session_timeout: 30, no_more_requests: false}}}
 
   test "parses autonomous transfer complete request" do
     assert(CWMP.Protocol.Parser.parse(@sample) == @sample_result)

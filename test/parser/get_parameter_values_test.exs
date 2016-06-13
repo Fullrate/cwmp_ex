@@ -17,11 +17,11 @@ defmodule CWMP.Protocol.Parser.GetParameterValuesText do
 </SOAP-ENV:Envelope>
   """
 
-  @sample_result %{entries: [%CWMP.Protocol.Messages.GetParameterValues{
+  @sample_result {:ok,%{entries: [%CWMP.Protocol.Messages.GetParameterValues{
         parameters: ["Device.IP.Interface.3.IPv4AddressNumberOfEntries", "Device.IP.Interface.3.IPv6AddressNumberOfEntries"]
             }],
     header: %CWMP.Protocol.Messages.Header{hold_requests: false, id: "50",
-      session_timeout: 30, no_more_requests: false}}
+      session_timeout: 30, no_more_requests: false}}}
 
   test "parses GetParameterValues request" do
     assert(CWMP.Protocol.Parser.parse(@sample) == @sample_result)

@@ -17,9 +17,9 @@ defmodule CWMP.Protocol.Parser.FactoryResetResponseTest do
 </SOAP-ENV:Envelope>
   """
 
-  @sample_result %{entries: [%CWMP.Protocol.Messages.FactoryResetResponse{naught: nil}],
+  @sample_result {:ok,%{entries: [%CWMP.Protocol.Messages.FactoryResetResponse{naught: nil}],
     header: %CWMP.Protocol.Messages.Header{hold_requests: false, id: "API_aa0642e34b23820801e7642ad7cb536c",
-      session_timeout: 30, no_more_requests: false}}
+      session_timeout: 30, no_more_requests: false}}}
 
   test "parses FactoryResetResponse request" do
     assert(CWMP.Protocol.Parser.parse(@sample) == @sample_result)

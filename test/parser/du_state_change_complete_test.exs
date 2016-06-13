@@ -32,7 +32,7 @@ defmodule CWMP.Protocol.Parser.DUStateChangeCompleteTest do
 </SOAP-ENV:Envelope>
   """
 
-  @sample_result %{entries: [%CWMP.Protocol.Messages.DUStateChangeComplete{
+  @sample_result {:ok,%{entries: [%CWMP.Protocol.Messages.DUStateChangeComplete{
         commandkey: "cmdkey",
         results: [
           %CWMP.Protocol.Messages.OpResultStruct{
@@ -80,7 +80,7 @@ defmodule CWMP.Protocol.Parser.DUStateChangeCompleteTest do
             }
           }]}],
     header: %CWMP.Protocol.Messages.Header{hold_requests: false, id: "50",
-      session_timeout: 30, no_more_requests: false}}
+      session_timeout: 30, no_more_requests: false}}}
 
   test "parses DUStgateChangeComplete request" do
     assert(CWMP.Protocol.Parser.parse(@sample) == @sample_result)
