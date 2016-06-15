@@ -73,9 +73,14 @@ defmodule CWMP.Protocol.ParserHelpers do
     end
   end
 
-  @accepted_time_formats ["{YYYY}-{0M}-{0D}T{0h24}:{0m}:{0s}",
-                          "{YYYY}-{0M}-{0D}T{0h24}:{0m}:{0s}{Z:}",
-                          "{YYYY}-{0M}-{0D}T{0h24}:{0m}:{0s}Z"]
+  @accepted_time_formats [
+    "{YYYY}-{0M}-{0D}T{0h24}:{0m}:{0s}",
+    "{YYYY}-{0M}-{0D}T{0h24}:{0m}:{0s}{Z:}",
+    "{YYYY}-{0M}-{0D}T{0h24}:{0m}:{0s}Z",
+    "{YYYY}-{0M}-{0D}T{0h24}:{0m}:{0ss}",
+    "{YYYY}-{0M}-{0D}T{0h24}:{0m}:{0ss}{Z:}",
+    "{YYYY}-{0M}-{0D}T{0h24}:{0m}:{0ss}Z",
+  ]
   def datetimeStructure(timestring) do
     times = @accepted_time_formats
     |> Enum.map(&Timex.Parse.DateTime.Parser.parse(timestring, &1))
