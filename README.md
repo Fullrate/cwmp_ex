@@ -1,4 +1,5 @@
 # CWMP.Protocol #
+[![Build Status](https://travis-ci.org/Fullrate/cwmp_ex.svg?branch=master)](https://travis-ci.org/Fullrate/cwmp_ex)
 
 Parses and Generates XML conforming to the CWMP protocol
 
