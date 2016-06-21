@@ -23,7 +23,7 @@ defmodule CWMP.Protocol.Parser.ChangeDUStateTest do
 </SOAP-ENV:Envelope>
   """
 
-  @sample_result {:ok,%{cwmp_version: "urn:dslforum-org:cwmp-1-0", entries: [%CWMP.Protocol.Messages.ChangeDUState{
+  @sample_result {:ok,%{cwmp_version: "1-0", entries: [%CWMP.Protocol.Messages.ChangeDUState{
         commandkey: "cmdkey",
         operations: [
           %CWMP.Protocol.Messages.InstallOpStruct{
@@ -66,7 +66,7 @@ defmodule CWMP.Protocol.Parser.ChangeDUStateTest do
 </SOAP-ENV:Envelope>
   """
 
-  @sample2_result {:ok,%{cwmp_version: "urn:dslforum-org:cwmp-1-0", entries: [%CWMP.Protocol.Messages.ChangeDUState{
+  @sample2_result {:ok,%{cwmp_version: "1-0", entries: [%CWMP.Protocol.Messages.ChangeDUState{
         commandkey: "cmdkey",
         operations: [
           %CWMP.Protocol.Messages.InstallOpStruct{
@@ -121,7 +121,7 @@ defmodule CWMP.Protocol.Parser.ChangeDUStateTest do
 </SOAP-ENV:Envelope>
   """
 
-  @sample3_result {:ok,%{cwmp_version: "urn:dslforum-org:cwmp-1-0", entries: [%CWMP.Protocol.Messages.ChangeDUState{
+  @sample3_result {:ok,%{cwmp_version: "1-0", entries: [%CWMP.Protocol.Messages.ChangeDUState{
         commandkey: "cmdkey",
         operations: [
           %CWMP.Protocol.Messages.InstallOpStruct{

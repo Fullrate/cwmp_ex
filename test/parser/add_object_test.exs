@@ -15,7 +15,7 @@ defmodule CWMP.Protocol.Parser.AddObjectTest do
 </SOAP-ENV:Envelope>
   """
 
-  @sample_result {:ok,%{cwmp_version: "urn:dslforum-org:cwmp-1-0", entries: [%CWMP.Protocol.Messages.AddObject{
+  @sample_result {:ok,%{cwmp_version: "1-0", entries: [%CWMP.Protocol.Messages.AddObject{
         object_name: "Device.Test.",
         parameter_key: "ParamKey"
       }],

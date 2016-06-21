@@ -28,7 +28,7 @@ defmodule CWMP.Protocol.Parser.DownloadTest do
 </SOAP-ENV:Envelope>
   """
 
-  @sample_result {:ok,%{cwmp_version: "urn:dslforum-org:cwmp-1-0", entries: [%CWMP.Protocol.Messages.Download{
+  @sample_result {:ok,%{cwmp_version: "1-0", entries: [%CWMP.Protocol.Messages.Download{
         commandkey: "cmdkey",
         filetype: "1 Firmware Upgrade Image",
         url: "http://example.com/url",
@@ -99,7 +99,7 @@ defmodule CWMP.Protocol.Parser.DownloadTest do
 </SOAP-ENV:Envelope>
   """
 
-  @sample3_result {:ok,%{cwmp_version: "urn:dslforum-org:cwmp-1-0", entries: [%CWMP.Protocol.Messages.Download{
+  @sample3_result {:ok,%{cwmp_version: "1-0", entries: [%CWMP.Protocol.Messages.Download{
         commandkey: "cmdkey",
         filetype: "1 Firmware Upgrade Image",
         url: "http://example.com/url",

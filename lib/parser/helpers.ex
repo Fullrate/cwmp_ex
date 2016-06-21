@@ -101,5 +101,16 @@ defmodule CWMP.Protocol.ParserHelpers do
     end
   end
 
+  @doc """
+    Returns nil or a "x-y" string extrapolated from the uri
+    if it matches the pattern of a cwmp version.
+  """
+  def parse_cwmp_version(uri) do
+    case Regex.run(~r/.*dslforum-org:cwmp-(\d-\d)$/,uri) do
+      [_,ver] -> ver
+      _ -> nil
+    end
+  end
+
 end
 

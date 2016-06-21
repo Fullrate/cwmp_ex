@@ -21,7 +21,7 @@ defmodule CWMP.Protocol.Parser.UploadResponseTest do
 </SOAP-ENV:Envelope>
   """
 
-  @sample_result {:ok,%{cwmp_version: "urn:dslforum-org:cwmp-1-0", entries: [%CWMP.Protocol.Messages.UploadResponse{
+  @sample_result {:ok,%{cwmp_version: "1-0", entries: [%CWMP.Protocol.Messages.UploadResponse{
         status: 1,
         complete_time: %Timex.DateTime{calendar: :gregorian,
           day: 19, hour: 23, minute: 9, month: 1, millisecond: 0, second: 24,
@@ -35,7 +35,7 @@ defmodule CWMP.Protocol.Parser.UploadResponseTest do
     header: %CWMP.Protocol.Messages.Header{hold_requests: false, id: "API_aa0642e34b23820801e7642ad7cb536c",
       session_timeout: 30, no_more_requests: false}}}
 
-  test "parses DownloadResponse request" do
+  test "parses UploadResponse" do
     assert(CWMP.Protocol.Parser.parse(@sample) == @sample_result)
   end
 
@@ -82,7 +82,7 @@ defmodule CWMP.Protocol.Parser.UploadResponseTest do
 </SOAP-ENV:Envelope>
   """
 
-  @sample_result3 {:ok,%{cwmp_version: "urn:dslforum-org:cwmp-1-0", entries: [%CWMP.Protocol.Messages.UploadResponse{
+  @sample_result3 {:ok,%{cwmp_version: "1-0", entries: [%CWMP.Protocol.Messages.UploadResponse{
         status: 1,
         complete_time: %Timex.DateTime{calendar: :gregorian,
           day: 19, hour: 23, minute: 9, month: 1, millisecond: 0, second: 24,

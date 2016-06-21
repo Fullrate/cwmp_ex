@@ -20,7 +20,7 @@ defmodule CWMP.Protocol.Parser.RequestDownloadTest do
 </SOAP-ENV:Envelope>
   """
 
-  @sample_result {:ok,%{cwmp_version: "urn:dslforum-org:cwmp-1-0",
+  @sample_result {:ok,%{cwmp_version: "1-0",
     entries: [%CWMP.Protocol.Messages.RequestDownload{
         filetype: "2 Web Content",
         filetype_arg: [

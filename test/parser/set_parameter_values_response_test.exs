@@ -14,7 +14,7 @@ defmodule CWMP.Protocol.Parser.SetParameterValuesResponseTest do
 </SOAP-ENV:Envelope>
   """
 
-  @sample_result {:ok,%{cwmp_version: "urn:dslforum-org:cwmp-1-0", entries: [%CWMP.Protocol.Messages.SetParameterValuesResponse{
+  @sample_result {:ok,%{cwmp_version: "1-0", entries: [%CWMP.Protocol.Messages.SetParameterValuesResponse{
         status: 0}],
     header: %CWMP.Protocol.Messages.Header{hold_requests: false, id: "50",
       session_timeout: 30, no_more_requests: false}}}

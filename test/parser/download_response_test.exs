@@ -21,7 +21,7 @@ defmodule CWMP.Protocol.Parser.DownloadResponseTest do
 </SOAP-ENV:Envelope>
   """
 
-  @sample_result {:ok,%{cwmp_version: "urn:dslforum-org:cwmp-1-0", entries: [%CWMP.Protocol.Messages.DownloadResponse{
+  @sample_result {:ok,%{cwmp_version: "1-0", entries: [%CWMP.Protocol.Messages.DownloadResponse{
         status: 1,
         complete_time: %Timex.DateTime{calendar: :gregorian,
           day: 19, hour: 23, minute: 9, month: 1, millisecond: 0, second: 24,
@@ -82,7 +82,7 @@ defmodule CWMP.Protocol.Parser.DownloadResponseTest do
 </SOAP-ENV:Envelope>
   """
 
-  @sample_result3 {:ok,%{cwmp_version: "urn:dslforum-org:cwmp-1-0", entries: [%CWMP.Protocol.Messages.DownloadResponse{
+  @sample_result3 {:ok,%{cwmp_version: "1-0", entries: [%CWMP.Protocol.Messages.DownloadResponse{
         status: 1,
         complete_time: %Timex.DateTime{calendar: :gregorian,
           day: 19, hour: 23, minute: 9, month: 1, millisecond: 0, second: 24,

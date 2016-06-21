@@ -32,7 +32,7 @@ defmodule CWMP.Protocol.Parser.AutonomousDUStateChangeCompleteTest do
 </SOAP-ENV:Envelope>
   """
 
-  @sample_result {:ok,%{cwmp_version: "urn:dslforum-org:cwmp-1-0", entries: [%CWMP.Protocol.Messages.AutonomousDUStateChangeComplete{
+  @sample_result {:ok,%{cwmp_version: "1-0", entries: [%CWMP.Protocol.Messages.AutonomousDUStateChangeComplete{
         results: [
           %CWMP.Protocol.Messages.AutonOpResultStruct{
             uuid: "some-uuid",

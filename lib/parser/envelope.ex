@@ -106,7 +106,10 @@ defmodule CWMP.Protocol.Parser.Envelope do
   def start_element(state, [msgtype, 'Body', 'Envelope'], _attribs, uri) do
     case Map.get(@message_types, msgtype) do
       nil -> raise "Message type '#{msgtype}' is not known"
-      handler -> update_acc(state, fn cur -> %{cur | cwmp_version: uri} end) |> push_handler(handler)
+      handler -> case parse_cwmp_version(uri) do
+        ver when not is_nil(ver) -> update_acc(state, fn cur -> %{cur | cwmp_version: ver} end) |> push_handler(handler)
+        nil -> push_handler(state,handler)
+      end
     end
   end
 

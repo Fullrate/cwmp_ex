@@ -74,7 +74,7 @@ defmodule CWMP.Protocol.Parser.InformTest do
   </SOAP-ENV:Envelope>
   """
 
-  @sample_2601_result {:ok,%{cwmp_version: "urn:dslforum-org:cwmp-1-0", entries: [%CWMP.Protocol.Messages.Inform{current_time: %Timex.DateTime{calendar: :gregorian,
+  @sample_2601_result {:ok,%{cwmp_version: "1-0", entries: [%CWMP.Protocol.Messages.Inform{current_time: %Timex.DateTime{calendar: :gregorian,
           day: 19, hour: 23, minute: 8, month: 1, millisecond: 0, second: 24,
           timezone: %Timex.TimezoneInfo{abbreviation: "UTC", from: :min,
             full_name: "UTC", offset_std: 0, offset_utc: 0, until: :max}, year: 2015},
@@ -173,7 +173,7 @@ defmodule CWMP.Protocol.Parser.InformTest do
   </SOAP-ENV:Envelope>
   """
 
-  @sample_vmg_result {:ok,%{cwmp_version: "urn:dslforum-org:cwmp-1-0", entries: [%CWMP.Protocol.Messages.Inform{current_time: %Timex.DateTime{calendar: :gregorian,
+  @sample_vmg_result {:ok,%{cwmp_version: "1-0", entries: [%CWMP.Protocol.Messages.Inform{current_time: %Timex.DateTime{calendar: :gregorian,
           day: 30, hour: 13, minute: 20, month: 1, millisecond: 0, second: 27,
           timezone: %Timex.TimezoneInfo{abbreviation: "GMT-1", from: :min,
             full_name: "Etc/GMT-1", offset_std: 0, offset_utc: 60, until: :max},
@@ -270,7 +270,7 @@ defmodule CWMP.Protocol.Parser.InformTest do
   </SOAP-ENV:Envelope>
   """
 
-  @sample_hgw4_result {:ok,%{cwmp_version: "urn:dslforum-org:cwmp-1-0", entries: [%CWMP.Protocol.Messages.Inform{current_time: %Timex.DateTime{calendar: :gregorian,
+  @sample_hgw4_result {:ok,%{cwmp_version: "1-0", entries: [%CWMP.Protocol.Messages.Inform{current_time: %Timex.DateTime{calendar: :gregorian,
           day: 31, hour: 13, minute: 28, month: 1, millisecond: 0, second: 9,
           timezone: %Timex.TimezoneInfo{abbreviation: "GMT-1", from: :min,
             full_name: "Etc/GMT-1", offset_std: 0, offset_utc: 60,
@@ -376,7 +376,7 @@ defmodule CWMP.Protocol.Parser.InformTest do
   </soap:Envelope>
   """
 
-  @sample_vap_result {:ok,%{cwmp_version: "urn:dslforum-org:cwmp-1-0", entries: [%CWMP.Protocol.Messages.Inform{current_time: %Timex.DateTime{calendar: :gregorian,
+  @sample_vap_result {:ok,%{cwmp_version: "1-0", entries: [%CWMP.Protocol.Messages.Inform{current_time: %Timex.DateTime{calendar: :gregorian,
           day: 22, hour: 5, minute: 4, month: 9, millisecond: 0, second: 58,
           timezone: %Timex.TimezoneInfo{abbreviation: "GMT+7", from: :min,
             full_name: "Etc/GMT+7", offset_std: 0, offset_utc: -420,

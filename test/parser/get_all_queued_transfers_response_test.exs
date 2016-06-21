@@ -36,7 +36,7 @@ defmodule CWMP.Protocol.Parser.GetAllQueuedTransfersResponseTest do
 </SOAP-ENV:Envelope>
 """
 
-  @sample_result {:ok,%{cwmp_version: "urn:dslforum-org:cwmp-1-0", entries: [%CWMP.Protocol.Messages.GetAllQueuedTransfersResponse{
+  @sample_result {:ok,%{cwmp_version: "1-0", entries: [%CWMP.Protocol.Messages.GetAllQueuedTransfersResponse{
         transferlist: [
           %CWMP.Protocol.Messages.AllQueuedTransferStruct{
             commandkey: "cmdkey",

@@ -23,7 +23,7 @@ defmodule CWMP.Protocol.Parser.SetParameterValuesTest do
 </SOAP-ENV:Envelope>
   """
 
-  @sample_result {:ok,%{cwmp_version: "urn:dslforum-org:cwmp-1-0", entries: [%CWMP.Protocol.Messages.SetParameterValues{
+  @sample_result {:ok,%{cwmp_version: "1-0", entries: [%CWMP.Protocol.Messages.SetParameterValues{
         parameters: [
           %CWMP.Protocol.Messages.ParameterValueStruct{name: "Device.Test", type: "xsi:string", value: "Foo"},
           %CWMP.Protocol.Messages.ParameterValueStruct{name: "Device.Test.Whatever", type: "xsi:int", value: "1"}
@@ -60,7 +60,7 @@ defmodule CWMP.Protocol.Parser.SetParameterValuesTest do
 </SOAP-ENV:Envelope>
   """
 
-  @sample2_result {:ok,%{cwmp_version: "urn:dslforum-org:cwmp-1-0", entries: [%CWMP.Protocol.Messages.SetParameterValues{
+  @sample2_result {:ok,%{cwmp_version: "1-0", entries: [%CWMP.Protocol.Messages.SetParameterValues{
         parameters: [
           %CWMP.Protocol.Messages.ParameterValueStruct{name: "Device.Test", type: "xsi:string", value: "Foo"},
           %CWMP.Protocol.Messages.ParameterValueStruct{name: "Device.Test.Whatever", type: "xsi:int", value: "1"}

@@ -19,7 +19,7 @@ defmodule CWMP.Protocol.Parser.SetVouchersResponseTest do
   </SOAP-ENV:Envelope>
   """
 
-  @sample_result {:ok,%{cwmp_version: "urn:dslforum-org:cwmp-1-0", entries: [%CWMP.Protocol.Messages.SetVouchersResponse{naught: nil}],
+  @sample_result {:ok,%{cwmp_version: "1-0", entries: [%CWMP.Protocol.Messages.SetVouchersResponse{naught: nil}],
     header: %CWMP.Protocol.Messages.Header{hold_requests: false, id: "100",
       session_timeout: 30, no_more_requests: true}}}
 

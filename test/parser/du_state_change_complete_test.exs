@@ -32,7 +32,7 @@ defmodule CWMP.Protocol.Parser.DUStateChangeCompleteTest do
 </SOAP-ENV:Envelope>
   """
 
-  @sample_result {:ok,%{cwmp_version: "urn:dslforum-org:cwmp-1-0", entries: [%CWMP.Protocol.Messages.DUStateChangeComplete{
+  @sample_result {:ok,%{cwmp_version: "1-0", entries: [%CWMP.Protocol.Messages.DUStateChangeComplete{
         commandkey: "cmdkey",
         results: [
           %CWMP.Protocol.Messages.OpResultStruct{

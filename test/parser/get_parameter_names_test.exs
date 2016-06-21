@@ -20,7 +20,7 @@ defmodule CWMP.Protocol.Parser.GetParameterNamesTest do
 </SOAP-ENV:Envelope>
   """
 
-  @sample_result {:ok,%{cwmp_version: "urn:dslforum-org:cwmp-1-0", entries: [%CWMP.Protocol.Messages.GetParameterNames{
+  @sample_result {:ok,%{cwmp_version: "1-0", entries: [%CWMP.Protocol.Messages.GetParameterNames{
         parameter_path: "InternetGatewayDevice.DeviceInfo.",
         next_level: false}],
     header: %CWMP.Protocol.Messages.Header{hold_requests: false, id: "API_28edd28d788a784422413db3914c34b0",

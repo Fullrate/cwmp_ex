@@ -19,7 +19,7 @@ defmodule CWMP.Protocol.Parser.DeleteObjectResponseTest do
 </SOAP-ENV:Envelope>
   """
 
-  @sample_result {:ok,%{cwmp_version: "urn:dslforum-org:cwmp-1-0", entries: [%CWMP.Protocol.Messages.DeleteObjectResponse{
+  @sample_result {:ok,%{cwmp_version: "1-0", entries: [%CWMP.Protocol.Messages.DeleteObjectResponse{
         status: 0
       }],
     header: %CWMP.Protocol.Messages.Header{hold_requests: false, id: "API_aa0642e34b23820801e7642ad7cb536c",
@@ -47,7 +47,7 @@ defmodule CWMP.Protocol.Parser.DeleteObjectResponseTest do
 </SOAP-ENV:Envelope>
   """
 
-  @sample2_result {:ok,%{cwmp_version: "urn:dslforum-org:cwmp-1-0", entries: [%CWMP.Protocol.Messages.DeleteObjectResponse{
+  @sample2_result {:ok,%{cwmp_version: "1-0", entries: [%CWMP.Protocol.Messages.DeleteObjectResponse{
         status: 1
       }],
     header: %CWMP.Protocol.Messages.Header{hold_requests: false, id: "API_aa0642e34b23820801e7642ad7cb536c",

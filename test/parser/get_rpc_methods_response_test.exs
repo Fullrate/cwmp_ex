@@ -34,7 +34,7 @@ defmodule CWMP.Protocol.Parser.GetRPCMethodsResponseTest do
 </SOAP-ENV:Envelope>
   """
 
-  @sample_result {:ok,%{cwmp_version: "urn:dslforum-org:cwmp-1-0", entries: [%CWMP.Protocol.Messages.GetRPCMethodsResponse{
+  @sample_result {:ok,%{cwmp_version: "1-0", entries: [%CWMP.Protocol.Messages.GetRPCMethodsResponse{
         methods: ["GetRPCMethods", "SetParameterValues", "GetParameterValues", "GetParameterNames", "GetParameterAttributes", "SetParameterAttributes", "AddObject", "DeleteObject", "Reboot", "Download", "Upload", "GetQueuedTransfers", "ScheduleInform", "FactoryReset"] }],
     header: %CWMP.Protocol.Messages.Header{hold_requests: false, id: "API_aa0642e34b23820801e7642ad7cb536c",
       session_timeout: 30, no_more_requests: false}}}
