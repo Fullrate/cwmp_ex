@@ -60,7 +60,7 @@ defmodule CWMP.Protocol.Parser.DownloadResponseTest do
   """
 
   test "raise, invalid status" do
-    assert(catch_error(CWMP.Protocol.Parser.parse(@sample2))==%RuntimeError{message: "Integer does not validate"})
+    assert(catch_error(CWMP.Protocol.Parser.parse!(@sample2))==%RuntimeError{message: "Integer does not validate"})
   end
 
   @sample3 """
@@ -118,7 +118,7 @@ defmodule CWMP.Protocol.Parser.DownloadResponseTest do
   """
 
   test "parses DownloadResponse request, invalid StartTime" do
-    assert(catch_error(CWMP.Protocol.Parser.parse(@sample4))==%RuntimeError{message: "timestring 'foo' has unacceptable format"})
+    assert(catch_error(CWMP.Protocol.Parser.parse!(@sample4))==%RuntimeError{message: "timestring 'foo' has unacceptable format"})
   end
 
 end

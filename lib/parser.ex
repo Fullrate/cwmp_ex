@@ -1,22 +1,34 @@
 defmodule CWMP.Protocol.Parser do
+
+  @moduledoc """
+  Parsing of CWMP XML messages, and conversion to Elixir data structures.
+  """
+
   alias CWMP.Protocol.Parser.ElemState
   alias CWMP.Protocol.Parser.State
+  alias CWMP.Protocol.Parser.ParseError
 
-  def parse!(source, _opts \\ []) do
-    case :erlsom.parse_sax(source, initial_state, &parse_step/2) do
-      {:ok, %State{curstate: %ElemState{acc: acc}}, _} -> acc
-      err -> err
+  @doc """
+  Parses a CWMP XML envelope and converts it to an Elixir data structure.
+  """
+  def parse!(source) do
+    try do
+      {:ok, %State{curstate: %ElemState{acc: acc}}, _} = :erlsom.parse_sax(source, initial_state, &parse_step/2)
+      acc
+    catch
+      {:error, err} when is_list(err) -> raise ParseError, message: "#{err}"
+      {:error, err} -> raise ParseError, message: "#{inspect(err)}"
     end
   end
 
-  def parse(source, opts \\ []) do
+  @doc """
+  Same as parse!, but non-throwing.
+  """
+  def parse(source) do
     try do
-      case :erlsom.parse_sax(source, initial_state, &parse_step/2) do
-        {:ok, %State{curstate: %ElemState{acc: acc}}, _} -> {:ok,acc}
-        err -> err
-      end
+      {:ok, parse!(source)}
     catch
-      {:error,err} -> {:error,to_string(err)}
+      err -> {:error, "Caught #{inspect err}"}
     end
   end
 

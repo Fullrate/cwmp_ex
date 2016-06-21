@@ -46,7 +46,7 @@ defmodule CWMP.Protocol.Parser.AddObjectTest do
   """
 
   test "raise AddObject request" do
-    assert( catch_error( CWMP.Protocol.Parser.parse(@sample2) ) == %RuntimeError{message: "Invalid object_name value"})
+    assert( catch_error( CWMP.Protocol.Parser.parse!(@sample2) ) == %RuntimeError{message: "Invalid object_name value"})
   end
 
 end

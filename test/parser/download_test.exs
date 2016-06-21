@@ -75,7 +75,7 @@ defmodule CWMP.Protocol.Parser.DownloadTest do
   """
 
   test "raise Download request, invalid FileSize" do
-    assert(catch_error(CWMP.Protocol.Parser.parse(@sample2))==%RuntimeError{message: "Integer value does not parse"})
+    assert(catch_error(CWMP.Protocol.Parser.parse!(@sample2))==%RuntimeError{message: "Integer value does not parse"})
   end
 
   @sample3 """

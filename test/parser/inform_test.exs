@@ -1,14 +1,9 @@
 defmodule CWMP.Protocol.Parser.InformTest do
   use ExUnit.Case, async: true
-
-  @sample_bogus """
-  bogus
-  """
-
-  @sample_bogus_result {:error,"Malformed: Illegal character in prolog"}
+  alias CWMP.Protocol.Parser.ParseError
 
   test "parse bogus request" do
-    assert(CWMP.Protocol.Parser.parse(@sample_bogus) == @sample_bogus_result)
+    assert(catch_error(CWMP.Protocol.Parser.parse!("bogus")) == %ParseError{message: "Malformed: Illegal character in prolog"})
   end
 
   @sample_2601 """
