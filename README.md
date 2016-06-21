@@ -35,7 +35,7 @@ doc="""
 </SOAP-ENV:Envelope>
 """
 
-CWMP.Protocol.Parser.parse(body)
+CWMP.Protocol.parse(body)
 
 {:ok, %{entries: [%CWMP.Protocol.Messages.AddObject{object_name: "Device.Test.",
     parameter_key: "ParamKey"}],
@@ -53,11 +53,11 @@ the generator to generate the XML, and you have something that can go on the wir
 
 ```ruby
 
-header=%CWMP.Protocol.Messages.Header{id: "50"}
-body=%CWMP.Protocol.Messages.AddObject{object_name: "Device.Test.",
+header = %CWMP.Protocol.Messages.Header{id: "50"}
+body = %CWMP.Protocol.Messages.AddObject{object_name: "Device.Test.",
     parameter_key: "ParamKey"}
 
-CWMP.Protocol.Generator.generate(header, body)
+CWMP.Protocol.generate!(header, body)
 
 "<SOAP-ENV:Envelope xmlns:SOAP-ENC=\"http://schemas.xmlsoap.org/soap/encoding/\" xmlns:SOAP-ENV=\"http://schemas.xmlsoap.org/soap/envelope/\" xmlns:cwmp=\"urn:dslforum-org:cwmp-1-4\" xmlns:xsd=\"http://www.w3.org/2001/XMLSchema\" xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\">\n\t<SOAP-ENV:Header>\n\t\t<cwmp:ID SOAP-ENV:mustUnderstand=\"1\">50</cwmp:ID>\n\t</SOAP-ENV:Header>\n\t<SOAP-ENV:Body>\n\t\t<cwmp:AddObject>\n\t\t\t<ObjectName>Device.Test.</ObjectName>\n\t\t\t<ParameterKey>ParamKey</ParameterKey>\n\t\t</cwmp:AddObject>\n\t</SOAP-ENV:Body>\n</SOAP-ENV:Envelope>"
 
