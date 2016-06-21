@@ -14,7 +14,7 @@ defmodule CWMP.Protocol.Generator.ScheduleInformTest do
 </SOAP-ENV:Envelope>|
 
   test "generates ScheduleInform request" do
-    assert(CWMP.Protocol.Generator.generate(
+    assert(CWMP.Protocol.Generator.generate!(
       %CWMP.Protocol.Messages.Header{id: "API_7bfc27c1f4f0a2c1d775f8aa1840439e"},
       %CWMP.Protocol.Messages.ScheduleInform{delay_seconds: 5, commandkey: "cmdkey"}) == @sample)
   end

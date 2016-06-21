@@ -11,7 +11,7 @@ defmodule CWMP.Protocol.Generator.ChangeDUStateResponseTest do
 </SOAP-ENV:Envelope>|
 
   test "generates ChangeDUStateResponseTest" do
-    assert(CWMP.Protocol.Generator.generate(
+    assert(CWMP.Protocol.Generator.generate!(
       %CWMP.Protocol.Messages.Header{id: "API_69412286f02e475b44783c61972f0a91"},
       %CWMP.Protocol.Messages.ChangeDUStateResponse{}) == @sample)
   end

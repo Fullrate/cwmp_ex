@@ -15,7 +15,7 @@ defmodule CWMP.Protocol.Generator.GetParameterValuesTest do
 </SOAP-ENV:Envelope>|
 
   test "generates GetParameterValues request" do
-    assert(CWMP.Protocol.Generator.generate(%CWMP.Protocol.Messages.Header{id: "API_7bfc27c1f4f0a2c1d775f8aa1840439e"},%CWMP.Protocol.Messages.GetParameterValues{parameters: [%CWMP.Protocol.Messages.GetParameterValuesStruct{name: "Device.Test", type: "string"}]}) == @sample)
+    assert(CWMP.Protocol.Generator.generate!(%CWMP.Protocol.Messages.Header{id: "API_7bfc27c1f4f0a2c1d775f8aa1840439e"},%CWMP.Protocol.Messages.GetParameterValues{parameters: [%CWMP.Protocol.Messages.GetParameterValuesStruct{name: "Device.Test", type: "string"}]}) == @sample)
   end
 
 end

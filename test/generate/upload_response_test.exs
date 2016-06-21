@@ -15,7 +15,7 @@ defmodule CWMP.Protocol.Generator.UploadResponseTest do
 </SOAP-ENV:Envelope>|
 
   test "generates full UploadResponse" do
-    assert(CWMP.Protocol.Generator.generate(
+    assert(CWMP.Protocol.Generator.generate!(
       %CWMP.Protocol.Messages.Header{id: "API_69412286f02e475b44783c61972f0a91"},
       %CWMP.Protocol.Messages.UploadResponse{status: "0",
       start_time: %Timex.DateTime{calendar: :gregorian,

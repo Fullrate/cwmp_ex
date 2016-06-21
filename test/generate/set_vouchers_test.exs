@@ -15,7 +15,7 @@ defmodule CWMP.Protocol.Generator.SetVouchersTest do
 </SOAP-ENV:Envelope>|
 
   test "generates SetVouchers request" do
-    assert(CWMP.Protocol.Generator.generate(
+    assert(CWMP.Protocol.Generator.generate!(
       %CWMP.Protocol.Messages.Header{id: "API_69412286f02e475b44783c61972f0a91"},
       %CWMP.Protocol.Messages.SetVouchers{
         voucherlist: [%CWMP.Protocol.Messages.XMLSignatureStruct{
@@ -139,7 +139,7 @@ axfzzIKiXsXwkA=="]
   end
 
   test "raise, SetVouchers, no options" do
-    assert( catch_error( CWMP.Protocol.Generator.generate(
+    assert( catch_error( CWMP.Protocol.Generator.generate!(
     %CWMP.Protocol.Messages.Header{id: "API_69412286f02e475b44783c61972f0a91"},
     %CWMP.Protocol.Messages.SetVouchers{
       voucherlist: [%CWMP.Protocol.Messages.XMLSignatureStruct{}]

@@ -23,7 +23,7 @@ defmodule CWMP.Protocol.Generator.SetParameterAttributesTest do
 </SOAP-ENV:Envelope>|
 
   test "generates SetParameterAttributes request" do
-    assert(CWMP.Protocol.Generator.generate(%CWMP.Protocol.Messages.Header{id: "API_7bfc27c1f4f0a2c1d775f8aa1840439e"},%CWMP.Protocol.Messages.SetParameterAttributes{parameters: [
+    assert(CWMP.Protocol.Generator.generate!(%CWMP.Protocol.Messages.Header{id: "API_7bfc27c1f4f0a2c1d775f8aa1840439e"},%CWMP.Protocol.Messages.SetParameterAttributes{parameters: [
         %CWMP.Protocol.Messages.SetParameterAttributesStruct{
           name: "Device.Test",
           notification_change: false,

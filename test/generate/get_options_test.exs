@@ -13,7 +13,7 @@ defmodule CWMP.Protocol.Generator.GetOptionsTest do
 </SOAP-ENV:Envelope>|
 
   test "generates GetOptions request" do
-    assert(CWMP.Protocol.Generator.generate(
+    assert(CWMP.Protocol.Generator.generate!(
       %CWMP.Protocol.Messages.Header{id: "API_69412286f02e475b44783c61972f0a91"},
       %CWMP.Protocol.Messages.GetOptions{
         option_name: "Some Option"}) == @sample)

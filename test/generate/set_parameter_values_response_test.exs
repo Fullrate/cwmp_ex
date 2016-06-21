@@ -13,13 +13,13 @@ defmodule CWMP.Protocol.Generator.SetParameterValuesResponseTest do
 </SOAP-ENV:Envelope>|
 
   test "generates SetParameterValuesResponse request" do
-    assert(CWMP.Protocol.Generator.generate(
+    assert(CWMP.Protocol.Generator.generate!(
       %CWMP.Protocol.Messages.Header{id: "API_69412286f02e475b44783c61972f0a91"},
       %CWMP.Protocol.Messages.SetParameterValuesResponse{status: 1}) == @sample)
   end
 
   test "raise SetParameterValuesResponse request" do
-    assert( catch_error(CWMP.Protocol.Generator.generate(
+    assert( catch_error(CWMP.Protocol.Generator.generate!(
       %CWMP.Protocol.Messages.Header{id: "API_69412286f02e475b44783c61972f0a91"},
       %CWMP.Protocol.Messages.SetParameterValuesResponse{status: "foo"}) ) == %RuntimeError{message: "Integer value does not parse"})
   end

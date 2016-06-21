@@ -22,7 +22,7 @@ defmodule CWMP.Protocol.Generator.ChangeDUStateTest do
 </SOAP-ENV:Envelope>|
 
   test "generates ChangeDUState request, one install" do
-    assert(CWMP.Protocol.Generator.generate(
+    assert(CWMP.Protocol.Generator.generate!(
       %CWMP.Protocol.Messages.Header{id: "API_69412286f02e475b44783c61972f0a91"},
       %CWMP.Protocol.Messages.ChangeDUState{
         commandkey: "CommandKey",
@@ -70,7 +70,7 @@ defmodule CWMP.Protocol.Generator.ChangeDUStateTest do
 </SOAP-ENV:Envelope>|
 
   test "generates ChangeDUState request, one of each" do
-    assert(CWMP.Protocol.Generator.generate(
+    assert(CWMP.Protocol.Generator.generate!(
       %CWMP.Protocol.Messages.Header{id: "API_69412286f02e475b44783c61972f0a91"},
       %CWMP.Protocol.Messages.ChangeDUState{
         commandkey: "CommandKey",
@@ -95,7 +95,7 @@ defmodule CWMP.Protocol.Generator.ChangeDUStateTest do
   end
 
   test "raise, ChangeDUState, invalid op" do
-    assert(catch_error(CWMP.Protocol.Generator.generate(
+    assert(catch_error(CWMP.Protocol.Generator.generate!(
       %CWMP.Protocol.Messages.Header{id: "API_69412286f02e475b44783c61972f0a91"},
       %CWMP.Protocol.Messages.ChangeDUState{
         commandkey: "CommandKey",

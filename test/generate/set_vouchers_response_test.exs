@@ -11,7 +11,7 @@ defmodule CWMP.Protocol.Generator.SetVouchersResponseTest do
 </SOAP-ENV:Envelope>|
 
   test "generates SetVouchersResponse" do
-    assert(CWMP.Protocol.Generator.generate(
+    assert(CWMP.Protocol.Generator.generate!(
       %CWMP.Protocol.Messages.Header{id: "1"},
       %CWMP.Protocol.Messages.SetVouchersResponse{}) == @sample)
   end

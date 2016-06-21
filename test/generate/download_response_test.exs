@@ -15,7 +15,7 @@ defmodule CWMP.Protocol.Generator.DownloadResponseTest do
 </SOAP-ENV:Envelope>|
 
   test "generates full Download request" do
-    assert(CWMP.Protocol.Generator.generate(%CWMP.Protocol.Messages.Header{id: "API_69412286f02e475b44783c61972f0a91"},%CWMP.Protocol.Messages.DownloadResponse{status: "0",
+    assert(CWMP.Protocol.Generator.generate!(%CWMP.Protocol.Messages.Header{id: "API_69412286f02e475b44783c61972f0a91"},%CWMP.Protocol.Messages.DownloadResponse{status: "0",
       start_time: %Timex.DateTime{calendar: :gregorian,
           day: 19, hour: 23, minute: 8, month: 1, millisecond: 0, second: 24,
           timezone: %Timex.TimezoneInfo{abbreviation: "UTC", from: :min,

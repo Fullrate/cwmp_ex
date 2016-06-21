@@ -16,7 +16,7 @@ defmodule CWMP.Protocol.Generator.GetRPCMethodsResponseTest do
 </SOAP-ENV:Envelope>|
 
   test "generates GetRPCMethods response" do
-    assert(CWMP.Protocol.Generator.generate(%CWMP.Protocol.Messages.Header{id: "API_69412286f02e475b44783c61972f0a91"}, %CWMP.Protocol.Messages.GetRPCMethodsResponse{methods: ["Foo","Bar"]}) == @sample)
+    assert(CWMP.Protocol.Generator.generate!(%CWMP.Protocol.Messages.Header{id: "API_69412286f02e475b44783c61972f0a91"}, %CWMP.Protocol.Messages.GetRPCMethodsResponse{methods: ["Foo","Bar"]}) == @sample)
   end
 
 end

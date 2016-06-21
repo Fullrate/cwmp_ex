@@ -2,12 +2,13 @@ defmodule CWMP.Protocol.Generator do
   import XmlBuilder
 
   @moduledoc """
-
-  Generates XML messages from elixir structures
-
+  Generation of CWMP XML messages, from Elixir data structures.
   """
 
-  def generate(head, req, version \\ "1-4") do
+  @doc """
+  Generates a CWMP envelope from an Elixir data structure.
+  """
+  def generate!(head, req, version \\ "1-4") do
     element('SOAP-ENV:Envelope',
       %{
         'xmlns:SOAP-ENV': "http://schemas.xmlsoap.org/soap/envelope/",
@@ -17,5 +18,16 @@ defmodule CWMP.Protocol.Generator do
         'xmlns:cwmp': "urn:dslforum-org:cwmp-#{version}"
       },
       [ element('SOAP-ENV:Header', [CWMP.Protocol.Generate.generate(head)]), element('SOAP-ENV:Body', [CWMP.Protocol.Generate.generate(req)]) ] ) |> generate;
+  end
+
+  @doc """
+  Non-throwing version of generate!.
+  """
+  def generate(head, req, version \\ "1-4") do
+    try do
+      {:ok, generate!(head, req, version)}
+    catch
+      err -> {:error, err}
+    end
   end
 end

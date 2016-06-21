@@ -23,7 +23,7 @@ defmodule CWMP.Protocol.Generator.SetParameterValuesTest do
 </SOAP-ENV:Envelope>|
 
   test "generates SetParameterValues request" do
-    assert(CWMP.Protocol.Generator.generate(%CWMP.Protocol.Messages.Header{id: "API_69412286f02e475b44783c61972f0a91"},%CWMP.Protocol.Messages.SetParameterValues{parameters: [%CWMP.Protocol.Messages.ParameterValueStruct{name: "InternetGatewayDevice.X_5067F0_AccessServiceCfg.SshPort", type: "xsd:int", value: "2225"},%CWMP.Protocol.Messages.ParameterValueStruct{name: "InternetGatewayDevice.X_5067F0_AccessServiceCfg.SshStatus", type: "xsd:string", value: "ALLOW_ALL"}]}) == @sample)
+    assert(CWMP.Protocol.Generator.generate!(%CWMP.Protocol.Messages.Header{id: "API_69412286f02e475b44783c61972f0a91"},%CWMP.Protocol.Messages.SetParameterValues{parameters: [%CWMP.Protocol.Messages.ParameterValueStruct{name: "InternetGatewayDevice.X_5067F0_AccessServiceCfg.SshPort", type: "xsd:int", value: "2225"},%CWMP.Protocol.Messages.ParameterValueStruct{name: "InternetGatewayDevice.X_5067F0_AccessServiceCfg.SshStatus", type: "xsd:string", value: "ALLOW_ALL"}]}) == @sample)
   end
 
 end

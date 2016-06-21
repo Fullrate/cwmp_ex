@@ -13,7 +13,7 @@ defmodule CWMP.Protocol.Generator.InformResponseTest do
 </SOAP-ENV:Envelope>|
 
   test "generates inform response" do
-    assert(CWMP.Protocol.Generator.generate(%CWMP.Protocol.Messages.Header{id: "1"},%CWMP.Protocol.Messages.InformResponse{max_envelopes: "1"}) == @sample)
+    assert(CWMP.Protocol.generate!(%CWMP.Protocol.Messages.Header{id: "1"},%CWMP.Protocol.Messages.InformResponse{max_envelopes: "1"}) == @sample)
   end
 
 end

@@ -18,7 +18,7 @@ defmodule CWMP.Protocol.Generator.UploadTest do
 </SOAP-ENV:Envelope>|
 
   test "generates full Upload request" do
-    assert(CWMP.Protocol.Generator.generate(
+    assert(CWMP.Protocol.Generator.generate!(
       %CWMP.Protocol.Messages.Header{id: "API_69412286f02e475b44783c61972f0a91"},
       %CWMP.Protocol.Messages.Upload{
         commandkey: "CommandKey",
@@ -46,7 +46,7 @@ defmodule CWMP.Protocol.Generator.UploadTest do
 </SOAP-ENV:Envelope>|
 
   test "generates minimal Upload request" do
-    assert(CWMP.Protocol.Generator.generate(
+    assert(CWMP.Protocol.Generator.generate!(
       %CWMP.Protocol.Messages.Header{id: "API_69412286f02e475b44783c61972f0a91"},
       %CWMP.Protocol.Messages.Upload{
         commandkey: "CommandKey",
@@ -55,19 +55,19 @@ defmodule CWMP.Protocol.Generator.UploadTest do
   end
 
   test "raise, nil filetype on Upload request" do
-    assert(catch_error(CWMP.Protocol.Generator.generate(
+    assert(catch_error(CWMP.Protocol.Generator.generate!(
       %CWMP.Protocol.Messages.Header{id: "API_69412286f02e475b44783c61972f0a91"},
       %CWMP.Protocol.Messages.Upload{}))==%RuntimeError{message: "key filetype can not be nil"})
   end
 
   test "raise, nil url on Upload request" do
-    assert(catch_error(CWMP.Protocol.Generator.generate(
+    assert(catch_error(CWMP.Protocol.Generator.generate!(
     %CWMP.Protocol.Messages.Header{id: "API_69412286f02e475b44783c61972f0a91"},
     %CWMP.Protocol.Messages.Upload{filetype: "1 Firmware Upgrade Image"}))==%RuntimeError{message: "key url can not be nil"})
   end
 
   test "raise, Invalid filetype on Upload request" do
-    assert(catch_error(CWMP.Protocol.Generator.generate(
+    assert(catch_error(CWMP.Protocol.Generator.generate!(
       %CWMP.Protocol.Messages.Header{id: "API_69412286f02e475b44783c61972f0a91"},
       %CWMP.Protocol.Messages.Upload{url: "http://example.com", filetype: "6 Something Bogus"}))==%RuntimeError{message: "Invalid filetype"})
   end

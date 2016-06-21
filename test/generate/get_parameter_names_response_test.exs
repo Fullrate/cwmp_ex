@@ -18,7 +18,7 @@ defmodule CWMP.Protocol.Generator.GetParameterNamesResponseTest do
 </SOAP-ENV:Envelope>|
 
   test "generates GetParameterNamesResponse request" do
-    assert(CWMP.Protocol.Generator.generate(%CWMP.Protocol.Messages.Header{id: "API_7bfc27c1f4f0a2c1d775f8aa1840439e"},%CWMP.Protocol.Messages.GetParameterNamesResponse{parameters: [
+    assert(CWMP.Protocol.Generator.generate!(%CWMP.Protocol.Messages.Header{id: "API_7bfc27c1f4f0a2c1d775f8aa1840439e"},%CWMP.Protocol.Messages.GetParameterNamesResponse{parameters: [
       %CWMP.Protocol.Messages.ParameterInfoStruct{name: "Device.Test", writable: 1}
     ]}) == @sample)
   end
@@ -44,14 +44,14 @@ defmodule CWMP.Protocol.Generator.GetParameterNamesResponseTest do
 </SOAP-ENV:Envelope>|
 
   test "generates 2nd GetParameterNamesResponse request" do
-    assert(CWMP.Protocol.Generator.generate(%CWMP.Protocol.Messages.Header{id: "API_7bfc27c1f4f0a2c1d775f8aa1840439e"},%CWMP.Protocol.Messages.GetParameterNamesResponse{parameters: [
+    assert(CWMP.Protocol.Generator.generate!(%CWMP.Protocol.Messages.Header{id: "API_7bfc27c1f4f0a2c1d775f8aa1840439e"},%CWMP.Protocol.Messages.GetParameterNamesResponse{parameters: [
       %CWMP.Protocol.Messages.ParameterInfoStruct{name: "Device.Test", writable: 1},
       %CWMP.Protocol.Messages.ParameterInfoStruct{name: "Device.More.Test", writable: 0}
     ]}) == @sample2)
   end
 
   test "generates raise on GetParameterNamesResponse request" do
-    assert(catch_error(CWMP.Protocol.Generator.generate(%CWMP.Protocol.Messages.Header{id: "API_7bfc27c1f4f0a2c1d775f8aa1840439e"}, %CWMP.Protocol.Messages.GetParameterNamesResponse{parameters: [%CWMP.Protocol.Messages.ParameterInfoStruct{name: "Device.Test", writable: "foo"}]})) == %RuntimeError{message: "Not a boolean value"})
+    assert(catch_error(CWMP.Protocol.Generator.generate!(%CWMP.Protocol.Messages.Header{id: "API_7bfc27c1f4f0a2c1d775f8aa1840439e"}, %CWMP.Protocol.Messages.GetParameterNamesResponse{parameters: [%CWMP.Protocol.Messages.ParameterInfoStruct{name: "Device.Test", writable: "foo"}]})) == %RuntimeError{message: "Not a boolean value"})
   end
 
 end

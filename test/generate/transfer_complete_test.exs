@@ -19,7 +19,7 @@ defmodule CWMP.Protocol.Generator.TransferCompleteTest do
 </SOAP-ENV:Envelope>|
 
   test "generates TransferComplete request" do
-    assert(CWMP.Protocol.Generator.generate(%CWMP.Protocol.Messages.Header{id: "API_69412286f02e475b44783c61972f0a91"}, %CWMP.Protocol.Messages.TransferComplete{
+    assert(CWMP.Protocol.Generator.generate!(%CWMP.Protocol.Messages.Header{id: "API_69412286f02e475b44783c61972f0a91"}, %CWMP.Protocol.Messages.TransferComplete{
       command_key: "CommandKey",
       fault_struct: %CWMP.Protocol.Messages.FaultStruct{ code: 0, string: "" },
       start_time: %Timex.DateTime{calendar: :gregorian,

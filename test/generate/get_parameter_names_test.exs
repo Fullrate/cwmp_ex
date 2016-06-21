@@ -14,7 +14,7 @@ defmodule CWMP.Protocol.Generator.GetParameterNamesTest do
 </SOAP-ENV:Envelope>|
 
   test "generates GetParameterNames request" do
-    assert(CWMP.Protocol.Generator.generate(
+    assert(CWMP.Protocol.Generator.generate!(
       %CWMP.Protocol.Messages.Header{id: "API_7bfc27c1f4f0a2c1d775f8aa1840439e"},
       %CWMP.Protocol.Messages.GetParameterNames{parameter_path: "Device.Test.", next_level: false}) == @sample)
   end
@@ -32,7 +32,7 @@ defmodule CWMP.Protocol.Generator.GetParameterNamesTest do
 </SOAP-ENV:Envelope>|
 
   test "generates 2nd GetParameterNames request" do
-    assert(CWMP.Protocol.Generator.generate(
+    assert(CWMP.Protocol.Generator.generate!(
       %CWMP.Protocol.Messages.Header{id: "API_7bfc27c1f4f0a2c1d775f8aa1840439e"},
       %CWMP.Protocol.Messages.GetParameterNames{parameter_path: "Device.Test.", next_level: true}) == @sample2)
   end

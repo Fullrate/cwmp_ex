@@ -24,7 +24,7 @@ defmodule CWMP.Protocol.Generator.AutonomousTransferCompleteTest do
 </SOAP-ENV:Envelope>|
 
   test "generates AutonomousTransferComplete request" do
-    assert(CWMP.Protocol.Generator.generate(%CWMP.Protocol.Messages.Header{id: "API_69412286f02e475b44783c61972f0a91"}, %CWMP.Protocol.Messages.AutonomousTransferComplete{
+    assert(CWMP.Protocol.Generator.generate!(%CWMP.Protocol.Messages.Header{id: "API_69412286f02e475b44783c61972f0a91"}, %CWMP.Protocol.Messages.AutonomousTransferComplete{
       announce_url: "http://example.com/announce",
       transfer_url: "http://example.com/transfer",
       is_download: true,
@@ -66,7 +66,7 @@ defmodule CWMP.Protocol.Generator.AutonomousTransferCompleteTest do
 </SOAP-ENV:Envelope>|
 
   test "generates 2nd AutonomousTransferComplete request" do
-    assert(CWMP.Protocol.Generator.generate(%CWMP.Protocol.Messages.Header{id: "API_69412286f02e475b44783c61972f0a91"}, %CWMP.Protocol.Messages.AutonomousTransferComplete{
+    assert(CWMP.Protocol.Generator.generate!(%CWMP.Protocol.Messages.Header{id: "API_69412286f02e475b44783c61972f0a91"}, %CWMP.Protocol.Messages.AutonomousTransferComplete{
       announce_url: "http://example.com/announce",
       transfer_url: "http://example.com/transfer",
       is_download: false,
@@ -104,7 +104,7 @@ defmodule CWMP.Protocol.Generator.AutonomousTransferCompleteTest do
 </SOAP-ENV:Envelope>|
 
   test "generates 3rd AutonomousTransferComplete request" do
-    assert(CWMP.Protocol.Generator.generate(%CWMP.Protocol.Messages.Header{id: "API_69412286f02e475b44783c61972f0a91"}, %CWMP.Protocol.Messages.AutonomousTransferComplete{
+    assert(CWMP.Protocol.Generator.generate!(%CWMP.Protocol.Messages.Header{id: "API_69412286f02e475b44783c61972f0a91"}, %CWMP.Protocol.Messages.AutonomousTransferComplete{
       announce_url: "http://example.com/announce",
       transfer_url: "http://example.com/transfer",
       is_download: false,

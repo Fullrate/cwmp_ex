@@ -28,7 +28,7 @@ defmodule CWMP.Protocol.Parser.AddObjectResponseTest do
       session_timeout: 30, no_more_requests: false}}}
 
   test "parses AddObjectResponse request" do
-    assert(CWMP.Protocol.Parser.parse(@sample) == @sample_result)
+    assert(CWMP.Protocol.parse(@sample) == @sample_result)
   end
 
 end

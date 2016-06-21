@@ -19,7 +19,7 @@ defmodule CWMP.Protocol.Generator.RequestDownloadTest do
 </SOAP-ENV:Envelope>|
 
   test "generates RequestDownload request" do
-    assert(CWMP.Protocol.Generator.generate(
+    assert(CWMP.Protocol.Generator.generate!(
       %CWMP.Protocol.Messages.Header{id: "API_69412286f02e475b44783c61972f0a91"},
       %CWMP.Protocol.Messages.RequestDownload{
         filetype: "2 Web Content",

@@ -61,7 +61,7 @@ defmodule CWMP.Protocol.Generator.InformTest do
 </SOAP-ENV:Envelope>|
 
   test "generates inform request" do
-    assert(CWMP.Protocol.Generator.generate(
+    assert(CWMP.Protocol.Generator.generate!(
       %CWMP.Protocol.Messages.Header{id: "100"},
       %CWMP.Protocol.Messages.Inform{
         device_id: %CWMP.Protocol.Messages.DeviceIdStruct{

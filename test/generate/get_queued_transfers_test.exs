@@ -11,7 +11,7 @@ defmodule CWMP.Protocol.Generator.GetQueuedTransfersTest do
 </SOAP-ENV:Envelope>|
 
   test "generates GetQueuedTransfers request" do
-    assert(CWMP.Protocol.Generator.generate(
+    assert(CWMP.Protocol.Generator.generate!(
       %CWMP.Protocol.Messages.Header{id: "API_7bfc27c1f4f0a2c1d775f8aa1840439e"},
       %CWMP.Protocol.Messages.GetQueuedTransfers{}) == @sample)
   end

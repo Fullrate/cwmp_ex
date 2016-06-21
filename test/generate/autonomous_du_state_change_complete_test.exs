@@ -31,7 +31,7 @@ defmodule CWMP.Protocol.Generator.AutonomousDUStateChangeCompleteTest do
 </SOAP-ENV:Envelope>|
 
   test "generates DUStateChangeComplete request" do
-    assert(CWMP.Protocol.Generator.generate(
+    assert(CWMP.Protocol.Generator.generate!(
       %CWMP.Protocol.Messages.Header{id: "API_69412286f02e475b44783c61972f0a91"},
       %CWMP.Protocol.Messages.AutonomousDUStateChangeComplete{
         results: [
