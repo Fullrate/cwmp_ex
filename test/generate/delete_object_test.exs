@@ -33,7 +33,7 @@ defmodule CWMP.Protocol.Generator.DeleteObjectTest do
   end
 
   test "raise on 3nd DeleteObject request" do
-    assert(catch_error(CWMP.Protocol.Generator.generate(%CWMP.Protocol.Messages.Header{id: "API_69412286f02e475b44783c61972f0a91"},%CWMP.Protocol.Messages.DeleteObject{object_name: "Device.Test"}))==%RuntimeError{message: "invalid objectname [Device.Test] - must end in ."})
+    assert(catch_error(CWMP.Protocol.Generator.generate(%CWMP.Protocol.Messages.Header{id: "API_69412286f02e475b44783c61972f0a91"},%CWMP.Protocol.Messages.DeleteObject{object_name: "Device.Test"}))==%RuntimeError{message: "invalid object_name [Device.Test] - must end in ."})
   end
 
 end
