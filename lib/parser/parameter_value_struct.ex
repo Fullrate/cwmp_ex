@@ -6,7 +6,7 @@ defmodule CWMP.Protocol.Parser.Messages.ParameterValueStruct do
     %ParameterValueStruct{}
   end
 
-  def start_element(state, ['Value'], attribs) do
+  def start_element(state, ['Value'], attribs, _uri) do
     case for {:attribute, 'type', _, _, val} <- attribs, do: val do
       [val | _] -> update_acc(state, fn acc -> %ParameterValueStruct{acc | type: "#{val}"} end)
       _ -> state

@@ -17,7 +17,7 @@ defmodule CWMP.Protocol.Parser.GetParameterValuesText do
 </SOAP-ENV:Envelope>
   """
 
-  @sample_result {:ok,%{entries: [%CWMP.Protocol.Messages.GetParameterValues{
+  @sample_result {:ok,%{cwmp_version: "urn:dslforum-org:cwmp-1-0", entries: [%CWMP.Protocol.Messages.GetParameterValues{
         parameters: ["Device.IP.Interface.3.IPv4AddressNumberOfEntries", "Device.IP.Interface.3.IPv6AddressNumberOfEntries"]
             }],
     header: %CWMP.Protocol.Messages.Header{hold_requests: false, id: "50",

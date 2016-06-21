@@ -7,7 +7,7 @@ defmodule CWMP.Protocol.Parser.Messages.RequestDownload do
     %RequestDownload{}
   end
 
-  def start_element(state, ['ArgStruct', 'FileTypeArg'], _attribs) do
+  def start_element(state, ['ArgStruct', 'FileTypeArg'], _attribs, _uri) do
     push_handler(state, CWMP.Protocol.Parser.Messages.ArgStruct)
   end
 

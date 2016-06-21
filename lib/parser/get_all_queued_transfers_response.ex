@@ -7,7 +7,7 @@ defmodule CWMP.Protocol.Parser.Messages.GetAllQueuedTransfersResponse do
     %GetAllQueuedTransfersResponse{}
   end
 
-  def start_element(state, ['AllQueuedTransferStruct', 'TransferList'], _attribs) do
+  def start_element(state, ['AllQueuedTransferStruct', 'TransferList'], _attribs, _uri) do
     push_handler(state, CWMP.Protocol.Parser.Messages.AllQueuedTransferStruct)
   end
 

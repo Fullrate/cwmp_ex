@@ -48,15 +48,15 @@ defmodule CWMP.Protocol.Parser.Messages.Inform do
     %Inform{}
   end
 
-  def start_element(state, ['DeviceId'], _attribs) do
+  def start_element(state, ['DeviceId'], _attribs, _uri) do
     push_handler(state, DeviceIdStruct)
   end
 
-  def start_element(state, ['EventStruct', 'Event'], _attribs) do
+  def start_element(state, ['EventStruct', 'Event'], _attribs, _uri) do
     push_handler(state, EventStruct)
   end
 
-  def start_element(state, ['ParameterValueStruct', 'ParameterList'], _attribs) do
+  def start_element(state, ['ParameterValueStruct', 'ParameterList'], _attribs, _uri) do
     push_handler(state, CWMP.Protocol.Parser.Messages.ParameterValueStruct)
   end
 

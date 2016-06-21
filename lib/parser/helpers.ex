@@ -25,7 +25,7 @@ defmodule CWMP.Protocol.ParserHelpers do
   defmacro __before_compile__(_opts) do
     # All unhandled start and end elements are simply ignored.
     quote do
-      def start_element(state, _path, _attribs) do
+      def start_element(state, _path, _attribs, _uri) do
         state
       end
 

@@ -10,7 +10,7 @@ defmodule CWMP.Protocol.Parser.Envelope do
     end
 
     @known_header_fields ['ID', 'HoldRequests', 'SessionTimeout', 'NoMoreRequests']
-    def start_element(state, [field], attribs) do
+    def start_element(state, [field], attribs, _uri) do
       mustUnderstand = not((for {:attribute, 'mustUnderstand', _, _, '1'} <- attribs, do: true) |> Enum.empty?)
       if mustUnderstand && !Enum.member?(@known_header_fields, field) do
         raise "Field '#{field}' must be understood, but we don't"
@@ -36,12 +36,9 @@ defmodule CWMP.Protocol.Parser.Envelope do
   end
 
   def initial_acc do
-    %{header: nil,
+    %{cwmp_version: nil,
+      header: nil,
       entries: []}
-  end
-
-  def start_element(state, ['Header', 'Envelope'], _attribs) do
-    push_handler(state, Header)
   end
 
   @message_types %{
@@ -102,10 +99,14 @@ defmodule CWMP.Protocol.Parser.Envelope do
      'AutonomousDUStateChangeCompleteResponse' => CWMP.Protocol.Parser.Messages.AutonomousDUStateChangeCompleteResponse
   }
 
-  def start_element(state, [msgtype, 'Body', 'Envelope'], _attribs) do
+  def start_element(state, ['Header', 'Envelope'], _attribs, _uri) do
+    push_handler(state, Header)
+  end
+
+  def start_element(state, [msgtype, 'Body', 'Envelope'], _attribs, uri) do
     case Map.get(@message_types, msgtype) do
       nil -> raise "Message type '#{msgtype}' is not known"
-      handler -> push_handler(state, handler)
+      handler -> update_acc(state, fn cur -> %{cur | cwmp_version: uri} end) |> push_handler(handler)
     end
   end
 

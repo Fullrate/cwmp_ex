@@ -25,7 +25,7 @@ defmodule CWMP.Protocol.Parser.AutonomousTransferCompleteTest do
 </SOAP-ENV:Envelope>
   """
 
-  @sample_result {:ok,%{entries: [%CWMP.Protocol.Messages.AutonomousTransferComplete{complete_time: %Timex.DateTime{calendar: :gregorian,
+  @sample_result {:ok,%{cwmp_version: "urn:dslforum-org:cwmp-1-0", entries: [%CWMP.Protocol.Messages.AutonomousTransferComplete{complete_time: %Timex.DateTime{calendar: :gregorian,
           day: 7, hour: 8, minute: 45, month: 4, millisecond: 0, second: 6,
           timezone: %Timex.TimezoneInfo{abbreviation: "UTC", from: :min,
             full_name: "UTC", offset_std: 0, offset_utc: 0, until: :max}, year: 2016},

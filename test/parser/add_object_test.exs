@@ -2,12 +2,7 @@ defmodule CWMP.Protocol.Parser.AddObjectTest do
   use ExUnit.Case, async: true
 
   @sample """
-<SOAP-ENV:Envelope
-    xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/"
-    xmlns:SOAP-ENC="http://schemas.xmlsoap.org/soap/encoding/"
-    xmlns:xsd="http://www.w3.org/2001/XMLSchema"
-    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-    xmlns:cwmp="urn:dslforum-org:cwmp-1-0">
+<SOAP-ENV:Envelope xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/" xmlns:SOAP-ENC="http://schemas.xmlsoap.org/soap/encoding/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:cwmp="urn:dslforum-org:cwmp-1-0">
     <SOAP-ENV:Header>
       <cwmp:ID SOAP-ENV:mustUnderstand="1">API_aa0642e34b23820801e7642ad7cb536c</cwmp:ID>
     </SOAP-ENV:Header>
@@ -20,7 +15,7 @@ defmodule CWMP.Protocol.Parser.AddObjectTest do
 </SOAP-ENV:Envelope>
   """
 
-  @sample_result {:ok,%{entries: [%CWMP.Protocol.Messages.AddObject{
+  @sample_result {:ok,%{cwmp_version: "urn:dslforum-org:cwmp-1-0", entries: [%CWMP.Protocol.Messages.AddObject{
         object_name: "Device.Test.",
         parameter_key: "ParamKey"
       }],

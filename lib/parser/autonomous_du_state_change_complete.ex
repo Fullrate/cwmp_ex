@@ -7,7 +7,7 @@ defmodule CWMP.Protocol.Parser.Messages.AutonomousDUStateChangeComplete do
     %AutonomousDUStateChangeComplete{}
   end
 
-  def start_element(state, ['AutonOpResultStruct', 'Results'], _attribs) do
+  def start_element(state, ['AutonOpResultStruct', 'Results'], _attribs, _uri) do
     push_handler(state, CWMP.Protocol.Parser.Messages.AutonOpResultStruct)
   end
 

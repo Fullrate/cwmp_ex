@@ -33,11 +33,11 @@ defmodule CWMP.Protocol.Parser do
     %State{state | last_text: String.strip("#{chars}")}
   end
 
-  defp parse_step({:startElement, _uri, name, _prefix, attribs}, state) do
+  defp parse_step({:startElement, uri, name, _prefix, attribs}, state) do
     newpath = [name | state.curstate.path]
     newinner = %ElemState{state.curstate | path: newpath}
     state = %State{state | curstate: newinner}
-    state = state.curstate.handler.start_element(state, newpath, attribs)
+    state = state.curstate.handler.start_element(state, newpath, attribs, to_string(uri))
     %State{state | last_text: ""}
   end
 

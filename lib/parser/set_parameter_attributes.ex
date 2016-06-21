@@ -7,7 +7,7 @@ defmodule CWMP.Protocol.Parser.Messages.SetParameterAttributes do
     %SetParameterAttributes{}
   end
 
-  def start_element(state, ['SetParameterAttributesStruct', 'ParameterList'], _attribs) do
+  def start_element(state, ['SetParameterAttributesStruct', 'ParameterList'], _attribs, _uri) do
     push_handler(state, CWMP.Protocol.Parser.Messages.SetParameterAttributesStruct)
   end
 

@@ -7,7 +7,7 @@ defmodule CWMP.Protocol.Parser.Messages.GetOptionsResponse do
     %GetOptionsResponse{}
   end
 
-  def start_element(state, ['OptionStruct', 'OptionList'], _params) do
+  def start_element(state, ['OptionStruct', 'OptionList'], _params, _uri) do
     push_handler(state, CWMP.Protocol.Parser.Messages.OptionStruct)
   end
 

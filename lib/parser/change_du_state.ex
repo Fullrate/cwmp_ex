@@ -7,15 +7,15 @@ defmodule CWMP.Protocol.Parser.Messages.ChangeDUState do
     %ChangeDUState{}
   end
 
-  def start_element(state, ['InstallOpStruct', 'Operations'], _attribs) do
+  def start_element(state, ['InstallOpStruct', 'Operations'], _attribs, _uri) do
     push_handler(state, CWMP.Protocol.Parser.Messages.InstallOpStruct)
   end
 
-  def start_element(state, ['UpdateOpStruct', 'Operations'], _attribs) do
+  def start_element(state, ['UpdateOpStruct', 'Operations'], _attribs, _uri) do
     push_handler(state, CWMP.Protocol.Parser.Messages.UpdateOpStruct)
   end
 
-  def start_element(state, ['UninstallOpStruct', 'Operations'], _attribs) do
+  def start_element(state, ['UninstallOpStruct', 'Operations'], _attribs, _uri) do
     push_handler(state, CWMP.Protocol.Parser.Messages.UninstallOpStruct)
   end
 

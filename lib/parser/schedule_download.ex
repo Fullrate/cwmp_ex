@@ -7,7 +7,7 @@ defmodule CWMP.Protocol.Parser.Messages.ScheduleDownload do
     %ScheduleDownload{}
   end
 
-  def start_element(state, ['TimeWindowStruct', 'TimeWindowList'], _attribs) do
+  def start_element(state, ['TimeWindowStruct', 'TimeWindowList'], _attribs, _uri) do
     push_handler(state, CWMP.Protocol.Parser.Messages.TimeWindowStruct)
   end
 

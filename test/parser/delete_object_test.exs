@@ -20,7 +20,7 @@ defmodule CWMP.Protocol.Parser.DeleteObjectTest do
 </SOAP-ENV:Envelope>
   """
 
-  @sample_result {:ok,%{entries: [%CWMP.Protocol.Messages.DeleteObject{
+  @sample_result {:ok,%{cwmp_version: "urn:dslforum-org:cwmp-1-0", entries: [%CWMP.Protocol.Messages.DeleteObject{
         object_name: "Device.Test.",
         parameter_key: "ParamKey"
       }],

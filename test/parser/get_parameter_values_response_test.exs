@@ -23,7 +23,7 @@ defmodule CWMP.Protocol.Parser.GetParameterValuesResponseTest do
 </SOAP-ENV:Envelope>
   """
 
-  @sample_result {:ok,%{entries: [%CWMP.Protocol.Messages.GetParameterValuesResponse{
+  @sample_result {:ok,%{cwmp_version: "urn:dslforum-org:cwmp-1-0", entries: [%CWMP.Protocol.Messages.GetParameterValuesResponse{
         parameters: [%CWMP.Protocol.Messages.ParameterValueStruct{name: "Device.IP.Interface.3.IPv4AddressNumberOfEntries",
             type: "xsd:unsignedInt",
             value: "1"},

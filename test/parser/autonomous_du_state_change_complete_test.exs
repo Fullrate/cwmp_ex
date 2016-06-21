@@ -32,7 +32,7 @@ defmodule CWMP.Protocol.Parser.AutonomousDUStateChangeCompleteTest do
 </SOAP-ENV:Envelope>
   """
 
-  @sample_result {:ok,%{entries: [%CWMP.Protocol.Messages.AutonomousDUStateChangeComplete{
+  @sample_result {:ok,%{cwmp_version: "urn:dslforum-org:cwmp-1-0", entries: [%CWMP.Protocol.Messages.AutonomousDUStateChangeComplete{
         results: [
           %CWMP.Protocol.Messages.AutonOpResultStruct{
             uuid: "some-uuid",
@@ -82,7 +82,7 @@ defmodule CWMP.Protocol.Parser.AutonomousDUStateChangeCompleteTest do
     header: %CWMP.Protocol.Messages.Header{hold_requests: false, id: "50",
       session_timeout: 30, no_more_requests: false}}}
 
-  test "parses AutonomousDUStgateChangeComplete request" do
+  test "parses AutonomousDUStateChangeComplete request" do
     assert(CWMP.Protocol.Parser.parse(@sample) == @sample_result)
   end
 

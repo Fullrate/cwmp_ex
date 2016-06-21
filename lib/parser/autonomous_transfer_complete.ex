@@ -7,7 +7,7 @@ defmodule CWMP.Protocol.Parser.Messages.AutonomousTransferComplete do
     %AutonomousTransferComplete{}
   end
 
-  def start_element(state, ['FaultStruct'], _attribs) do
+  def start_element(state, ['FaultStruct'], _attribs, _uri) do
     push_handler(state, FaultStruct)
   end
 

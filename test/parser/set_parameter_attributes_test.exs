@@ -24,7 +24,7 @@ defmodule CWMP.Protocol.Parser.SetParameterAttributesTest do
 </SOAP-ENV:Envelope>
 """
 
-  @sample_result {:ok,%{entries: [%CWMP.Protocol.Messages.SetParameterAttributes{
+  @sample_result {:ok,%{cwmp_version: "urn:dslforum-org:cwmp-1-0", entries: [%CWMP.Protocol.Messages.SetParameterAttributes{
         parameters: [ %CWMP.Protocol.Messages.SetParameterAttributesStruct{
             accesslist: ["Subscriber"],
             accesslist_change: true,

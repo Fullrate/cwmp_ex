@@ -6,7 +6,7 @@ defmodule CWMP.Protocol.Parser.Messages.OpResultStruct do
     %OpResultStruct{}
   end
 
-  def start_element(state, ['FaultStruct','Fault'], _attribs) do
+  def start_element(state, ['FaultStruct','Fault'], _attribs, _uri) do
     push_handler(state, FaultStruct)
   end
 
