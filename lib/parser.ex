@@ -27,8 +27,8 @@ defmodule CWMP.Protocol.Parser do
   def parse(source) do
     try do
       {:ok, parse!(source)}
-    catch
-      err -> {:error, "Caught #{inspect err}"}
+    rescue
+      err -> {:error, err}
     end
   end
 

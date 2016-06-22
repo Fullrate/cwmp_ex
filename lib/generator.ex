@@ -26,7 +26,7 @@ defmodule CWMP.Protocol.Generator do
   def generate(head, req, version \\ "1-4") do
     try do
       {:ok, generate!(head, req, version)}
-    catch
+    rescue
       err -> {:error, err}
     end
   end
