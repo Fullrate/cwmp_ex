@@ -8,7 +8,7 @@ defmodule CWMP.Protocol.Generator.SetParameterAttributesTest do
 \t<SOAP-ENV:Body>
 \t\t<cwmp:SetParameterAttributes>
 \t\t\t<ParameterList SOAP-ENC:arrayType="cwmp:SetParameterAttributeStruct[1]">
-\t\t\t\t<ParameterAttributeStruct>
+\t\t\t\t<SetParameterAttributeStruct>
 \t\t\t\t\t<Name>Device.Test</Name>
 \t\t\t\t\t<NotificationChange>0</NotificationChange>
 \t\t\t\t\t<Notification>2</Notification>
@@ -16,7 +16,7 @@ defmodule CWMP.Protocol.Generator.SetParameterAttributesTest do
 \t\t\t\t\t<AccessList>
 \t\t\t\t\t\t<string>Subscriber</string>
 \t\t\t\t\t</AccessList>
-\t\t\t\t</ParameterAttributeStruct>
+\t\t\t\t</SetParameterAttributeStruct>
 \t\t\t</ParameterList>
 \t\t</cwmp:SetParameterAttributes>
 \t</SOAP-ENV:Body>
