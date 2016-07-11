@@ -6,12 +6,12 @@ defimpl CWMP.Protocol.Generate, for: CWMP.Protocol.Messages.SetParameterAttribut
   def generate(req) do
     params=for p <- req.parameters, do: parameterAttributeStruct(p)
     element("cwmp:SetParameterAttributes", [
-      element(:ParameterList,%{"SOAP-ENC:arrayType": "cwmp:SetParameterAttributeStruct[#{length(params)}]"},params)])
+      element(:ParameterList,%{"SOAP-ENC:arrayType": "cwmp:SetParameterAttributesStruct[#{length(params)}]"},params)])
   end
 
   defp parameterAttributeStruct(param) do
     al=for p <- param.accesslist, do: element(:string, p)
-    element(:SetParameterAttributeStruct, [
+    element(:SetParameterAttributesStruct, [
       element(:Name, param.name),
       element(:NotificationChange, boolValue(param.notification_change)),
       element(:Notification, to_string(param.notification)),
