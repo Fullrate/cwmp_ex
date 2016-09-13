@@ -82,6 +82,10 @@ defmodule CWMP.Protocol.ParserHelpers do
     "{YYYY}-{0M}-{0D}T{0h24}:{0m}:{0ss}Z",
   ]
   def datetimeStructure(timestring) do
+    timestring = cond do
+      timestring == "" -> "1970-01-01T00:00:00"
+      true -> timestring
+    end
     times = @accepted_time_formats
     |> Enum.map(&Timex.Parse.DateTime.Parser.parse(timestring, &1))
     |> Enum.filter(fn
