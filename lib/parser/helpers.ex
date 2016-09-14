@@ -83,7 +83,7 @@ defmodule CWMP.Protocol.ParserHelpers do
   ]
   def datetimeStructure(timestring) do
     timestring = cond do
-      timestring == "" -> "1970-01-01T00:00:00"
+      timestring == "" -> "0001-01-01T00:00:00"
       true -> timestring
     end
     times = @accepted_time_formats
