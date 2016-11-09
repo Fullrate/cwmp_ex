@@ -18,7 +18,7 @@ defimpl CWMP.Protocol.Generate, for: CWMP.Protocol.Messages.Download do
     filesize=integerValue(req.filesize, fn(x) -> x>=0 end)
     optionals=Enum.map(%{target_filename: "TargetFileName", success_url: "SuccessURL", failure_url: "FailureURL"}, fn {k, v} ->
       case Map.fetch(req, k) do
-        {:ok,x} -> if x != nil && String.length(x) > 0 do
+        {:ok,x} -> if x != nil do
                       element(v, x)
                    else
                      nil
