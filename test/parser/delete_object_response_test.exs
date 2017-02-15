@@ -54,7 +54,7 @@ defmodule CWMP.Protocol.Parser.DeleteObjectResponseTest do
       session_timeout: 30, no_more_requests: false}}}
 
   test "parses 2nd DeleteObjectResponse request" do
-    assert(CWMP.Protocol.Parser.parse(@sample) == @sample_result)
+    assert(CWMP.Protocol.Parser.parse(@sample2) == @sample2_result)
   end
 
   @sample3 """

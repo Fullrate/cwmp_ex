@@ -16,23 +16,21 @@ defimpl CWMP.Protocol.Generate, for: CWMP.Protocol.Messages.Download do
       raise "Invalid filetype"
     end
     filesize=integerValue(req.filesize, fn(x) -> x>=0 end)
-    optionals=Enum.map(%{target_filename: "TargetFileName", success_url: "SuccessURL", failure_url: "FailureURL"}, fn {k, v} ->
+    optionals=Enum.map( %{target_filename: "TargetFileName", success_url: "SuccessURL", failure_url: "FailureURL", username: "Username", password: "Password", delay_seconds: "DelaySeconds"}, fn {k, v} ->
       case Map.fetch(req, k) do
-        {:ok,x} -> if x != nil do
-                      element(v, x)
-                   else
-                     nil
-                   end
+        {:ok,x} ->
+          if x != nil && x != "" && x != 0 do
+            element(v, x)
+          else
+            nil
+          end
       end
     end)
     element("cwmp:Download", [
       element(:CommandKey,req.commandkey),
       element(:FileType,req.filetype),
       element(:URL,req.url),
-      element(:Username,req.username),
-      element(:Password,req.password),
-      element(:FileSize,filesize),
-      element(:DelaySeconds,req.delay_seconds)] ++
+      element(:FileSize,filesize)] ++
       Enum.filter(optionals, fn(x) -> x != nil end)
     )
   end
