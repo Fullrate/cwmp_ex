@@ -10,13 +10,13 @@ defmodule CWMP.Protocol.Generator.DownloadTest do
 \t\t\t<CommandKey>CommandKey</CommandKey>
 \t\t\t<FileType>1 Firmware Upgrade Image</FileType>
 \t\t\t<URL>http://example.com</URL>
+\t\t\t<Username>user</Username>
+\t\t\t<Password>pass</Password>
 \t\t\t<FileSize>100</FileSize>
 \t\t\t<DelaySeconds>5</DelaySeconds>
 \t\t\t<FailureURL>http://example.com/failure</FailureURL>
-\t\t\t<Password>pass</Password>
 \t\t\t<SuccessURL>http://example.com/success</SuccessURL>
 \t\t\t<TargetFileName>foo</TargetFileName>
-\t\t\t<Username>user</Username>
 \t\t</cwmp:Download>
 \t</SOAP-ENV:Body>
 </SOAP-ENV:Envelope>|
@@ -34,12 +34,12 @@ defmodule CWMP.Protocol.Generator.DownloadTest do
 \t\t\t<CommandKey>CommandKey</CommandKey>
 \t\t\t<FileType>1 Firmware Upgrade Image</FileType>
 \t\t\t<URL>http://example.com</URL>
+\t\t\t<Username>user</Username>
+\t\t\t<Password>pass</Password>
 \t\t\t<FileSize>100</FileSize>
 \t\t\t<DelaySeconds>5</DelaySeconds>
 \t\t\t<FailureURL>http://example.com/failure</FailureURL>
-\t\t\t<Password>pass</Password>
 \t\t\t<SuccessURL>http://example.com/success</SuccessURL>
-\t\t\t<Username>user</Username>
 \t\t</cwmp:Download>
 \t</SOAP-ENV:Body>
 </SOAP-ENV:Envelope>|
@@ -57,10 +57,10 @@ defmodule CWMP.Protocol.Generator.DownloadTest do
 \t\t\t<CommandKey>CommandKey</CommandKey>
 \t\t\t<FileType>1 Firmware Upgrade Image</FileType>
 \t\t\t<URL>http://example.com</URL>
+\t\t\t<Username>user</Username>
+\t\t\t<Password>pass</Password>
 \t\t\t<FileSize>100</FileSize>
 \t\t\t<DelaySeconds>5</DelaySeconds>
-\t\t\t<Password>pass</Password>
-\t\t\t<Username>user</Username>
 \t\t</cwmp:Download>
 \t</SOAP-ENV:Body>
 </SOAP-ENV:Envelope>|
@@ -78,7 +78,10 @@ defmodule CWMP.Protocol.Generator.DownloadTest do
 \t\t\t<CommandKey>CommandKey</CommandKey>
 \t\t\t<FileType>1 Firmware Upgrade Image</FileType>
 \t\t\t<URL>http://example.com</URL>
+\t\t\t<Username></Username>
+\t\t\t<Password></Password>
 \t\t\t<FileSize>100</FileSize>
+\t\t\t<DelaySeconds>0</DelaySeconds>
 \t\t</cwmp:Download>
 \t</SOAP-ENV:Body>
 </SOAP-ENV:Envelope>|
