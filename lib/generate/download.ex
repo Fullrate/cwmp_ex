@@ -35,5 +35,6 @@ defimpl CWMP.Protocol.Generate, for: CWMP.Protocol.Messages.Download do
       element(:FileSize,filesize)] ++
       Enum.filter(optionals, fn(x) -> x != nil end)
     )
+
   end
 end
