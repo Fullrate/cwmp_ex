@@ -16,14 +16,21 @@ defimpl CWMP.Protocol.Generate, for: CWMP.Protocol.Messages.Download do
       raise "Invalid filetype"
     end
     filesize=integerValue(req.filesize, fn(x) -> x>=0 end)
-    optionals=Enum.map( %{target_filename: "TargetFileName", delay_seconds: "DelaySeconds", success_url: "SuccessURL", failure_url: "FailureURL"}, fn {k, v} ->
-      case Map.fetch(req, k) do
-        {:ok,x} ->
-          if x != nil do
-            element(v, x)
-          else
-            nil
+    # setup optionals in the correct order? <- weird statement, but i want them in a specific order for good reason :P
+    order = [:target_filename, :delay_seconds, :success_url, :failure_url]
+    real_names = %{target_filename: "TargetFileName", delay_seconds: "DelaySeconds", success_url: "SuccessURL", failure_url: "FailureURL"}
+
+    optionals=Enum.map( order , fn k ->
+      cond do
+        Map.has_key?(req, k) ->
+          case Map.get(req,k) do
+            nil ->
+              nil
+            v ->
+              element(Map.get(real_names,k), v)
           end
+        true ->
+          nil
       end
     end)
     element("cwmp:Download", [
