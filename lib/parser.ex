@@ -13,7 +13,7 @@ defmodule CWMP.Protocol.Parser do
   """
   def parse!(source) do
     try do
-      {:ok, %State{curstate: %ElemState{acc: acc}}, _} = :erlsom.parse_sax(source, initial_state, &parse_step/2)
+      {:ok, %State{curstate: %ElemState{acc: acc}}, _} = :erlsom.parse_sax(source, initial_state(), &parse_step/2)
       acc
     catch
       {:error, err} when is_list(err) -> raise ParseError, message: "#{err}"
