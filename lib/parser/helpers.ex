@@ -73,28 +73,18 @@ defmodule CWMP.Protocol.ParserHelpers do
     end
   end
 
-  @accepted_time_formats [
-    "{YYYY}-{0M}-{0D}T{0h24}:{0m}:{0s}",
-    "{YYYY}-{0M}-{0D}T{0h24}:{0m}:{0s}{Z:}",
-    "{YYYY}-{0M}-{0D}T{0h24}:{0m}:{0s}Z",
-    "{YYYY}-{0M}-{0D}T{0h24}:{0m}:{0ss}",
-    "{YYYY}-{0M}-{0D}T{0h24}:{0m}:{0ss}{Z:}",
-    "{YYYY}-{0M}-{0D}T{0h24}:{0m}:{0ss}Z",
-  ]
   def datetimeStructure(timestring) do
-    timestring = cond do
-      timestring == "" -> "0001-01-01T00:00:00"
-      true -> timestring
-    end
-    times = @accepted_time_formats
-    |> Enum.map(&Timex.Parse.DateTime.Parser.parse(timestring, &1))
-    |> Enum.filter(fn
-      {:ok, _} -> true
-      _ -> false
-    end)
-    case times do
-      [{:ok, val} | _] -> val
-      _ -> raise "timestring '#{timestring}' has unacceptable format"
+    case DateTime.from_iso8601( timestring ) do
+      {:ok, dt, utc_offset} ->
+        %DateTime{dt | utc_offset: utc_offset}
+      {:error, :missing_offset} ->
+        datetimeStructure(timestring <> "Z")
+      {:error, reason} ->
+        raise "timestring '#{timestring}' is unparseable: #{inspect reason}"
+        :error
+
+      weird ->
+        IO.inspect weird
     end
   end
 
