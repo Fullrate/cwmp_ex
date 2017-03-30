@@ -1,5 +1,6 @@
 defmodule CWMP.Protocol.Generator.InformTest do
   use ExUnit.Case, async: true
+  import TestHelpers
 
   @sample ~s|<SOAP-ENV:Envelope xmlns:SOAP-ENC="http://schemas.xmlsoap.org/soap/encoding/" xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/" xmlns:cwmp="urn:dslforum-org:cwmp-1-4" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
 \t<SOAP-ENV:Header>
@@ -20,7 +21,7 @@ defmodule CWMP.Protocol.Generator.InformTest do
 \t\t\t\t</EventStruct>
 \t\t\t</Event>
 \t\t\t<MaxEnvelopes>1</MaxEnvelopes>
-\t\t\t<CurrentTime>2015-01-19T23:08:24+00:00</CurrentTime>
+\t\t\t<CurrentTime>2015-01-19T23:08:24Z</CurrentTime>
 \t\t\t<RetryCount>0</RetryCount>
 \t\t\t<ParameterList SOAP-ENC:arrayType="cwmp:ParameterValueStruct[8]">
 \t\t\t\t<ParameterValueStruct>
@@ -74,10 +75,7 @@ defmodule CWMP.Protocol.Generator.InformTest do
             command_key: ""}],
         max_envelopes: 1,
         retry_count: 0,
-        current_time: %Timex.DateTime{calendar: :gregorian,
-          day: 19, hour: 23, minute: 8, month: 1, millisecond: 0, second: 24,
-          timezone: %Timex.TimezoneInfo{abbreviation: "UTC", from: :min,
-            full_name: "UTC", offset_std: 0, offset_utc: 0, until: :max}, year: 2015},
+        current_time: generate_datetime({{19,1,2015},{23,8,24}}),
         parameters: [%CWMP.Protocol.Messages.ParameterValueStruct{name: "InternetGatewayDevice.DeviceSummary",
             type: "xsd:string",
             value: "InternetGatewayDevice:1.4[](Baseline:1, EthernetLAN:1, WiFiLAN:1, EthernetWAN:1, ADSLWAN:1, IPPing:1, DSLDiagnostics:1, Time:1), VoiceService:1.0[1](Endpoint:1, SIPEndpoint:1)"},

@@ -1,5 +1,6 @@
 defmodule CWMP.Protocol.Parser.DUStateChangeCompleteTest do
   use ExUnit.Case, async: true
+  import TestHelpers
 
   @sample """
 <SOAP-ENV:Envelope xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/" xmlns:SOAP-ENC="http://schemas.xmlsoap.org/soap/encoding/" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:cwmp="urn:dslforum-org:cwmp-1-0">
@@ -42,38 +43,8 @@ defmodule CWMP.Protocol.Parser.DUStateChangeCompleteTest do
             current_state: "curState",
             resolved: true,
             execution_unit_ref_list: "a,b,c",
-            start_time: %Timex.DateTime{
-              calendar: :gregorian,
-              day: 19,
-              hour: 23,
-              minute: 45,
-              month: 1,
-              millisecond: 0,
-              second: 12,
-              timezone: %Timex.TimezoneInfo{
-                abbreviation: "UTC",
-                from: :min,
-                full_name: "UTC",
-                offset_std: 0,
-                offset_utc: 0,
-                until: :max},
-              year: 2015},
-            complete_time: %Timex.DateTime{
-              calendar: :gregorian,
-              day: 19,
-              hour: 23,
-              minute: 55,
-              month: 1,
-              millisecond: 0,
-              second: 12,
-              timezone: %Timex.TimezoneInfo{
-                abbreviation: "UTC",
-                from: :min,
-                full_name: "UTC",
-                offset_std: 0,
-                offset_utc: 0,
-                until: :max},
-              year: 2015},
+            start_time: generate_datetime({{19,1,2015},{23,45,12}}),
+            complete_time: generate_datetime({{19,1,2015},{23,55,12}}),
             fault: %CWMP.Protocol.Messages.FaultStruct{
               code: 0,
               string: ""

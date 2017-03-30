@@ -1,5 +1,6 @@
 defmodule CWMP.Protocol.Generator.AutonomousDUStateChangeCompleteTest do
   use ExUnit.Case, async: true
+  import TestHelpers
 
   @sample ~s|<SOAP-ENV:Envelope xmlns:SOAP-ENC="http://schemas.xmlsoap.org/soap/encoding/" xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/" xmlns:cwmp="urn:dslforum-org:cwmp-1-4" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
 \t<SOAP-ENV:Header>
@@ -15,8 +16,8 @@ defmodule CWMP.Protocol.Generator.AutonomousDUStateChangeCompleteTest do
 \t\t\t\t\t<CurrentState>curState</CurrentState>
 \t\t\t\t\t<Resolved>1</Resolved>
 \t\t\t\t\t<ExecutionUnitRefList>a,b,c</ExecutionUnitRefList>
-\t\t\t\t\t<StartTime>2015-01-19T23:45:12+00:00</StartTime>
-\t\t\t\t\t<CompleteTime>2015-01-19T23:55:12+00:00</CompleteTime>
+\t\t\t\t\t<StartTime>2015-01-19T23:45:12Z</StartTime>
+\t\t\t\t\t<CompleteTime>2015-01-19T23:55:12Z</CompleteTime>
 \t\t\t\t\t<Fault>
 \t\t\t\t\t\t<FaultStruct>
 \t\t\t\t\t\t\t<FaultCode>0</FaultCode>
@@ -42,38 +43,8 @@ defmodule CWMP.Protocol.Generator.AutonomousDUStateChangeCompleteTest do
             current_state: "curState",
             resolved: true,
             execution_unit_ref_list: "a,b,c",
-            start_time: %Timex.DateTime{
-              calendar: :gregorian,
-              day: 19,
-              hour: 23,
-              minute: 45,
-              month: 1,
-              millisecond: 0,
-              second: 12,
-              timezone: %Timex.TimezoneInfo{
-                abbreviation: "UTC",
-                from: :min,
-                full_name: "UTC",
-                offset_std: 0,
-                offset_utc: 0,
-                until: :max},
-              year: 2015},
-            complete_time: %Timex.DateTime{
-              calendar: :gregorian,
-              day: 19,
-              hour: 23,
-              minute: 55,
-              month: 1,
-              millisecond: 0,
-              second: 12,
-              timezone: %Timex.TimezoneInfo{
-                abbreviation: "UTC",
-                from: :min,
-                full_name: "UTC",
-                offset_std: 0,
-                offset_utc: 0,
-                until: :max},
-              year: 2015},
+            start_time: generate_datetime({{19,1,2015},{23,45,12}}),
+            complete_time: generate_datetime({{19,1,2015},{23,55,12}}),
             fault: %CWMP.Protocol.Messages.FaultStruct{
               code: 0,
               string: ""

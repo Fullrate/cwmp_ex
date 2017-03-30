@@ -1,5 +1,6 @@
 defmodule CWMP.Protocol.Parser.AutonomousTransferCompleteTest do
   use ExUnit.Case, async: true
+  import TestHelpers
 
   @sample """
 <SOAP-ENV:Envelope xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/" xmlns:SOAP-ENC="http://schemas.xmlsoap.org/soap/encoding/" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:cwmp="urn:dslforum-org:cwmp-1-0">
@@ -25,14 +26,9 @@ defmodule CWMP.Protocol.Parser.AutonomousTransferCompleteTest do
 </SOAP-ENV:Envelope>
   """
 
-  @sample_result {:ok,%{cwmp_version: "1-0", entries: [%CWMP.Protocol.Messages.AutonomousTransferComplete{complete_time: %Timex.DateTime{calendar: :gregorian,
-          day: 7, hour: 8, minute: 45, month: 4, millisecond: 0, second: 6,
-          timezone: %Timex.TimezoneInfo{abbreviation: "UTC", from: :min,
-            full_name: "UTC", offset_std: 0, offset_utc: 0, until: :max}, year: 2016},
-          start_time: %Timex.DateTime{calendar: :gregorian,
-          day: 7, hour: 8, minute: 43, month: 4, millisecond: 0, second: 49,
-          timezone: %Timex.TimezoneInfo{abbreviation: "UTC", from: :min,
-            full_name: "UTC", offset_std: 0, offset_utc: 0, until: :max}, year: 2016},
+  @sample_result {:ok,%{cwmp_version: "1-0", entries: [%CWMP.Protocol.Messages.AutonomousTransferComplete{
+      complete_time: generate_datetime({{7,4,2016},{8,45,6}}),
+      start_time: generate_datetime({{7,4,2016},{8,43,49}}),
       announce_url: "http://example.com/announce",
       transfer_url: "http://example.com/transfer",
       is_download: true,

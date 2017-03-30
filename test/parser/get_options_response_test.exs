@@ -1,5 +1,6 @@
 defmodule CWMP.Protocol.Parser.GetOptionsResponseTest do
   use ExUnit.Case, async: true
+  import TestHelpers
 
   @sample """
 <SOAP-ENV:Envelope xmlns:SOAP-ENC="http://schemas.xmlsoap.org/soap/encoding/" xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/" xmlns:cwmp="urn:dslforum-org:cwmp-1-0" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
@@ -40,28 +41,16 @@ defmodule CWMP.Protocol.Parser.GetOptionsResponseTest do
             voucher_sn: 12345678,
             state: 1,
             mode: 1,
-            start_date: %Timex.DateTime{calendar: :gregorian,
-          day: 10, hour: 23, minute: 45, month: 1, millisecond: 0, second: 12,
-          timezone: %Timex.TimezoneInfo{abbreviation: "UTC", from: :min,
-            full_name: "UTC", offset_std: 0, offset_utc: 0, until: :max}, year: 2015},
-            expiration_date: %Timex.DateTime{calendar: :gregorian,
-          day: 10, hour: 23, minute: 45, month: 1, millisecond: 0, second: 12,
-          timezone: %Timex.TimezoneInfo{abbreviation: "UTC", from: :min,
-            full_name: "UTC", offset_std: 0, offset_utc: 0, until: :max}, year: 2015},
+            start_date: generate_datetime({{10,1,2015},{23,45,12}}),
+            expiration_date: generate_datetime({{10,1,2015},{23,45,12}}),
             is_transferable: true},
           %CWMP.Protocol.Messages.OptionStruct{
             option_name: "Second Option",
             voucher_sn: 12345678,
             state: 1,
             mode: 1,
-            start_date: %Timex.DateTime{calendar: :gregorian,
-          day: 10, hour: 23, minute: 45, month: 1, millisecond: 0, second: 12,
-          timezone: %Timex.TimezoneInfo{abbreviation: "UTC", from: :min,
-            full_name: "UTC", offset_std: 0, offset_utc: 0, until: :max}, year: 2015},
-            expiration_date: %Timex.DateTime{calendar: :gregorian,
-          day: 10, hour: 23, minute: 45, month: 1, millisecond: 0, second: 12,
-          timezone: %Timex.TimezoneInfo{abbreviation: "UTC", from: :min,
-            full_name: "UTC", offset_std: 0, offset_utc: 0, until: :max}, year: 2015},
+            start_date: generate_datetime({{10,1,2015},{23,45,12}}),
+            expiration_date: generate_datetime({{10,1,2015},{23,45,12}}),
             is_transferable: true}]
           }],
     header: %CWMP.Protocol.Messages.Header{hold_requests: false, id: "API_69412286f02e475b44783c61972f0a91",

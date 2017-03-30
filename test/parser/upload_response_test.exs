@@ -1,5 +1,6 @@
 defmodule CWMP.Protocol.Parser.UploadResponseTest do
   use ExUnit.Case, async: true
+  import TestHelpers
 
   @sample """
 <SOAP-ENV:Envelope
@@ -23,14 +24,8 @@ defmodule CWMP.Protocol.Parser.UploadResponseTest do
 
   @sample_result {:ok,%{cwmp_version: "1-0", entries: [%CWMP.Protocol.Messages.UploadResponse{
         status: 1,
-        complete_time: %Timex.DateTime{calendar: :gregorian,
-          day: 19, hour: 23, minute: 9, month: 1, millisecond: 0, second: 24,
-          timezone: %Timex.TimezoneInfo{abbreviation: "UTC", from: :min,
-            full_name: "UTC", offset_std: 0, offset_utc: 0, until: :max}, year: 2015},
-        start_time: %Timex.DateTime{calendar: :gregorian,
-          day: 19, hour: 23, minute: 8, month: 1, millisecond: 0, second: 24,
-          timezone: %Timex.TimezoneInfo{abbreviation: "UTC", from: :min,
-            full_name: "UTC", offset_std: 0, offset_utc: 0, until: :max}, year: 2015},
+        complete_time: generate_datetime({{19,1,2015},{23,9,24}}),
+        start_time: generate_datetime({{19,1,2015},{23,8,24}})
       }],
     header: %CWMP.Protocol.Messages.Header{hold_requests: false, id: "API_aa0642e34b23820801e7642ad7cb536c",
       session_timeout: 30, no_more_requests: false}}}
@@ -84,10 +79,7 @@ defmodule CWMP.Protocol.Parser.UploadResponseTest do
 
   @sample_result3 {:ok,%{cwmp_version: "1-0", entries: [%CWMP.Protocol.Messages.UploadResponse{
         status: 1,
-        complete_time: %Timex.DateTime{calendar: :gregorian,
-          day: 19, hour: 23, minute: 9, month: 1, millisecond: 0, second: 24,
-          timezone: %Timex.TimezoneInfo{abbreviation: "UTC", from: :min,
-            full_name: "UTC", offset_std: 0, offset_utc: 0, until: :max}, year: 2015},
+        complete_time: generate_datetime({{19,1,2015},{23,9,24}}),
         start_time: nil
       }],
     header: %CWMP.Protocol.Messages.Header{hold_requests: false, id: "API_aa0642e34b23820801e7642ad7cb536c",
@@ -118,7 +110,7 @@ defmodule CWMP.Protocol.Parser.UploadResponseTest do
   """
 
   test "parses UploadResponse request, invalid StartTime" do
-    assert(catch_error(CWMP.Protocol.Parser.parse!(@sample4))==%RuntimeError{message: "timestring 'foo' has unacceptable format"})
+    assert(catch_error(CWMP.Protocol.Parser.parse!(@sample4))==%RuntimeError{message: "timestring 'foo' is unparseable: :invalid_format"})
   end
 
 end
