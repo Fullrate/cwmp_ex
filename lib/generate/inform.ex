@@ -4,7 +4,7 @@ defimpl CWMP.Protocol.Generate, for: CWMP.Protocol.Messages.Inform do
   use CWMP.Protocol.GenerateHelpers
 
   def generate(req) do
-    ctime = timeString(req.current_time, Timex.DateTime.today)
+    ctime = timeString(req.current_time)
     element("cwmp:Inform", [
       deviceId(req.device_id),
       events(req.events),
