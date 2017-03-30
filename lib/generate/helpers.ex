@@ -34,16 +34,18 @@ defmodule CWMP.Protocol.GenerateHelpers do
   used.
 
   """
-  def timeString( timestruct, default \\ Timex.DateTime.epoch ) do
-    t = try do Timex.format(timestruct, "%FT%T%:z", :strftime)
+  @spec timeString( DateTime.t, DateTime.t ) :: String.t
+  def timeString( timestruct, default \\ DateTime.from_unix!(0) ) do
+    try do
+      case timestruct do
+        nil ->
+          DateTime.to_iso8601(default)
+        _ ->
+          DateTime.to_iso8601(timestruct)
+      end
     rescue
-      Protocol.UndefinedError -> Timex.format(default, "%FT%T%:z", :strftime)
-      FunctionClauseError -> Timex.format(default, "%FT%T%:z", :strftime)
-      _ -> raise "Invalid start_time structure"
-    end
-    case t do
-      {:ok,timestring} -> timestring
-      _ -> raise "Unable to generate timestring"
+      _ ->
+        DateTime.to_iso8601(default)
     end
   end
 
