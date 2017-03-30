@@ -11,7 +11,7 @@ defmodule CWMP.Protocol.Messages.SVOptionStruct do
             deviceid:       %CWMP.Protocol.Messages.DeviceIdStruct{},
             option_ident:   nil, # string(64)
             option_desc:    nil, # string(256)
-            start_date:     %Timex.DateTime{},
+            start_date:     nil,
             duration:       0, # unsignedInt
             duration_units: nil, # string
             mode:           nil, # string

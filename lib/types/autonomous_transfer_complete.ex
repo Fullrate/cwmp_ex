@@ -7,6 +7,6 @@ defmodule CWMP.Protocol.Messages.AutonomousTransferComplete do
             filesize:        nil,
             target_filename: nil,
             fault_struct:    %CWMP.Protocol.Messages.FaultStruct{},
-            start_time:      %Timex.DateTime{},
-            complete_time:   %Timex.DateTime{}
+            start_time:      nil,
+            complete_time:   nil
 end

@@ -10,7 +10,7 @@ defmodule CWMP.Protocol.Messages.OptionStruct do
             voucher_sn:      0,   # unsignedInt
             state:           0,   # unsignedInt
             mode:            0,   # int[0:2]
-            start_date:      %Timex.DateTime{},
-            expiration_date: %Timex.DateTime{},
+            start_date:      nil,
+            expiration_date: nil,
             is_transferable: false
 end

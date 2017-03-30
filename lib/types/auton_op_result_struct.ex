@@ -6,8 +6,8 @@ defmodule CWMP.Protocol.Messages.AutonOpResultStruct do
             current_state:           nil,
             resolved:                false,
             execution_unit_ref_list: nil,
-            start_time:              %Timex.DateTime{},
-            complete_time:           %Timex.DateTime{},
+            start_time:              nil,
+            complete_time:           nil,
             fault:                   %CWMP.Protocol.Messages.FaultStruct{},
             operation_performed:     nil
 end
