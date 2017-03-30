@@ -2,3 +2,7 @@
 
 Removed dependecy on timex and tzdata, now it relies
 on built in Calendar and DateTime only.
+
+2017-3-31   0.2.1
+
+Must depend on 1.4 to use from_iso8601

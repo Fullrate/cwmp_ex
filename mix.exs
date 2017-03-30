@@ -3,8 +3,8 @@ defmodule CWMP.Protocol.Mixfile do
 
   def project do
     [app: :cwmp_ex,
-     version: "0.2.0",
-     elixir: "~> 1.3",
+     version: "0.2.1",
+     elixir: "~> 1.4",
      build_embedded: Mix.env == :prod,
      start_permanent: Mix.env == :prod,
      deps: deps()]
