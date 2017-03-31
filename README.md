@@ -1,5 +1,7 @@
 # CWMP.Protocol #
 [![Build Status](https://travis-ci.org/Fullrate/cwmp_ex.svg?branch=master)](https://travis-ci.org/Fullrate/cwmp_ex)
+[![Hex.pm Version](http://img.shields.io/hexpm/v/cwmp_ex.svg?style=flat)](https://hex.pm/packages/cwmp_ex)
+
 
 Parses and Generates XML conforming to the CWMP protocol
 
@@ -70,7 +72,7 @@ If [available in Hex](https://hex.pm/docs/publish), the package can be installed
   1. Add cwmp_ex to your list of dependencies in `mix.exs`:
 
         def deps do
-          [{:cwmp_ex, "~> 0.1.0"}]
+          [{:cwmp_ex, "~> 0.2.1"}]
         end
 
   2. Ensure cwmp_ex is started before your application:
