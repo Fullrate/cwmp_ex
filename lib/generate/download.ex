@@ -12,7 +12,7 @@ defimpl CWMP.Protocol.Generate, for: CWMP.Protocol.Messages.Download do
         {:error} -> raise "key #{f} must be set"
       end
     end)
-    if not hd(to_char_list(req.filetype)) in [49,50,51,52,53,88] do
+    if not hd(to_charlist(req.filetype)) in [49,50,51,52,53,88] do
       raise "Invalid filetype"
     end
     filesize=integerValue(req.filesize, fn(x) -> x>=0 end)

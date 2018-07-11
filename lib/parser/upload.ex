@@ -12,7 +12,7 @@ defmodule CWMP.Protocol.Parser.Messages.Upload do
   end
 
   def end_element(state, ['FileType']) do
-    if hd(to_char_list(state.last_text)) in [49,50,51,52,88] do
+    if hd(to_charlist(state.last_text)) in [49,50,51,52,88] do
       update_acc(state, fn cur -> %Upload{cur | filetype: state.last_text} end)
     else
       raise "Invalid filetype"

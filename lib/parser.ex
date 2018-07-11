@@ -42,7 +42,7 @@ defmodule CWMP.Protocol.Parser do
   end
 
   defp parse_step({:characters, chars}, state) do
-    %State{state | last_text: String.strip("#{chars}")}
+    %State{state | last_text: String.trim("#{chars}")}
   end
 
   defp parse_step({:startElement, uri, name, _prefix, attribs}, state) do
