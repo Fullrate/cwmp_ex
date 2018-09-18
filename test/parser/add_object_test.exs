@@ -13,7 +13,7 @@ defmodule CWMP.Protocol.Parser.AddObjectTest do
       </cwmp:AddObject>
     </SOAP-ENV:Body>
 </SOAP-ENV:Envelope>
-  """
+"""
 
   @sample_result {:ok,%{cwmp_version: "1-0", entries: [%CWMP.Protocol.Messages.AddObject{
         object_name: "Device.Test.",
@@ -43,7 +43,7 @@ defmodule CWMP.Protocol.Parser.AddObjectTest do
       </cwmp:AddObject>
     </SOAP-ENV:Body>
 </SOAP-ENV:Envelope>
-  """
+"""
 
   test "raise AddObject request" do
     assert( catch_error( CWMP.Protocol.Parser.parse!(@sample2) ) == %RuntimeError{message: "Invalid object_name value"})

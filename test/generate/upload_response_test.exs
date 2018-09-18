@@ -3,16 +3,16 @@ defmodule CWMP.Protocol.Generator.UploadResponseTest do
   import TestHelpers
 
   @sample ~s|<SOAP-ENV:Envelope xmlns:SOAP-ENC="http://schemas.xmlsoap.org/soap/encoding/" xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/" xmlns:cwmp="urn:dslforum-org:cwmp-1-4" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
-\t<SOAP-ENV:Header>
-\t\t<cwmp:ID SOAP-ENV:mustUnderstand="1">API_69412286f02e475b44783c61972f0a91</cwmp:ID>
-\t</SOAP-ENV:Header>
-\t<SOAP-ENV:Body>
-\t\t<cwmp:UploadResponse>
-\t\t\t<Status>0</Status>
-\t\t\t<StartTime>2015-01-19T23:08:24Z</StartTime>
-\t\t\t<CompleteTime>2015-01-19T23:18:24Z</CompleteTime>
-\t\t</cwmp:UploadResponse>
-\t</SOAP-ENV:Body>
+  <SOAP-ENV:Header>
+    <cwmp:ID SOAP-ENV:mustUnderstand="1">API_69412286f02e475b44783c61972f0a91</cwmp:ID>
+  </SOAP-ENV:Header>
+  <SOAP-ENV:Body>
+    <cwmp:UploadResponse>
+      <Status>0</Status>
+      <StartTime>2015-01-19T23:08:24Z</StartTime>
+      <CompleteTime>2015-01-19T23:18:24Z</CompleteTime>
+    </cwmp:UploadResponse>
+  </SOAP-ENV:Body>
 </SOAP-ENV:Envelope>|
 
   test "generates full UploadResponse" do

@@ -15,7 +15,7 @@ defmodule CWMP.Protocol.Parser.GetQueuedTransfersTest do
       <cwmp:GetQueuedTransfers/>
     </SOAP-ENV:Body>
 </SOAP-ENV:Envelope>
-  """
+"""
 
   @sample_result {:ok,%{cwmp_version: "1-0", entries: [%CWMP.Protocol.Messages.GetQueuedTransfers{naught: nil}],
     header: %CWMP.Protocol.Messages.Header{hold_requests: false, id: "API_28edd28d788a784422413db3914c34b0",

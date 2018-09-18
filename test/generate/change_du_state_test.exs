@@ -2,23 +2,23 @@ defmodule CWMP.Protocol.Generator.ChangeDUStateTest do
   use ExUnit.Case, async: true
 
   @sample ~s|<SOAP-ENV:Envelope xmlns:SOAP-ENC="http://schemas.xmlsoap.org/soap/encoding/" xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/" xmlns:cwmp="urn:dslforum-org:cwmp-1-0" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
-\t<SOAP-ENV:Header>
-\t\t<cwmp:ID SOAP-ENV:mustUnderstand="1">API_69412286f02e475b44783c61972f0a91</cwmp:ID>
-\t</SOAP-ENV:Header>
-\t<SOAP-ENV:Body>
-\t\t<cwmp:ChangeDUState>
-\t\t\t<CommandKey>CommandKey</CommandKey>
-\t\t\t<Operations>
-\t\t\t\t<InstallOpStruct>
-\t\t\t\t\t<URL>http://example.com/url</URL>
-\t\t\t\t\t<UUID>bla-foo-abcd-1234</UUID>
-\t\t\t\t\t<Username>user</Username>
-\t\t\t\t\t<Password>pass</Password>
-\t\t\t\t\t<ExecutionEnvRef>foo</ExecutionEnvRef>
-\t\t\t\t</InstallOpStruct>
-\t\t\t</Operations>
-\t\t</cwmp:ChangeDUState>
-\t</SOAP-ENV:Body>
+  <SOAP-ENV:Header>
+    <cwmp:ID SOAP-ENV:mustUnderstand="1">API_69412286f02e475b44783c61972f0a91</cwmp:ID>
+  </SOAP-ENV:Header>
+  <SOAP-ENV:Body>
+    <cwmp:ChangeDUState>
+      <CommandKey>CommandKey</CommandKey>
+      <Operations>
+        <InstallOpStruct>
+          <URL>http://example.com/url</URL>
+          <UUID>bla-foo-abcd-1234</UUID>
+          <Username>user</Username>
+          <Password>pass</Password>
+          <ExecutionEnvRef>foo</ExecutionEnvRef>
+        </InstallOpStruct>
+      </Operations>
+    </cwmp:ChangeDUState>
+  </SOAP-ENV:Body>
 </SOAP-ENV:Envelope>|
 
   test "generates ChangeDUState request, one install" do
@@ -38,35 +38,35 @@ defmodule CWMP.Protocol.Generator.ChangeDUStateTest do
   end
 
   @sample2 ~s|<SOAP-ENV:Envelope xmlns:SOAP-ENC="http://schemas.xmlsoap.org/soap/encoding/" xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/" xmlns:cwmp="urn:dslforum-org:cwmp-1-4" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
-\t<SOAP-ENV:Header>
-\t\t<cwmp:ID SOAP-ENV:mustUnderstand="1">API_69412286f02e475b44783c61972f0a91</cwmp:ID>
-\t</SOAP-ENV:Header>
-\t<SOAP-ENV:Body>
-\t\t<cwmp:ChangeDUState>
-\t\t\t<CommandKey>CommandKey</CommandKey>
-\t\t\t<Operations>
-\t\t\t\t<InstallOpStruct>
-\t\t\t\t\t<URL>http://example.com/url</URL>
-\t\t\t\t\t<UUID>bla-foo-abcd-1234</UUID>
-\t\t\t\t\t<Username>user</Username>
-\t\t\t\t\t<Password>pass</Password>
-\t\t\t\t\t<ExecutionEnvRef>foo</ExecutionEnvRef>
-\t\t\t\t</InstallOpStruct>
-\t\t\t\t<UpdateOpStruct>
-\t\t\t\t\t<URL>http://example.com/url</URL>
-\t\t\t\t\t<UUID>bla-foo-abcd-1234</UUID>
-\t\t\t\t\t<Username>user</Username>
-\t\t\t\t\t<Password>pass</Password>
-\t\t\t\t\t<Version>v2.0</Version>
-\t\t\t\t</UpdateOpStruct>
-\t\t\t\t<UninstallOpStruct>
-\t\t\t\t\t<URL>http://example.com/url</URL>
-\t\t\t\t\t<UUID>bla-foo-abcd-1234</UUID>
-\t\t\t\t\t<ExecutionEnvRef>foo</ExecutionEnvRef>
-\t\t\t\t</UninstallOpStruct>
-\t\t\t</Operations>
-\t\t</cwmp:ChangeDUState>
-\t</SOAP-ENV:Body>
+  <SOAP-ENV:Header>
+    <cwmp:ID SOAP-ENV:mustUnderstand="1">API_69412286f02e475b44783c61972f0a91</cwmp:ID>
+  </SOAP-ENV:Header>
+  <SOAP-ENV:Body>
+    <cwmp:ChangeDUState>
+      <CommandKey>CommandKey</CommandKey>
+      <Operations>
+        <InstallOpStruct>
+          <URL>http://example.com/url</URL>
+          <UUID>bla-foo-abcd-1234</UUID>
+          <Username>user</Username>
+          <Password>pass</Password>
+          <ExecutionEnvRef>foo</ExecutionEnvRef>
+        </InstallOpStruct>
+        <UpdateOpStruct>
+          <URL>http://example.com/url</URL>
+          <UUID>bla-foo-abcd-1234</UUID>
+          <Username>user</Username>
+          <Password>pass</Password>
+          <Version>v2.0</Version>
+        </UpdateOpStruct>
+        <UninstallOpStruct>
+          <URL>http://example.com/url</URL>
+          <UUID>bla-foo-abcd-1234</UUID>
+          <ExecutionEnvRef>foo</ExecutionEnvRef>
+        </UninstallOpStruct>
+      </Operations>
+    </cwmp:ChangeDUState>
+  </SOAP-ENV:Body>
 </SOAP-ENV:Envelope>|
 
   test "generates ChangeDUState request, one of each" do

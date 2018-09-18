@@ -32,7 +32,7 @@ defmodule CWMP.Protocol.Parser.ScheduleDownloadTest do
       </cwmp:ScheduleDownload>
     </SOAP-ENV:Body>
 </SOAP-ENV:Envelope>
-  """
+"""
 
   @sample_result {:ok,%{cwmp_version: "1-0", entries: [%CWMP.Protocol.Messages.ScheduleDownload{
         commandkey: "cmdkey",

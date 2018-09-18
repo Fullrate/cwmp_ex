@@ -18,7 +18,7 @@ defmodule CWMP.Protocol.Parser.RequestDownloadTest do
                 </cwmp:RequestDownload>
         </SOAP-ENV:Body>
 </SOAP-ENV:Envelope>
-  """
+"""
 
   @sample_result {:ok,%{cwmp_version: "1-0",
     entries: [%CWMP.Protocol.Messages.RequestDownload{

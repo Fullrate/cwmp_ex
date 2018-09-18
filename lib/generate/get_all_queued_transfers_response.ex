@@ -14,7 +14,7 @@ defimpl CWMP.Protocol.Generate, for: CWMP.Protocol.Messages.GetAllQueuedTransfer
     if ts.filetype == nil do
       raise "Filetype can not be nil"
     end
-    if not hd(to_charlist(ts.filetype)) in [49,50,51,52,53,54,55,88] do
+    if hd(to_charlist(ts.filetype)) not in [49,50,51,52,53,54,55,88] do
       raise "Invalid filetype"
     end
     filesize=integerValue(ts.filesize, fn(x) -> x>=0 end)

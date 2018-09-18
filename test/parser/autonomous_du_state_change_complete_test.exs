@@ -31,7 +31,7 @@ defmodule CWMP.Protocol.Parser.AutonomousDUStateChangeCompleteTest do
                 </cwmp:AutonomousDUStateChangeComplete>
         </SOAP-ENV:Body>
 </SOAP-ENV:Envelope>
-  """
+"""
 
   @sample_result {:ok,%{cwmp_version: "1-0", entries: [%CWMP.Protocol.Messages.AutonomousDUStateChangeComplete{
         results: [

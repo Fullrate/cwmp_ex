@@ -1,7 +1,7 @@
 defmodule CWMP.Protocol.Parser.AddObjectResponseTest do
   use ExUnit.Case, async: true
 
-  @sample """
+@sample """
 <SOAP-ENV:Envelope
     xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/"
     xmlns:SOAP-ENC="http://schemas.xmlsoap.org/soap/encoding/"
@@ -18,7 +18,7 @@ defmodule CWMP.Protocol.Parser.AddObjectResponseTest do
       </cwmp:AddObjectResponse>
     </SOAP-ENV:Body>
 </SOAP-ENV:Envelope>
-  """
+"""
 
   @sample_result {:ok,%{cwmp_version: "1-0", entries: [%CWMP.Protocol.Messages.AddObjectResponse{
         instance_number: 1,

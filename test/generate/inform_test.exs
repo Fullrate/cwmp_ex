@@ -3,62 +3,62 @@ defmodule CWMP.Protocol.Generator.InformTest do
   import TestHelpers
 
   @sample ~s|<SOAP-ENV:Envelope xmlns:SOAP-ENC="http://schemas.xmlsoap.org/soap/encoding/" xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/" xmlns:cwmp="urn:dslforum-org:cwmp-1-4" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
-\t<SOAP-ENV:Header>
-\t\t<cwmp:ID SOAP-ENV:mustUnderstand="1">100</cwmp:ID>
-\t</SOAP-ENV:Header>
-\t<SOAP-ENV:Body>
-\t\t<cwmp:Inform>
-\t\t\t<DeviceId>
-\t\t\t\t<Manufacturer>ZyXEL</Manufacturer>
-\t\t\t\t<OUI>EC43F6</OUI>
-\t\t\t\t<ProductClass>P-2601HN-F1</ProductClass>
-\t\t\t\t<SerialNumber>EC43F69AF408</SerialNumber>
-\t\t\t</DeviceId>
-\t\t\t<Event SOAP-ENC:arrayType="cwmp:EventStruct[1]">
-\t\t\t\t<EventStruct>
-\t\t\t\t\t<EventCode>2 PERIODIC</EventCode>
-\t\t\t\t\t<CommandKey></CommandKey>
-\t\t\t\t</EventStruct>
-\t\t\t</Event>
-\t\t\t<MaxEnvelopes>1</MaxEnvelopes>
-\t\t\t<CurrentTime>2015-01-19T23:08:24Z</CurrentTime>
-\t\t\t<RetryCount>0</RetryCount>
-\t\t\t<ParameterList SOAP-ENC:arrayType="cwmp:ParameterValueStruct[8]">
-\t\t\t\t<ParameterValueStruct>
-\t\t\t\t\t<Name>InternetGatewayDevice.DeviceSummary</Name>
-\t\t\t\t\t<Value xsi:type="xsd:string">InternetGatewayDevice:1.4[](Baseline:1, EthernetLAN:1, WiFiLAN:1, EthernetWAN:1, ADSLWAN:1, IPPing:1, DSLDiagnostics:1, Time:1), VoiceService:1.0[1](Endpoint:1, SIPEndpoint:1)</Value>
-\t\t\t\t</ParameterValueStruct>
-\t\t\t\t<ParameterValueStruct>
-\t\t\t\t\t<Name>InternetGatewayDevice.DeviceInfo.SpecVersion</Name>
-\t\t\t\t\t<Value xsi:type="xsd:string">1.0</Value>
-\t\t\t\t</ParameterValueStruct>
-\t\t\t\t<ParameterValueStruct>
-\t\t\t\t\t<Name>InternetGatewayDevice.DeviceInfo.HardwareVersion</Name>
-\t\t\t\t\t<Value xsi:type="xsd:string">P-2601HN-F1</Value>
-\t\t\t\t</ParameterValueStruct>
-\t\t\t\t<ParameterValueStruct>
-\t\t\t\t\t<Name>InternetGatewayDevice.DeviceInfo.SoftwareVersion</Name>
-\t\t\t\t\t<Value xsi:type="xsd:string">V1.00(AACB.3)</Value>
-\t\t\t\t</ParameterValueStruct>
-\t\t\t\t<ParameterValueStruct>
-\t\t\t\t\t<Name>InternetGatewayDevice.DeviceInfo.ProvisioningCode</Name>
-\t\t\t\t\t<Value xsi:type="xsd:string"></Value>
-\t\t\t\t</ParameterValueStruct>
-\t\t\t\t<ParameterValueStruct>
-\t\t\t\t\t<Name>InternetGatewayDevice.ManagementServer.ConnectionRequestURL</Name>
-\t\t\t\t\t<Value xsi:type="xsd:string">http://2.110.157.83:7676/CWMP/ConnectionRequest</Value>
-\t\t\t\t</ParameterValueStruct>
-\t\t\t\t<ParameterValueStruct>
-\t\t\t\t\t<Name>InternetGatewayDevice.ManagementServer.ParameterKey</Name>
-\t\t\t\t\t<Value xsi:type="xsd:string"></Value>
-\t\t\t\t</ParameterValueStruct>
-\t\t\t\t<ParameterValueStruct>
-\t\t\t\t\t<Name>InternetGatewayDevice.WANDevice.1.WANConnectionDevice.1.WANIPConnection.1.ExternalIPAddress</Name>
-\t\t\t\t\t<Value xsi:type="xsd:string">2.110.157.83</Value>
-\t\t\t\t</ParameterValueStruct>
-\t\t\t</ParameterList>
-\t\t</cwmp:Inform>
-\t</SOAP-ENV:Body>
+  <SOAP-ENV:Header>
+    <cwmp:ID SOAP-ENV:mustUnderstand="1">100</cwmp:ID>
+  </SOAP-ENV:Header>
+  <SOAP-ENV:Body>
+    <cwmp:Inform>
+      <DeviceId>
+        <Manufacturer>ZyXEL</Manufacturer>
+        <OUI>EC43F6</OUI>
+        <ProductClass>P-2601HN-F1</ProductClass>
+        <SerialNumber>EC43F69AF408</SerialNumber>
+      </DeviceId>
+      <Event SOAP-ENC:arrayType="cwmp:EventStruct[1]">
+        <EventStruct>
+          <EventCode>2 PERIODIC</EventCode>
+          <CommandKey></CommandKey>
+        </EventStruct>
+      </Event>
+      <MaxEnvelopes>1</MaxEnvelopes>
+      <CurrentTime>2015-01-19T23:08:24Z</CurrentTime>
+      <RetryCount>0</RetryCount>
+      <ParameterList SOAP-ENC:arrayType="cwmp:ParameterValueStruct[8]">
+        <ParameterValueStruct>
+          <Name>InternetGatewayDevice.DeviceSummary</Name>
+          <Value xsi:type="xsd:string">InternetGatewayDevice:1.4[](Baseline:1, EthernetLAN:1, WiFiLAN:1, EthernetWAN:1, ADSLWAN:1, IPPing:1, DSLDiagnostics:1, Time:1), VoiceService:1.0[1](Endpoint:1, SIPEndpoint:1)</Value>
+        </ParameterValueStruct>
+        <ParameterValueStruct>
+          <Name>InternetGatewayDevice.DeviceInfo.SpecVersion</Name>
+          <Value xsi:type="xsd:string">1.0</Value>
+        </ParameterValueStruct>
+        <ParameterValueStruct>
+          <Name>InternetGatewayDevice.DeviceInfo.HardwareVersion</Name>
+          <Value xsi:type="xsd:string">P-2601HN-F1</Value>
+        </ParameterValueStruct>
+        <ParameterValueStruct>
+          <Name>InternetGatewayDevice.DeviceInfo.SoftwareVersion</Name>
+          <Value xsi:type="xsd:string">V1.00(AACB.3)</Value>
+        </ParameterValueStruct>
+        <ParameterValueStruct>
+          <Name>InternetGatewayDevice.DeviceInfo.ProvisioningCode</Name>
+          <Value xsi:type="xsd:string"></Value>
+        </ParameterValueStruct>
+        <ParameterValueStruct>
+          <Name>InternetGatewayDevice.ManagementServer.ConnectionRequestURL</Name>
+          <Value xsi:type="xsd:string">http://2.110.157.83:7676/CWMP/ConnectionRequest</Value>
+        </ParameterValueStruct>
+        <ParameterValueStruct>
+          <Name>InternetGatewayDevice.ManagementServer.ParameterKey</Name>
+          <Value xsi:type="xsd:string"></Value>
+        </ParameterValueStruct>
+        <ParameterValueStruct>
+          <Name>InternetGatewayDevice.WANDevice.1.WANConnectionDevice.1.WANIPConnection.1.ExternalIPAddress</Name>
+          <Value xsi:type="xsd:string">2.110.157.83</Value>
+        </ParameterValueStruct>
+      </ParameterList>
+    </cwmp:Inform>
+  </SOAP-ENV:Body>
 </SOAP-ENV:Envelope>|
 
   test "generates inform request" do

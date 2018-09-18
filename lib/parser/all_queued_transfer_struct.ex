@@ -19,7 +19,7 @@ defmodule CWMP.Protocol.Parser.Messages.AllQueuedTransferStruct do
   end
 
   def end_element(state, ['FileType']) do
-    if not hd(to_charlist(state.last_text)) in [49,50,51,52,53,54,55,88] do
+    if hd(to_charlist(state.last_text)) not in [49,50,51,52,53,54,55,88] do
       raise "Invalid filetype"
     end
     update_acc(state, fn acc -> %AllQueuedTransferStruct{acc | filetype: state.last_text} end)

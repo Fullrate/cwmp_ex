@@ -17,7 +17,7 @@ defmodule CWMP.Protocol.Parser.CancelTransferTest do
       </cwmp:CancelTransfer>
     </SOAP-ENV:Body>
 </SOAP-ENV:Envelope>
-  """
+"""
 
   @sample_result {:ok,%{cwmp_version: "1-0", entries: [%CWMP.Protocol.Messages.CancelTransfer{
         commandkey: "cmdkey"

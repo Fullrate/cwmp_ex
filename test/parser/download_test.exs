@@ -26,7 +26,7 @@ defmodule CWMP.Protocol.Parser.DownloadTest do
       </cwmp:Download>
     </SOAP-ENV:Body>
 </SOAP-ENV:Envelope>
-  """
+"""
 
   @sample_result {:ok,%{cwmp_version: "1-0", entries: [%CWMP.Protocol.Messages.Download{
         commandkey: "cmdkey",
@@ -72,7 +72,7 @@ defmodule CWMP.Protocol.Parser.DownloadTest do
       </cwmp:Download>
     </SOAP-ENV:Body>
 </SOAP-ENV:Envelope>
-  """
+"""
 
   test "raise Download request, invalid FileSize" do
     assert(catch_error(CWMP.Protocol.Parser.parse!(@sample2))==%RuntimeError{message: "Integer value does not parse"})
@@ -97,7 +97,7 @@ defmodule CWMP.Protocol.Parser.DownloadTest do
       </cwmp:Download>
     </SOAP-ENV:Body>
 </SOAP-ENV:Envelope>
-  """
+"""
 
   @sample3_result {:ok,%{cwmp_version: "1-0", entries: [%CWMP.Protocol.Messages.Download{
         commandkey: "cmdkey",

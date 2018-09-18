@@ -17,7 +17,7 @@ defmodule CWMP.Protocol.Parser.KickedResponseTest do
       </cwmp:KickedResponse>
     </SOAP-ENV:Body>
 </SOAP-ENV:Envelope>
-  """
+"""
 
   @sample_result {:ok,%{cwmp_version: "1-0", entries: [%CWMP.Protocol.Messages.KickedResponse{
         next_url: "http://example.com/next"}],

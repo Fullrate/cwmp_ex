@@ -3,25 +3,25 @@ defmodule CWMP.Protocol.Generator.AutonomousTransferCompleteTest do
   import TestHelpers
 
   @sample ~s|<SOAP-ENV:Envelope xmlns:SOAP-ENC="http://schemas.xmlsoap.org/soap/encoding/" xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/" xmlns:cwmp="urn:dslforum-org:cwmp-1-4" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
-\t<SOAP-ENV:Header>
-\t\t<cwmp:ID SOAP-ENV:mustUnderstand="1">API_69412286f02e475b44783c61972f0a91</cwmp:ID>
-\t</SOAP-ENV:Header>
-\t<SOAP-ENV:Body>
-\t\t<cwmp:AutonomousTransferComplete>
-\t\t\t<AnnounceURL>http://example.com/announce</AnnounceURL>
-\t\t\t<TransferURL>http://example.com/transfer</TransferURL>
-\t\t\t<IsDownload>1</IsDownload>
-\t\t\t<FileType>1 Firmware Upgrade Image</FileType>
-\t\t\t<FileSize>154321</FileSize>
-\t\t\t<TargetFileName>image</TargetFileName>
-\t\t\t<FaultStruct>
-\t\t\t\t<FaultCode>0</FaultCode>
-\t\t\t\t<FaultString></FaultString>
-\t\t\t</FaultStruct>
-\t\t\t<StartTime>2015-01-19T23:08:24Z</StartTime>
-\t\t\t<CompleteTime>2015-01-19T23:18:24Z</CompleteTime>
-\t\t</cwmp:AutonomousTransferComplete>
-\t</SOAP-ENV:Body>
+  <SOAP-ENV:Header>
+    <cwmp:ID SOAP-ENV:mustUnderstand="1">API_69412286f02e475b44783c61972f0a91</cwmp:ID>
+  </SOAP-ENV:Header>
+  <SOAP-ENV:Body>
+    <cwmp:AutonomousTransferComplete>
+      <AnnounceURL>http://example.com/announce</AnnounceURL>
+      <TransferURL>http://example.com/transfer</TransferURL>
+      <IsDownload>1</IsDownload>
+      <FileType>1 Firmware Upgrade Image</FileType>
+      <FileSize>154321</FileSize>
+      <TargetFileName>image</TargetFileName>
+      <FaultStruct>
+        <FaultCode>0</FaultCode>
+        <FaultString></FaultString>
+      </FaultStruct>
+      <StartTime>2015-01-19T23:08:24Z</StartTime>
+      <CompleteTime>2015-01-19T23:18:24Z</CompleteTime>
+    </cwmp:AutonomousTransferComplete>
+  </SOAP-ENV:Body>
 </SOAP-ENV:Envelope>|
 
   test "generates AutonomousTransferComplete request" do
@@ -39,25 +39,25 @@ defmodule CWMP.Protocol.Generator.AutonomousTransferCompleteTest do
   end
 
   @sample2 ~s|<SOAP-ENV:Envelope xmlns:SOAP-ENC="http://schemas.xmlsoap.org/soap/encoding/" xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/" xmlns:cwmp="urn:dslforum-org:cwmp-1-4" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
-\t<SOAP-ENV:Header>
-\t\t<cwmp:ID SOAP-ENV:mustUnderstand="1">API_69412286f02e475b44783c61972f0a91</cwmp:ID>
-\t</SOAP-ENV:Header>
-\t<SOAP-ENV:Body>
-\t\t<cwmp:AutonomousTransferComplete>
-\t\t\t<AnnounceURL>http://example.com/announce</AnnounceURL>
-\t\t\t<TransferURL>http://example.com/transfer</TransferURL>
-\t\t\t<IsDownload>0</IsDownload>
-\t\t\t<FileType>1 Firmware Upgrade Image</FileType>
-\t\t\t<FileSize>154321</FileSize>
-\t\t\t<TargetFileName>image</TargetFileName>
-\t\t\t<FaultStruct>
-\t\t\t\t<FaultCode>0</FaultCode>
-\t\t\t\t<FaultString></FaultString>
-\t\t\t</FaultStruct>
-\t\t\t<StartTime>1970-01-01T00:00:00Z</StartTime>
-\t\t\t<CompleteTime>2015-01-19T23:18:24Z</CompleteTime>
-\t\t</cwmp:AutonomousTransferComplete>
-\t</SOAP-ENV:Body>
+  <SOAP-ENV:Header>
+    <cwmp:ID SOAP-ENV:mustUnderstand="1">API_69412286f02e475b44783c61972f0a91</cwmp:ID>
+  </SOAP-ENV:Header>
+  <SOAP-ENV:Body>
+    <cwmp:AutonomousTransferComplete>
+      <AnnounceURL>http://example.com/announce</AnnounceURL>
+      <TransferURL>http://example.com/transfer</TransferURL>
+      <IsDownload>0</IsDownload>
+      <FileType>1 Firmware Upgrade Image</FileType>
+      <FileSize>154321</FileSize>
+      <TargetFileName>image</TargetFileName>
+      <FaultStruct>
+        <FaultCode>0</FaultCode>
+        <FaultString></FaultString>
+      </FaultStruct>
+      <StartTime>1970-01-01T00:00:00Z</StartTime>
+      <CompleteTime>2015-01-19T23:18:24Z</CompleteTime>
+    </cwmp:AutonomousTransferComplete>
+  </SOAP-ENV:Body>
 </SOAP-ENV:Envelope>|
 
   test "generates 2nd AutonomousTransferComplete request" do
@@ -74,25 +74,25 @@ defmodule CWMP.Protocol.Generator.AutonomousTransferCompleteTest do
   end
 
   @sample3 ~s|<SOAP-ENV:Envelope xmlns:SOAP-ENC="http://schemas.xmlsoap.org/soap/encoding/" xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/" xmlns:cwmp="urn:dslforum-org:cwmp-1-4" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
-\t<SOAP-ENV:Header>
-\t\t<cwmp:ID SOAP-ENV:mustUnderstand="1">API_69412286f02e475b44783c61972f0a91</cwmp:ID>
-\t</SOAP-ENV:Header>
-\t<SOAP-ENV:Body>
-\t\t<cwmp:AutonomousTransferComplete>
-\t\t\t<AnnounceURL>http://example.com/announce</AnnounceURL>
-\t\t\t<TransferURL>http://example.com/transfer</TransferURL>
-\t\t\t<IsDownload>0</IsDownload>
-\t\t\t<FileType>1 Firmware Upgrade Image</FileType>
-\t\t\t<FileSize>154321</FileSize>
-\t\t\t<TargetFileName>image</TargetFileName>
-\t\t\t<FaultStruct>
-\t\t\t\t<FaultCode>0</FaultCode>
-\t\t\t\t<FaultString></FaultString>
-\t\t\t</FaultStruct>
-\t\t\t<StartTime>1970-01-01T00:00:00Z</StartTime>
-\t\t\t<CompleteTime>1970-01-01T00:00:00Z</CompleteTime>
-\t\t</cwmp:AutonomousTransferComplete>
-\t</SOAP-ENV:Body>
+  <SOAP-ENV:Header>
+    <cwmp:ID SOAP-ENV:mustUnderstand="1">API_69412286f02e475b44783c61972f0a91</cwmp:ID>
+  </SOAP-ENV:Header>
+  <SOAP-ENV:Body>
+    <cwmp:AutonomousTransferComplete>
+      <AnnounceURL>http://example.com/announce</AnnounceURL>
+      <TransferURL>http://example.com/transfer</TransferURL>
+      <IsDownload>0</IsDownload>
+      <FileType>1 Firmware Upgrade Image</FileType>
+      <FileSize>154321</FileSize>
+      <TargetFileName>image</TargetFileName>
+      <FaultStruct>
+        <FaultCode>0</FaultCode>
+        <FaultString></FaultString>
+      </FaultStruct>
+      <StartTime>1970-01-01T00:00:00Z</StartTime>
+      <CompleteTime>1970-01-01T00:00:00Z</CompleteTime>
+    </cwmp:AutonomousTransferComplete>
+  </SOAP-ENV:Body>
 </SOAP-ENV:Envelope>|
 
   test "generates 3rd AutonomousTransferComplete request" do

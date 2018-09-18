@@ -17,7 +17,7 @@ defmodule CWMP.Protocol.Parser.DeleteObjectResponseTest do
       </cwmp:DeleteObjectResponse>
     </SOAP-ENV:Body>
 </SOAP-ENV:Envelope>
-  """
+"""
 
   @sample_result {:ok,%{cwmp_version: "1-0", entries: [%CWMP.Protocol.Messages.DeleteObjectResponse{
         status: 0
@@ -45,7 +45,7 @@ defmodule CWMP.Protocol.Parser.DeleteObjectResponseTest do
       </cwmp:DeleteObjectResponse>
     </SOAP-ENV:Body>
 </SOAP-ENV:Envelope>
-  """
+"""
 
   @sample2_result {:ok,%{cwmp_version: "1-0", entries: [%CWMP.Protocol.Messages.DeleteObjectResponse{
         status: 1
@@ -73,7 +73,7 @@ defmodule CWMP.Protocol.Parser.DeleteObjectResponseTest do
       </cwmp:DeleteObjectResponse>
     </SOAP-ENV:Body>
 </SOAP-ENV:Envelope>
-  """
+"""
 
   test "raise RuntimeError on DeleteObjectResponse request parse" do
     assert(catch_error(CWMP.Protocol.Parser.parse!(@sample3)) == %RuntimeError{message: "Integer does not validate"})

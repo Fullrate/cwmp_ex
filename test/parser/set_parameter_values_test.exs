@@ -21,7 +21,7 @@ defmodule CWMP.Protocol.Parser.SetParameterValuesTest do
                 </cwmp:SetParameterValues>
         </SOAP-ENV:Body>
 </SOAP-ENV:Envelope>
-  """
+"""
 
   @sample_result {:ok,%{cwmp_version: "1-0", entries: [%CWMP.Protocol.Messages.SetParameterValues{
         parameters: [
@@ -58,7 +58,7 @@ defmodule CWMP.Protocol.Parser.SetParameterValuesTest do
                 </cwmp:SetParameterValues>
         </SOAP-ENV:Body>
 </SOAP-ENV:Envelope>
-  """
+"""
 
   @sample2_result {:ok,%{cwmp_version: "1-0", entries: [%CWMP.Protocol.Messages.SetParameterValues{
         parameters: [

@@ -10,7 +10,7 @@ defmodule CWMP.Protocol.Parser.AutonomousTransferCompleteResponseTest do
                 <cwmp:AutonomousTransferCompleteResponse/>
         </SOAP-ENV:Body>
 </SOAP-ENV:Envelope>
-  """
+"""
 
   @sample_result {:ok,%{cwmp_version: "1-0", entries: [%CWMP.Protocol.Messages.AutonomousTransferCompleteResponse{naught: nil}],
     header: %CWMP.Protocol.Messages.Header{hold_requests: false, id: "1",

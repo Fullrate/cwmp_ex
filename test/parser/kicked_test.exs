@@ -20,7 +20,7 @@ defmodule CWMP.Protocol.Parser.KickedTest do
       </cwmp:Kicked>
     </SOAP-ENV:Body>
 </SOAP-ENV:Envelope>
-  """
+"""
 
   @sample_result {:ok,%{cwmp_version: "1-0", entries: [%CWMP.Protocol.Messages.Kicked{
         command: "cmd",

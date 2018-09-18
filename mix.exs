@@ -3,7 +3,7 @@ defmodule CWMP.Protocol.Mixfile do
 
   def project do
     [app: :cwmp_ex,
-     version: "0.2.3",
+     version: "0.2.4",
      elixir: "~> 1.6",
      build_embedded: Mix.env == :prod,
      start_permanent: Mix.env == :prod,
@@ -25,11 +25,11 @@ defmodule CWMP.Protocol.Mixfile do
   end
 
   defp deps do
-    [{:mix_test_watch, "~> 0.3.3", only: :dev},
-     {:poison, "~> 2.2"},
-     {:xml_builder, "~> 0.0.9"},
+    [{:mix_test_watch, "~> 0.9.0", only: :dev},
+     {:poison, "~> 4.0.1"},
+     {:xml_builder, "~> 2.1.0"},
      {:erlsom, "~> 1.4.2"},
-     {:ex_doc, "~> 0.15.1", only: :dev}
+     {:ex_doc, "~> 0.19.1", only: :dev}
    ]
   end
 end

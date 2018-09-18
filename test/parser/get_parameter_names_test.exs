@@ -18,7 +18,7 @@ defmodule CWMP.Protocol.Parser.GetParameterNamesTest do
       </cwmp:GetParameterNames>
     </SOAP-ENV:Body>
 </SOAP-ENV:Envelope>
-  """
+"""
 
   @sample_result {:ok,%{cwmp_version: "1-0", entries: [%CWMP.Protocol.Messages.GetParameterNames{
         parameter_path: "InternetGatewayDevice.DeviceInfo.",

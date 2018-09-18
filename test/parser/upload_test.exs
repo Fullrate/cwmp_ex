@@ -22,7 +22,7 @@ defmodule CWMP.Protocol.Parser.UploadTest do
       </cwmp:Upload>
     </SOAP-ENV:Body>
 </SOAP-ENV:Envelope>
-  """
+"""
 
   @sample_result {:ok,%{cwmp_version: "1-0", entries: [%CWMP.Protocol.Messages.Upload{
         commandkey: "cmdkey",
@@ -57,7 +57,7 @@ defmodule CWMP.Protocol.Parser.UploadTest do
       </cwmp:Upload>
     </SOAP-ENV:Body>
 </SOAP-ENV:Envelope>
-  """
+"""
 
   @sample2_result {:ok,%{cwmp_version: "1-0", entries: [%CWMP.Protocol.Messages.Upload{
         commandkey: "cmdkey",

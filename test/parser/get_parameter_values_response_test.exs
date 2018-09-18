@@ -21,7 +21,7 @@ defmodule CWMP.Protocol.Parser.GetParameterValuesResponseTest do
                 </cwmp:GetParameterValuesResponse>
         </SOAP-ENV:Body>
 </SOAP-ENV:Envelope>
-  """
+"""
 
   @sample_result {:ok,%{cwmp_version: "1-0", entries: [%CWMP.Protocol.Messages.GetParameterValuesResponse{
         parameters: [%CWMP.Protocol.Messages.ParameterValueStruct{name: "Device.IP.Interface.3.IPv4AddressNumberOfEntries",

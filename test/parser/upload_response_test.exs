@@ -20,7 +20,7 @@ defmodule CWMP.Protocol.Parser.UploadResponseTest do
       </cwmp:UploadResponse>
     </SOAP-ENV:Body>
 </SOAP-ENV:Envelope>
-  """
+"""
 
   @sample_result {:ok,%{cwmp_version: "1-0", entries: [%CWMP.Protocol.Messages.UploadResponse{
         status: 1,
@@ -52,7 +52,7 @@ defmodule CWMP.Protocol.Parser.UploadResponseTest do
       </cwmp:UploadResponse>
     </SOAP-ENV:Body>
 </SOAP-ENV:Envelope>
-  """
+"""
 
   test "raise, invalid status" do
     assert(catch_error(CWMP.Protocol.Parser.parse!(@sample2))==%RuntimeError{message: "Integer does not validate"})
@@ -75,7 +75,7 @@ defmodule CWMP.Protocol.Parser.UploadResponseTest do
       </cwmp:UploadResponse>
     </SOAP-ENV:Body>
 </SOAP-ENV:Envelope>
-  """
+"""
 
   @sample_result3 {:ok,%{cwmp_version: "1-0", entries: [%CWMP.Protocol.Messages.UploadResponse{
         status: 1,
@@ -107,7 +107,7 @@ defmodule CWMP.Protocol.Parser.UploadResponseTest do
       </cwmp:UploadResponse>
     </SOAP-ENV:Body>
 </SOAP-ENV:Envelope>
-  """
+"""
 
   test "parses UploadResponse request, invalid StartTime" do
     assert(catch_error(CWMP.Protocol.Parser.parse!(@sample4))==%RuntimeError{message: "timestring 'foo' is unparseable: :invalid_format"})

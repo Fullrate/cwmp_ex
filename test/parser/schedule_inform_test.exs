@@ -18,7 +18,7 @@ defmodule CWMP.Protocol.Parser.ScheduleInformTest do
       </cwmp:ScheduleInform>
     </SOAP-ENV:Body>
 </SOAP-ENV:Envelope>
-  """
+"""
 
   @sample_result {:ok,%{cwmp_version: "1-0", entries: [%CWMP.Protocol.Messages.ScheduleInform{delay_seconds: 5, commandkey: "cmdkey"}],
     header: %CWMP.Protocol.Messages.Header{hold_requests: false, id: "API_28edd28d788a784422413db3914c34b0",

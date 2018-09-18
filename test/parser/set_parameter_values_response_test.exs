@@ -12,7 +12,7 @@ defmodule CWMP.Protocol.Parser.SetParameterValuesResponseTest do
                 </cwmp:SetParameterValuesResponse>
         </SOAP-ENV:Body>
 </SOAP-ENV:Envelope>
-  """
+"""
 
   @sample_result {:ok,%{cwmp_version: "1-0", entries: [%CWMP.Protocol.Messages.SetParameterValuesResponse{
         status: 0}],

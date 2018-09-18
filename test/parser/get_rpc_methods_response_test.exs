@@ -32,7 +32,7 @@ defmodule CWMP.Protocol.Parser.GetRPCMethodsResponseTest do
       </cwmp:GetRPCMethodsResponse>
     </SOAP-ENV:Body>
 </SOAP-ENV:Envelope>
-  """
+"""
 
   @sample_result {:ok,%{cwmp_version: "1-0", entries: [%CWMP.Protocol.Messages.GetRPCMethodsResponse{
         methods: ["GetRPCMethods", "SetParameterValues", "GetParameterValues", "GetParameterNames", "GetParameterAttributes", "SetParameterAttributes", "AddObject", "DeleteObject", "Reboot", "Download", "Upload", "GetQueuedTransfers", "ScheduleInform", "FactoryReset"] }],

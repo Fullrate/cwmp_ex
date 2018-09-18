@@ -24,7 +24,7 @@ defmodule CWMP.Protocol.Parser.AutonomousTransferCompleteTest do
                 </cwmp:AutonomousTransferComplete>
         </SOAP-ENV:Body>
 </SOAP-ENV:Envelope>
-  """
+"""
 
   @sample_result {:ok,%{cwmp_version: "1-0", entries: [%CWMP.Protocol.Messages.AutonomousTransferComplete{
       complete_time: generate_datetime({{7,4,2016},{8,45,6}}),

@@ -10,7 +10,7 @@ defimpl CWMP.Protocol.Generate, for: CWMP.Protocol.Messages.Upload do
         {:error} -> raise "key #{f} must be set"
       end
     end)
-    if not hd(to_charlist(req.filetype)) in [49,50,51,52,88] do
+    if hd(to_charlist(req.filetype)) not in [49,50,51,52,88] do
       raise "Invalid filetype"
     end
     element("cwmp:Upload", [

@@ -19,7 +19,7 @@ defmodule CWMP.Protocol.Parser.TransferCompleteTest do
                 </cwmp:TransferComplete>
         </SOAP-ENV:Body>
 </SOAP-ENV:Envelope>
-  """
+"""
 
   @sample_result {:ok,%{cwmp_version: "1-0", entries: [%CWMP.Protocol.Messages.TransferComplete{complete_time: generate_datetime({{7,4,2016},{8,45,6}}),
           start_time: generate_datetime({{7,4,2016},{8,43,49}}),
