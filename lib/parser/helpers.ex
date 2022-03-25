@@ -52,9 +52,9 @@ defmodule CWMP.Protocol.ParserHelpers do
   the restraints layed out by the anon function passed.
 
   """
-  def integerValue(i, fun \\ fn(x) -> x end)
+  def integerValue(i, fun \\ fn x -> x end)
 
-  def integerValue(i, fun) when is_integer( i ) do
+  def integerValue(i, fun) when is_integer(i) do
     if fun.(i) do
       i
     else
@@ -64,27 +64,29 @@ defmodule CWMP.Protocol.ParserHelpers do
 
   def integerValue(i, fun) do
     case Integer.parse(i) do
-      {v,""} -> if fun.(v) do
-                  v
-                else
-                  raise "Integer does not validate"
-                end
-      _ -> raise "Integer value does not parse"
+      {v, ""} ->
+        if fun.(v) do
+          v
+        else
+          raise "Integer does not validate"
+        end
+
+      _ ->
+        raise "Integer value does not parse"
     end
   end
 
   def datetimeStructure(timestring) do
-    case DateTime.from_iso8601( timestring ) do
+    case DateTime.from_iso8601(timestring) do
       {:ok, dt, utc_offset} ->
         %DateTime{dt | utc_offset: utc_offset}
+
       {:error, :missing_offset} ->
         datetimeStructure(timestring <> "Z")
-      {:error, reason} ->
-        raise "timestring '#{timestring}' is unparseable: #{inspect reason}"
-        :error
 
-      weird ->
-        IO.inspect weird
+      {:error, reason} ->
+        raise "timestring '#{timestring}' is unparseable: #{inspect(reason)}"
+        :error
     end
   end
 
@@ -100,11 +102,9 @@ defmodule CWMP.Protocol.ParserHelpers do
     if it matches the pattern of a cwmp version.
   """
   def parse_cwmp_version(uri) do
-    case Regex.run(~r/.*dslforum-org:cwmp-(\d-\d)$/,uri) do
-      [_,ver] -> ver
+    case Regex.run(~r/.*dslforum-org:cwmp-(\d-\d)$/, uri) do
+      [_, ver] -> ver
       _ -> nil
     end
   end
-
 end
-
