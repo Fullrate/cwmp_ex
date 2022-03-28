@@ -4,51 +4,80 @@
     <meta charset="utf-8">
     <meta http-equiv="x-ua-compatible" content="ie=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="generator" content="ExDoc v0.19.1">
-    <title>API Reference – cwmp_ex v0.2.5</title>
-    <link rel="stylesheet" href="dist/app-240d7fc7e5.css" />
-      <link rel="canonical" href="https://hexdocs.pm/cwmp_ex/api-reference.html" />
-    <script src="dist/sidebar_items-d496893b42.js"></script>
-    
+    <meta name="generator" content="ExDoc v0.28.3">
+    <meta name="project" content="cwmp_ex v0.2.6">
+
+    <title>API Reference — cwmp_ex v0.2.6</title>
+    <link rel="stylesheet" href="dist/elixir-d5ff82e6b0f5651c0ac0.css" />
+
+    <script src="dist/sidebar_items-d0f15b7335.js"></script>
+
+      <script src="docs_config.js"></script>
+
+    <script async src="dist/app-a088a6cc33ae3464193e.js"></script>
+
+
   </head>
   <body data-type="extras">
-    <script>try { if(localStorage.getItem('night-mode')) document.body.className += ' night-mode'; } catch (e) { }</script>
-<div class="main">
-<button class="sidebar-button sidebar-toggle">
-  <span class="icon-menu" aria-hidden="true"></span>
-  <span class="sr-only">Toggle Sidebar</span>
-</button>
-<button class="sidebar-button night-mode-toggle">
-  <span class="icon-theme" aria-hidden="true"></span>
-  <span class="sr-only">Toggle Theme</span>
-</button>
-<section class="sidebar">
+    <script>
 
-  <a href="api-reference.html" class="sidebar-projectLink">
-    <div class="sidebar-projectDetails">
-      <h1 class="sidebar-projectName">
-cwmp_ex      </h1>
-      <h2 class="sidebar-projectVersion">
-        v0.2.5
-      </h2>
-    </div>
-  </a>
+      try {
+        var settings = JSON.parse(localStorage.getItem('ex_doc:settings') || '{}');
+
+        if (settings.theme === 'dark' ||
+           ((settings.theme === 'system' || settings.theme == null) &&
+             window.matchMedia('(prefers-color-scheme: dark)').matches)
+           ) {
+          document.body.classList.add('dark')
+        }
+      } catch (error) { }
+    </script>
+
+<div class="main">
+
+
+<section class="sidebar">
+  <button class="sidebar-button sidebar-toggle" aria-label="toggle sidebar">
+    <i class="ri-menu-line ri-lg" title="Collapse/expand sidebar"></i>
+  </button>
 
   <form class="sidebar-search" action="search.html">
-    <button type="submit" class="search-button">
-      <span class="icon-search" aria-hidden="true"></span>
+    <button type="submit" class="search-button" aria-label="Submit Search">
+      <i class="ri-search-2-line" aria-hidden="true" title="Submit search"></i>
     </button>
-    <input name="q" type="text" id="search-list" class="search-input" placeholder="Search" aria-label="Search" autocomplete="off" />
+    <button type="button" tabindex="-1" class="search-close-button" aria-label="Cancel Search">
+      <i class="ri-close-line ri-lg" aria-hidden="true" title="Cancel search"></i>
+    </button>
+    <label class="search-label">
+      <p class="sr-only">Search</p>
+      <input name="q" type="text" class="search-input" placeholder="Search..." aria-label="Input your search terms" autocomplete="off" />
+    </label>
   </form>
 
-  <ul class="sidebar-listNav">
-    <li><a id="extras-list" href="#full-list">Pages</a></li>
+  <div class="autocomplete">
+    <div class="autocomplete-results">
+    </div>
+  </div>
 
-      <li><a id="modules-list" href="#full-list">Modules</a></li>
+  <div class="sidebar-header">
 
-      <li><a id="exceptions-list" href="#full-list">Exceptions</a></li>
+    <div class="sidebar-projectDetails">
+      <a href="api-reference.html" class="sidebar-projectName" translate="no">
+cwmp_ex
+      </a>
+      <strong class="sidebar-projectVersion" translate="no">
+        v0.2.6
+      </strong>
+    </div>
+    <ul class="sidebar-listNav">
+      <li><a id="extras-list-link" href="#full-list">Pages</a></li>
 
-  </ul>
+        <li><a id="modules-list-link" href="#full-list">Modules</a></li>
+
+
+    </ul>
+  </div>
+
   <div class="gradient"></div>
   <ul id="full-list" class="sidebar-fullList"></ul>
 </section>
@@ -57,896 +86,1239 @@ cwmp_ex      </h1>
   <div class="content-outer">
     <div id="content" class="content-inner">
 
-
 <h1>
-  <small class="visible-xs">cwmp_ex v0.2.5</small>
-  API Reference
+<button class="settings display-settings">
+  <i class="ri-settings-3-line"></i>
+  <span class="sr-only">Settings</span>
+</button>
+
+
+  <span>API Reference <small class="app-vsn">cwmp_ex v0.2.6</small></span>
 </h1>
+
 
   <section class="details-list">
     <h2 id="modules" class="section-heading">
-  <a href="#modules" class="hover-link"><span class="icon-link" aria-hidden="true"></span></a>
+  <a href="#modules" class="hover-link"><i class="ri-link-m" aria-hidden="true"></i>
+  <p class="sr-only">modules</p>
+  </a>
   Modules
 </h2>
 
     <div class="summary">
 <div class="summary-row">
   <div class="summary-signature">
-    <a href="CWMP.Protocol.html">CWMP.Protocol</a>
+    <a href="CWMP.Protocol.html" translate="no">CWMP.Protocol</a>
+
   </div>
+
 </div>
 <div class="summary-row">
   <div class="summary-signature">
-    <a href="CWMP.Protocol.Generate.html">CWMP.Protocol.Generate</a>
+    <a href="CWMP.Protocol.Generate.html" translate="no">CWMP.Protocol.Generate</a>
+
   </div>
+
 </div>
 <div class="summary-row">
   <div class="summary-signature">
-    <a href="CWMP.Protocol.GenerateHelpers.html">CWMP.Protocol.GenerateHelpers</a>
+    <a href="CWMP.Protocol.GenerateHelpers.html" translate="no">CWMP.Protocol.GenerateHelpers</a>
+
   </div>
+
     <div class="summary-synopsis"><p>A helper module for generating various bits of
-XML or other stings for the Generator modules</p>
-</div>
-</div>
-<div class="summary-row">
-  <div class="summary-signature">
-    <a href="CWMP.Protocol.Generator.html">CWMP.Protocol.Generator</a>
-  </div>
-    <div class="summary-synopsis"><p>Generation of CWMP XML messages, from Elixir data structures</p>
-</div>
+XML or other stings for the Generator modules.</p></div>
+
 </div>
 <div class="summary-row">
   <div class="summary-signature">
-    <a href="CWMP.Protocol.Messages.AddObject.html">CWMP.Protocol.Messages.AddObject</a>
+    <a href="CWMP.Protocol.Generator.html" translate="no">CWMP.Protocol.Generator</a>
+
   </div>
+
+    <div class="summary-synopsis"><p>Generation of CWMP XML messages, from Elixir data structures.</p></div>
+
 </div>
 <div class="summary-row">
   <div class="summary-signature">
-    <a href="CWMP.Protocol.Messages.AddObjectResponse.html">CWMP.Protocol.Messages.AddObjectResponse</a>
+    <a href="CWMP.Protocol.Messages.AddObject.html" translate="no">CWMP.Protocol.Messages.AddObject</a>
+
   </div>
+
 </div>
 <div class="summary-row">
   <div class="summary-signature">
-    <a href="CWMP.Protocol.Messages.AllQueuedTransferStruct.html">CWMP.Protocol.Messages.AllQueuedTransferStruct</a>
+    <a href="CWMP.Protocol.Messages.AddObjectResponse.html" translate="no">CWMP.Protocol.Messages.AddObjectResponse</a>
+
   </div>
+
 </div>
 <div class="summary-row">
   <div class="summary-signature">
-    <a href="CWMP.Protocol.Messages.ArgStruct.html">CWMP.Protocol.Messages.ArgStruct</a>
+    <a href="CWMP.Protocol.Messages.AllQueuedTransferStruct.html" translate="no">CWMP.Protocol.Messages.AllQueuedTransferStruct</a>
+
   </div>
+
 </div>
 <div class="summary-row">
   <div class="summary-signature">
-    <a href="CWMP.Protocol.Messages.AutonOpResultStruct.html">CWMP.Protocol.Messages.AutonOpResultStruct</a>
+    <a href="CWMP.Protocol.Messages.ArgStruct.html" translate="no">CWMP.Protocol.Messages.ArgStruct</a>
+
   </div>
+
 </div>
 <div class="summary-row">
   <div class="summary-signature">
-    <a href="CWMP.Protocol.Messages.AutonomousDUStateChangeComplete.html">CWMP.Protocol.Messages.AutonomousDUStateChangeComplete</a>
+    <a href="CWMP.Protocol.Messages.AutonOpResultStruct.html" translate="no">CWMP.Protocol.Messages.AutonOpResultStruct</a>
+
   </div>
+
 </div>
 <div class="summary-row">
   <div class="summary-signature">
-    <a href="CWMP.Protocol.Messages.AutonomousDUStateChangeCompleteResponse.html">CWMP.Protocol.Messages.AutonomousDUStateChangeCompleteResponse</a>
+    <a href="CWMP.Protocol.Messages.AutonomousDUStateChangeComplete.html" translate="no">CWMP.Protocol.Messages.AutonomousDUStateChangeComplete</a>
+
   </div>
+
 </div>
 <div class="summary-row">
   <div class="summary-signature">
-    <a href="CWMP.Protocol.Messages.AutonomousTransferComplete.html">CWMP.Protocol.Messages.AutonomousTransferComplete</a>
+    <a href="CWMP.Protocol.Messages.AutonomousDUStateChangeCompleteResponse.html" translate="no">CWMP.Protocol.Messages.AutonomousDUStateChangeCompleteResponse</a>
+
   </div>
+
 </div>
 <div class="summary-row">
   <div class="summary-signature">
-    <a href="CWMP.Protocol.Messages.AutonomousTransferCompleteResponse.html">CWMP.Protocol.Messages.AutonomousTransferCompleteResponse</a>
+    <a href="CWMP.Protocol.Messages.AutonomousTransferComplete.html" translate="no">CWMP.Protocol.Messages.AutonomousTransferComplete</a>
+
   </div>
+
 </div>
 <div class="summary-row">
   <div class="summary-signature">
-    <a href="CWMP.Protocol.Messages.CancelTransfer.html">CWMP.Protocol.Messages.CancelTransfer</a>
+    <a href="CWMP.Protocol.Messages.AutonomousTransferCompleteResponse.html" translate="no">CWMP.Protocol.Messages.AutonomousTransferCompleteResponse</a>
+
   </div>
+
 </div>
 <div class="summary-row">
   <div class="summary-signature">
-    <a href="CWMP.Protocol.Messages.CancelTransferResponse.html">CWMP.Protocol.Messages.CancelTransferResponse</a>
+    <a href="CWMP.Protocol.Messages.CancelTransfer.html" translate="no">CWMP.Protocol.Messages.CancelTransfer</a>
+
   </div>
+
 </div>
 <div class="summary-row">
   <div class="summary-signature">
-    <a href="CWMP.Protocol.Messages.ChangeDUState.html">CWMP.Protocol.Messages.ChangeDUState</a>
+    <a href="CWMP.Protocol.Messages.CancelTransferResponse.html" translate="no">CWMP.Protocol.Messages.CancelTransferResponse</a>
+
   </div>
+
 </div>
 <div class="summary-row">
   <div class="summary-signature">
-    <a href="CWMP.Protocol.Messages.ChangeDUStateResponse.html">CWMP.Protocol.Messages.ChangeDUStateResponse</a>
+    <a href="CWMP.Protocol.Messages.ChangeDUState.html" translate="no">CWMP.Protocol.Messages.ChangeDUState</a>
+
   </div>
+
 </div>
 <div class="summary-row">
   <div class="summary-signature">
-    <a href="CWMP.Protocol.Messages.DUStateChangeComplete.html">CWMP.Protocol.Messages.DUStateChangeComplete</a>
+    <a href="CWMP.Protocol.Messages.ChangeDUStateResponse.html" translate="no">CWMP.Protocol.Messages.ChangeDUStateResponse</a>
+
   </div>
+
 </div>
 <div class="summary-row">
   <div class="summary-signature">
-    <a href="CWMP.Protocol.Messages.DUStateChangeCompleteResponse.html">CWMP.Protocol.Messages.DUStateChangeCompleteResponse</a>
+    <a href="CWMP.Protocol.Messages.DUStateChangeComplete.html" translate="no">CWMP.Protocol.Messages.DUStateChangeComplete</a>
+
   </div>
+
 </div>
 <div class="summary-row">
   <div class="summary-signature">
-    <a href="CWMP.Protocol.Messages.DeleteObject.html">CWMP.Protocol.Messages.DeleteObject</a>
+    <a href="CWMP.Protocol.Messages.DUStateChangeCompleteResponse.html" translate="no">CWMP.Protocol.Messages.DUStateChangeCompleteResponse</a>
+
   </div>
+
 </div>
 <div class="summary-row">
   <div class="summary-signature">
-    <a href="CWMP.Protocol.Messages.DeleteObjectResponse.html">CWMP.Protocol.Messages.DeleteObjectResponse</a>
+    <a href="CWMP.Protocol.Messages.DeleteObject.html" translate="no">CWMP.Protocol.Messages.DeleteObject</a>
+
   </div>
+
 </div>
 <div class="summary-row">
   <div class="summary-signature">
-    <a href="CWMP.Protocol.Messages.DeviceIdStruct.html">CWMP.Protocol.Messages.DeviceIdStruct</a>
+    <a href="CWMP.Protocol.Messages.DeleteObjectResponse.html" translate="no">CWMP.Protocol.Messages.DeleteObjectResponse</a>
+
   </div>
+
 </div>
 <div class="summary-row">
   <div class="summary-signature">
-    <a href="CWMP.Protocol.Messages.Download.html">CWMP.Protocol.Messages.Download</a>
+    <a href="CWMP.Protocol.Messages.DeviceIdStruct.html" translate="no">CWMP.Protocol.Messages.DeviceIdStruct</a>
+
   </div>
+
 </div>
 <div class="summary-row">
   <div class="summary-signature">
-    <a href="CWMP.Protocol.Messages.DownloadResponse.html">CWMP.Protocol.Messages.DownloadResponse</a>
+    <a href="CWMP.Protocol.Messages.Download.html" translate="no">CWMP.Protocol.Messages.Download</a>
+
   </div>
+
 </div>
 <div class="summary-row">
   <div class="summary-signature">
-    <a href="CWMP.Protocol.Messages.EventStruct.html">CWMP.Protocol.Messages.EventStruct</a>
+    <a href="CWMP.Protocol.Messages.DownloadResponse.html" translate="no">CWMP.Protocol.Messages.DownloadResponse</a>
+
   </div>
+
 </div>
 <div class="summary-row">
   <div class="summary-signature">
-    <a href="CWMP.Protocol.Messages.FactoryReset.html">CWMP.Protocol.Messages.FactoryReset</a>
+    <a href="CWMP.Protocol.Messages.EventStruct.html" translate="no">CWMP.Protocol.Messages.EventStruct</a>
+
   </div>
+
 </div>
 <div class="summary-row">
   <div class="summary-signature">
-    <a href="CWMP.Protocol.Messages.FactoryResetResponse.html">CWMP.Protocol.Messages.FactoryResetResponse</a>
+    <a href="CWMP.Protocol.Messages.FactoryReset.html" translate="no">CWMP.Protocol.Messages.FactoryReset</a>
+
   </div>
+
 </div>
 <div class="summary-row">
   <div class="summary-signature">
-    <a href="CWMP.Protocol.Messages.Fault.html">CWMP.Protocol.Messages.Fault</a>
+    <a href="CWMP.Protocol.Messages.FactoryResetResponse.html" translate="no">CWMP.Protocol.Messages.FactoryResetResponse</a>
+
   </div>
+
 </div>
 <div class="summary-row">
   <div class="summary-signature">
-    <a href="CWMP.Protocol.Messages.FaultStruct.html">CWMP.Protocol.Messages.FaultStruct</a>
+    <a href="CWMP.Protocol.Messages.Fault.html" translate="no">CWMP.Protocol.Messages.Fault</a>
+
   </div>
+
 </div>
 <div class="summary-row">
   <div class="summary-signature">
-    <a href="CWMP.Protocol.Messages.GetAllQueuedTransfers.html">CWMP.Protocol.Messages.GetAllQueuedTransfers</a>
+    <a href="CWMP.Protocol.Messages.FaultStruct.html" translate="no">CWMP.Protocol.Messages.FaultStruct</a>
+
   </div>
+
 </div>
 <div class="summary-row">
   <div class="summary-signature">
-    <a href="CWMP.Protocol.Messages.GetAllQueuedTransfersResponse.html">CWMP.Protocol.Messages.GetAllQueuedTransfersResponse</a>
+    <a href="CWMP.Protocol.Messages.GetAllQueuedTransfers.html" translate="no">CWMP.Protocol.Messages.GetAllQueuedTransfers</a>
+
   </div>
+
 </div>
 <div class="summary-row">
   <div class="summary-signature">
-    <a href="CWMP.Protocol.Messages.GetOptions.html">CWMP.Protocol.Messages.GetOptions</a>
+    <a href="CWMP.Protocol.Messages.GetAllQueuedTransfersResponse.html" translate="no">CWMP.Protocol.Messages.GetAllQueuedTransfersResponse</a>
+
   </div>
+
 </div>
 <div class="summary-row">
   <div class="summary-signature">
-    <a href="CWMP.Protocol.Messages.GetOptionsResponse.html">CWMP.Protocol.Messages.GetOptionsResponse</a>
+    <a href="CWMP.Protocol.Messages.GetOptions.html" translate="no">CWMP.Protocol.Messages.GetOptions</a>
+
   </div>
+
 </div>
 <div class="summary-row">
   <div class="summary-signature">
-    <a href="CWMP.Protocol.Messages.GetParameterAttributes.html">CWMP.Protocol.Messages.GetParameterAttributes</a>
+    <a href="CWMP.Protocol.Messages.GetOptionsResponse.html" translate="no">CWMP.Protocol.Messages.GetOptionsResponse</a>
+
   </div>
+
 </div>
 <div class="summary-row">
   <div class="summary-signature">
-    <a href="CWMP.Protocol.Messages.GetParameterAttributesResponse.html">CWMP.Protocol.Messages.GetParameterAttributesResponse</a>
+    <a href="CWMP.Protocol.Messages.GetParameterAttributes.html" translate="no">CWMP.Protocol.Messages.GetParameterAttributes</a>
+
   </div>
+
 </div>
 <div class="summary-row">
   <div class="summary-signature">
-    <a href="CWMP.Protocol.Messages.GetParameterNames.html">CWMP.Protocol.Messages.GetParameterNames</a>
+    <a href="CWMP.Protocol.Messages.GetParameterAttributesResponse.html" translate="no">CWMP.Protocol.Messages.GetParameterAttributesResponse</a>
+
   </div>
+
 </div>
 <div class="summary-row">
   <div class="summary-signature">
-    <a href="CWMP.Protocol.Messages.GetParameterNamesResponse.html">CWMP.Protocol.Messages.GetParameterNamesResponse</a>
+    <a href="CWMP.Protocol.Messages.GetParameterNames.html" translate="no">CWMP.Protocol.Messages.GetParameterNames</a>
+
   </div>
+
 </div>
 <div class="summary-row">
   <div class="summary-signature">
-    <a href="CWMP.Protocol.Messages.GetParameterValues.html">CWMP.Protocol.Messages.GetParameterValues</a>
+    <a href="CWMP.Protocol.Messages.GetParameterNamesResponse.html" translate="no">CWMP.Protocol.Messages.GetParameterNamesResponse</a>
+
   </div>
+
 </div>
 <div class="summary-row">
   <div class="summary-signature">
-    <a href="CWMP.Protocol.Messages.GetParameterValuesResponse.html">CWMP.Protocol.Messages.GetParameterValuesResponse</a>
+    <a href="CWMP.Protocol.Messages.GetParameterValues.html" translate="no">CWMP.Protocol.Messages.GetParameterValues</a>
+
   </div>
+
 </div>
 <div class="summary-row">
   <div class="summary-signature">
-    <a href="CWMP.Protocol.Messages.GetParameterValuesStruct.html">CWMP.Protocol.Messages.GetParameterValuesStruct</a>
+    <a href="CWMP.Protocol.Messages.GetParameterValuesResponse.html" translate="no">CWMP.Protocol.Messages.GetParameterValuesResponse</a>
+
   </div>
+
 </div>
 <div class="summary-row">
   <div class="summary-signature">
-    <a href="CWMP.Protocol.Messages.GetQueuedTransfers.html">CWMP.Protocol.Messages.GetQueuedTransfers</a>
+    <a href="CWMP.Protocol.Messages.GetParameterValuesStruct.html" translate="no">CWMP.Protocol.Messages.GetParameterValuesStruct</a>
+
   </div>
+
 </div>
 <div class="summary-row">
   <div class="summary-signature">
-    <a href="CWMP.Protocol.Messages.GetQueuedTransfersResponse.html">CWMP.Protocol.Messages.GetQueuedTransfersResponse</a>
+    <a href="CWMP.Protocol.Messages.GetQueuedTransfers.html" translate="no">CWMP.Protocol.Messages.GetQueuedTransfers</a>
+
   </div>
+
 </div>
 <div class="summary-row">
   <div class="summary-signature">
-    <a href="CWMP.Protocol.Messages.GetRPCMethods.html">CWMP.Protocol.Messages.GetRPCMethods</a>
+    <a href="CWMP.Protocol.Messages.GetQueuedTransfersResponse.html" translate="no">CWMP.Protocol.Messages.GetQueuedTransfersResponse</a>
+
   </div>
+
 </div>
 <div class="summary-row">
   <div class="summary-signature">
-    <a href="CWMP.Protocol.Messages.GetRPCMethodsResponse.html">CWMP.Protocol.Messages.GetRPCMethodsResponse</a>
+    <a href="CWMP.Protocol.Messages.GetRPCMethods.html" translate="no">CWMP.Protocol.Messages.GetRPCMethods</a>
+
   </div>
+
 </div>
 <div class="summary-row">
   <div class="summary-signature">
-    <a href="CWMP.Protocol.Messages.Header.html">CWMP.Protocol.Messages.Header</a>
+    <a href="CWMP.Protocol.Messages.GetRPCMethodsResponse.html" translate="no">CWMP.Protocol.Messages.GetRPCMethodsResponse</a>
+
   </div>
+
 </div>
 <div class="summary-row">
   <div class="summary-signature">
-    <a href="CWMP.Protocol.Messages.Inform.html">CWMP.Protocol.Messages.Inform</a>
+    <a href="CWMP.Protocol.Messages.Header.html" translate="no">CWMP.Protocol.Messages.Header</a>
+
   </div>
+
 </div>
 <div class="summary-row">
   <div class="summary-signature">
-    <a href="CWMP.Protocol.Messages.InformResponse.html">CWMP.Protocol.Messages.InformResponse</a>
+    <a href="CWMP.Protocol.Messages.Inform.html" translate="no">CWMP.Protocol.Messages.Inform</a>
+
   </div>
+
 </div>
 <div class="summary-row">
   <div class="summary-signature">
-    <a href="CWMP.Protocol.Messages.InstallOpStruct.html">CWMP.Protocol.Messages.InstallOpStruct</a>
+    <a href="CWMP.Protocol.Messages.InformResponse.html" translate="no">CWMP.Protocol.Messages.InformResponse</a>
+
   </div>
+
 </div>
 <div class="summary-row">
   <div class="summary-signature">
-    <a href="CWMP.Protocol.Messages.KeyInfoStruct.html">CWMP.Protocol.Messages.KeyInfoStruct</a>
+    <a href="CWMP.Protocol.Messages.InstallOpStruct.html" translate="no">CWMP.Protocol.Messages.InstallOpStruct</a>
+
   </div>
+
+</div>
+<div class="summary-row">
+  <div class="summary-signature">
+    <a href="CWMP.Protocol.Messages.KeyInfoStruct.html" translate="no">CWMP.Protocol.Messages.KeyInfoStruct</a>
+
+  </div>
+
     <div class="summary-synopsis"><p>This structure is for the SetVouchers method
 and conains the information needed to build an XML-Signature
-document containing options</p>
-</div>
+document containing options</p></div>
+
 </div>
 <div class="summary-row">
   <div class="summary-signature">
-    <a href="CWMP.Protocol.Messages.KeyValueStruct.html">CWMP.Protocol.Messages.KeyValueStruct</a>
+    <a href="CWMP.Protocol.Messages.KeyValueStruct.html" translate="no">CWMP.Protocol.Messages.KeyValueStruct</a>
+
   </div>
+
     <div class="summary-synopsis"><p>This structure is for the SetVouchers method
-and is to be contains within a KeyInfoStruct</p>
-</div>
-</div>
-<div class="summary-row">
-  <div class="summary-signature">
-    <a href="CWMP.Protocol.Messages.Kicked.html">CWMP.Protocol.Messages.Kicked</a>
-  </div>
+and is to be contains within a KeyInfoStruct.</p></div>
+
 </div>
 <div class="summary-row">
   <div class="summary-signature">
-    <a href="CWMP.Protocol.Messages.KickedResponse.html">CWMP.Protocol.Messages.KickedResponse</a>
+    <a href="CWMP.Protocol.Messages.Kicked.html" translate="no">CWMP.Protocol.Messages.Kicked</a>
+
   </div>
+
 </div>
 <div class="summary-row">
   <div class="summary-signature">
-    <a href="CWMP.Protocol.Messages.OpResultStruct.html">CWMP.Protocol.Messages.OpResultStruct</a>
+    <a href="CWMP.Protocol.Messages.KickedResponse.html" translate="no">CWMP.Protocol.Messages.KickedResponse</a>
+
   </div>
+
 </div>
 <div class="summary-row">
   <div class="summary-signature">
-    <a href="CWMP.Protocol.Messages.OptionStruct.html">CWMP.Protocol.Messages.OptionStruct</a>
+    <a href="CWMP.Protocol.Messages.OpResultStruct.html" translate="no">CWMP.Protocol.Messages.OpResultStruct</a>
+
   </div>
-    <div class="summary-synopsis"><p>This structure is for the GetOptions method</p>
-</div>
-</div>
-<div class="summary-row">
-  <div class="summary-signature">
-    <a href="CWMP.Protocol.Messages.ParameterAttributeStruct.html">CWMP.Protocol.Messages.ParameterAttributeStruct</a>
-  </div>
+
 </div>
 <div class="summary-row">
   <div class="summary-signature">
-    <a href="CWMP.Protocol.Messages.ParameterInfoStruct.html">CWMP.Protocol.Messages.ParameterInfoStruct</a>
+    <a href="CWMP.Protocol.Messages.OptionStruct.html" translate="no">CWMP.Protocol.Messages.OptionStruct</a>
+
   </div>
+
+    <div class="summary-synopsis"><p>This structure is for the GetOptions method</p></div>
+
 </div>
 <div class="summary-row">
   <div class="summary-signature">
-    <a href="CWMP.Protocol.Messages.ParameterValueStruct.html">CWMP.Protocol.Messages.ParameterValueStruct</a>
+    <a href="CWMP.Protocol.Messages.ParameterAttributeStruct.html" translate="no">CWMP.Protocol.Messages.ParameterAttributeStruct</a>
+
   </div>
+
 </div>
 <div class="summary-row">
   <div class="summary-signature">
-    <a href="CWMP.Protocol.Messages.QueuedTransferStruct.html">CWMP.Protocol.Messages.QueuedTransferStruct</a>
+    <a href="CWMP.Protocol.Messages.ParameterInfoStruct.html" translate="no">CWMP.Protocol.Messages.ParameterInfoStruct</a>
+
   </div>
+
 </div>
 <div class="summary-row">
   <div class="summary-signature">
-    <a href="CWMP.Protocol.Messages.Reboot.html">CWMP.Protocol.Messages.Reboot</a>
+    <a href="CWMP.Protocol.Messages.ParameterValueStruct.html" translate="no">CWMP.Protocol.Messages.ParameterValueStruct</a>
+
   </div>
+
 </div>
 <div class="summary-row">
   <div class="summary-signature">
-    <a href="CWMP.Protocol.Messages.RebootResponse.html">CWMP.Protocol.Messages.RebootResponse</a>
+    <a href="CWMP.Protocol.Messages.QueuedTransferStruct.html" translate="no">CWMP.Protocol.Messages.QueuedTransferStruct</a>
+
   </div>
+
 </div>
 <div class="summary-row">
   <div class="summary-signature">
-    <a href="CWMP.Protocol.Messages.RequestDownload.html">CWMP.Protocol.Messages.RequestDownload</a>
+    <a href="CWMP.Protocol.Messages.Reboot.html" translate="no">CWMP.Protocol.Messages.Reboot</a>
+
   </div>
+
 </div>
 <div class="summary-row">
   <div class="summary-signature">
-    <a href="CWMP.Protocol.Messages.RequestDownloadResponse.html">CWMP.Protocol.Messages.RequestDownloadResponse</a>
+    <a href="CWMP.Protocol.Messages.RebootResponse.html" translate="no">CWMP.Protocol.Messages.RebootResponse</a>
+
   </div>
+
 </div>
 <div class="summary-row">
   <div class="summary-signature">
-    <a href="CWMP.Protocol.Messages.SVOptionStruct.html">CWMP.Protocol.Messages.SVOptionStruct</a>
+    <a href="CWMP.Protocol.Messages.RequestDownload.html" translate="no">CWMP.Protocol.Messages.RequestDownload</a>
+
   </div>
+
+</div>
+<div class="summary-row">
+  <div class="summary-signature">
+    <a href="CWMP.Protocol.Messages.RequestDownloadResponse.html" translate="no">CWMP.Protocol.Messages.RequestDownloadResponse</a>
+
+  </div>
+
+</div>
+<div class="summary-row">
+  <div class="summary-signature">
+    <a href="CWMP.Protocol.Messages.SVOptionStruct.html" translate="no">CWMP.Protocol.Messages.SVOptionStruct</a>
+
+  </div>
+
     <div class="summary-synopsis"><p>This structure is for the SetVouchers method
-and is to be contains within a XMLSignatureStruct</p>
-</div>
-</div>
-<div class="summary-row">
-  <div class="summary-signature">
-    <a href="CWMP.Protocol.Messages.ScheduleDownload.html">CWMP.Protocol.Messages.ScheduleDownload</a>
-  </div>
+and is to be contains within a XMLSignatureStruct.</p></div>
+
 </div>
 <div class="summary-row">
   <div class="summary-signature">
-    <a href="CWMP.Protocol.Messages.ScheduleDownloadResponse.html">CWMP.Protocol.Messages.ScheduleDownloadResponse</a>
+    <a href="CWMP.Protocol.Messages.ScheduleDownload.html" translate="no">CWMP.Protocol.Messages.ScheduleDownload</a>
+
   </div>
+
 </div>
 <div class="summary-row">
   <div class="summary-signature">
-    <a href="CWMP.Protocol.Messages.ScheduleInform.html">CWMP.Protocol.Messages.ScheduleInform</a>
+    <a href="CWMP.Protocol.Messages.ScheduleDownloadResponse.html" translate="no">CWMP.Protocol.Messages.ScheduleDownloadResponse</a>
+
   </div>
+
 </div>
 <div class="summary-row">
   <div class="summary-signature">
-    <a href="CWMP.Protocol.Messages.ScheduleInformResponse.html">CWMP.Protocol.Messages.ScheduleInformResponse</a>
+    <a href="CWMP.Protocol.Messages.ScheduleInform.html" translate="no">CWMP.Protocol.Messages.ScheduleInform</a>
+
   </div>
+
 </div>
 <div class="summary-row">
   <div class="summary-signature">
-    <a href="CWMP.Protocol.Messages.SetParameterAttributes.html">CWMP.Protocol.Messages.SetParameterAttributes</a>
+    <a href="CWMP.Protocol.Messages.ScheduleInformResponse.html" translate="no">CWMP.Protocol.Messages.ScheduleInformResponse</a>
+
   </div>
+
 </div>
 <div class="summary-row">
   <div class="summary-signature">
-    <a href="CWMP.Protocol.Messages.SetParameterAttributesResponse.html">CWMP.Protocol.Messages.SetParameterAttributesResponse</a>
+    <a href="CWMP.Protocol.Messages.SetParameterAttributes.html" translate="no">CWMP.Protocol.Messages.SetParameterAttributes</a>
+
   </div>
+
 </div>
 <div class="summary-row">
   <div class="summary-signature">
-    <a href="CWMP.Protocol.Messages.SetParameterAttributesStruct.html">CWMP.Protocol.Messages.SetParameterAttributesStruct</a>
+    <a href="CWMP.Protocol.Messages.SetParameterAttributesResponse.html" translate="no">CWMP.Protocol.Messages.SetParameterAttributesResponse</a>
+
   </div>
+
 </div>
 <div class="summary-row">
   <div class="summary-signature">
-    <a href="CWMP.Protocol.Messages.SetParameterValues.html">CWMP.Protocol.Messages.SetParameterValues</a>
+    <a href="CWMP.Protocol.Messages.SetParameterAttributesStruct.html" translate="no">CWMP.Protocol.Messages.SetParameterAttributesStruct</a>
+
   </div>
+
 </div>
 <div class="summary-row">
   <div class="summary-signature">
-    <a href="CWMP.Protocol.Messages.SetParameterValuesResponse.html">CWMP.Protocol.Messages.SetParameterValuesResponse</a>
+    <a href="CWMP.Protocol.Messages.SetParameterValues.html" translate="no">CWMP.Protocol.Messages.SetParameterValues</a>
+
   </div>
+
 </div>
 <div class="summary-row">
   <div class="summary-signature">
-    <a href="CWMP.Protocol.Messages.SetVouchers.html">CWMP.Protocol.Messages.SetVouchers</a>
+    <a href="CWMP.Protocol.Messages.SetParameterValuesResponse.html" translate="no">CWMP.Protocol.Messages.SetParameterValuesResponse</a>
+
   </div>
+
 </div>
 <div class="summary-row">
   <div class="summary-signature">
-    <a href="CWMP.Protocol.Messages.SetVouchersResponse.html">CWMP.Protocol.Messages.SetVouchersResponse</a>
+    <a href="CWMP.Protocol.Messages.SetVouchers.html" translate="no">CWMP.Protocol.Messages.SetVouchers</a>
+
   </div>
+
 </div>
 <div class="summary-row">
   <div class="summary-signature">
-    <a href="CWMP.Protocol.Messages.TimeWindowStruct.html">CWMP.Protocol.Messages.TimeWindowStruct</a>
+    <a href="CWMP.Protocol.Messages.SetVouchersResponse.html" translate="no">CWMP.Protocol.Messages.SetVouchersResponse</a>
+
   </div>
+
 </div>
 <div class="summary-row">
   <div class="summary-signature">
-    <a href="CWMP.Protocol.Messages.TransferComplete.html">CWMP.Protocol.Messages.TransferComplete</a>
+    <a href="CWMP.Protocol.Messages.TimeWindowStruct.html" translate="no">CWMP.Protocol.Messages.TimeWindowStruct</a>
+
   </div>
+
 </div>
 <div class="summary-row">
   <div class="summary-signature">
-    <a href="CWMP.Protocol.Messages.TransferCompleteResponse.html">CWMP.Protocol.Messages.TransferCompleteResponse</a>
+    <a href="CWMP.Protocol.Messages.TransferComplete.html" translate="no">CWMP.Protocol.Messages.TransferComplete</a>
+
   </div>
+
 </div>
 <div class="summary-row">
   <div class="summary-signature">
-    <a href="CWMP.Protocol.Messages.UninstallOpStruct.html">CWMP.Protocol.Messages.UninstallOpStruct</a>
+    <a href="CWMP.Protocol.Messages.TransferCompleteResponse.html" translate="no">CWMP.Protocol.Messages.TransferCompleteResponse</a>
+
   </div>
+
 </div>
 <div class="summary-row">
   <div class="summary-signature">
-    <a href="CWMP.Protocol.Messages.UpdateOpStruct.html">CWMP.Protocol.Messages.UpdateOpStruct</a>
+    <a href="CWMP.Protocol.Messages.UninstallOpStruct.html" translate="no">CWMP.Protocol.Messages.UninstallOpStruct</a>
+
   </div>
+
 </div>
 <div class="summary-row">
   <div class="summary-signature">
-    <a href="CWMP.Protocol.Messages.Upload.html">CWMP.Protocol.Messages.Upload</a>
+    <a href="CWMP.Protocol.Messages.UpdateOpStruct.html" translate="no">CWMP.Protocol.Messages.UpdateOpStruct</a>
+
   </div>
+
 </div>
 <div class="summary-row">
   <div class="summary-signature">
-    <a href="CWMP.Protocol.Messages.UploadResponse.html">CWMP.Protocol.Messages.UploadResponse</a>
+    <a href="CWMP.Protocol.Messages.Upload.html" translate="no">CWMP.Protocol.Messages.Upload</a>
+
   </div>
+
 </div>
 <div class="summary-row">
   <div class="summary-signature">
-    <a href="CWMP.Protocol.Messages.X509DataStruct.html">CWMP.Protocol.Messages.X509DataStruct</a>
+    <a href="CWMP.Protocol.Messages.UploadResponse.html" translate="no">CWMP.Protocol.Messages.UploadResponse</a>
+
   </div>
+
+</div>
+<div class="summary-row">
+  <div class="summary-signature">
+    <a href="CWMP.Protocol.Messages.X509DataStruct.html" translate="no">CWMP.Protocol.Messages.X509DataStruct</a>
+
+  </div>
+
     <div class="summary-synopsis"><p>This structure is for the SetVouchers method
-and is to be contains within a KeyInfoStruct</p>
-</div>
+and is to be contains within a KeyInfoStruct.</p></div>
+
 </div>
 <div class="summary-row">
   <div class="summary-signature">
-    <a href="CWMP.Protocol.Messages.X509IssuerSerialStruct.html">CWMP.Protocol.Messages.X509IssuerSerialStruct</a>
+    <a href="CWMP.Protocol.Messages.X509IssuerSerialStruct.html" translate="no">CWMP.Protocol.Messages.X509IssuerSerialStruct</a>
+
   </div>
+
     <div class="summary-synopsis"><p>This structure is for the SetVouchers method
-and is to be contains within a X509DataStruct</p>
-</div>
+and is to be contains within a X509DataStruct.</p></div>
+
 </div>
 <div class="summary-row">
   <div class="summary-signature">
-    <a href="CWMP.Protocol.Messages.XMLSignatureStruct.html">CWMP.Protocol.Messages.XMLSignatureStruct</a>
+    <a href="CWMP.Protocol.Messages.XMLSignatureStruct.html" translate="no">CWMP.Protocol.Messages.XMLSignatureStruct</a>
+
   </div>
+
     <div class="summary-synopsis"><p>This structure is for the SetVouchers method
 and conains the information needed to build an XML-Signature
-document containing options</p>
+document containing options</p></div>
+
 </div>
-</div>
 <div class="summary-row">
   <div class="summary-signature">
-    <a href="CWMP.Protocol.Parser.html">CWMP.Protocol.Parser</a>
+    <a href="CWMP.Protocol.Parser.html" translate="no">CWMP.Protocol.Parser</a>
+
   </div>
-    <div class="summary-synopsis"><p>Parsing of CWMP XML messages, and conversion to Elixir data structures</p>
+
+    <div class="summary-synopsis"><p>Parsing of CWMP XML messages, and conversion to Elixir data structures.</p></div>
+
 </div>
+<div class="summary-row">
+  <div class="summary-signature">
+    <a href="CWMP.Protocol.Parser.ElemState.html" translate="no">CWMP.Protocol.Parser.ElemState</a>
+
+  </div>
+
 </div>
 <div class="summary-row">
   <div class="summary-signature">
-    <a href="CWMP.Protocol.Parser.ElemState.html">CWMP.Protocol.Parser.ElemState</a>
+    <a href="CWMP.Protocol.Parser.Envelope.html" translate="no">CWMP.Protocol.Parser.Envelope</a>
+
   </div>
+
 </div>
 <div class="summary-row">
   <div class="summary-signature">
-    <a href="CWMP.Protocol.Parser.Envelope.html">CWMP.Protocol.Parser.Envelope</a>
+    <a href="CWMP.Protocol.Parser.Envelope.Header.html" translate="no">CWMP.Protocol.Parser.Envelope.Header</a>
+
   </div>
+
 </div>
 <div class="summary-row">
   <div class="summary-signature">
-    <a href="CWMP.Protocol.Parser.Envelope.Header.html">CWMP.Protocol.Parser.Envelope.Header</a>
+    <a href="CWMP.Protocol.Parser.Messages.AddObject.html" translate="no">CWMP.Protocol.Parser.Messages.AddObject</a>
+
   </div>
+
 </div>
 <div class="summary-row">
   <div class="summary-signature">
-    <a href="CWMP.Protocol.Parser.Messages.AddObject.html">CWMP.Protocol.Parser.Messages.AddObject</a>
+    <a href="CWMP.Protocol.Parser.Messages.AddObjectResponse.html" translate="no">CWMP.Protocol.Parser.Messages.AddObjectResponse</a>
+
   </div>
+
 </div>
 <div class="summary-row">
   <div class="summary-signature">
-    <a href="CWMP.Protocol.Parser.Messages.AddObjectResponse.html">CWMP.Protocol.Parser.Messages.AddObjectResponse</a>
+    <a href="CWMP.Protocol.Parser.Messages.AllQueuedTransferStruct.html" translate="no">CWMP.Protocol.Parser.Messages.AllQueuedTransferStruct</a>
+
   </div>
+
 </div>
 <div class="summary-row">
   <div class="summary-signature">
-    <a href="CWMP.Protocol.Parser.Messages.AllQueuedTransferStruct.html">CWMP.Protocol.Parser.Messages.AllQueuedTransferStruct</a>
+    <a href="CWMP.Protocol.Parser.Messages.ArgStruct.html" translate="no">CWMP.Protocol.Parser.Messages.ArgStruct</a>
+
   </div>
+
 </div>
 <div class="summary-row">
   <div class="summary-signature">
-    <a href="CWMP.Protocol.Parser.Messages.ArgStruct.html">CWMP.Protocol.Parser.Messages.ArgStruct</a>
+    <a href="CWMP.Protocol.Parser.Messages.AutonOpResultStruct.html" translate="no">CWMP.Protocol.Parser.Messages.AutonOpResultStruct</a>
+
   </div>
+
 </div>
 <div class="summary-row">
   <div class="summary-signature">
-    <a href="CWMP.Protocol.Parser.Messages.AutonOpResultStruct.html">CWMP.Protocol.Parser.Messages.AutonOpResultStruct</a>
+    <a href="CWMP.Protocol.Parser.Messages.AutonomousDUStateChangeComplete.html" translate="no">CWMP.Protocol.Parser.Messages.AutonomousDUStateChangeComplete</a>
+
   </div>
+
 </div>
 <div class="summary-row">
   <div class="summary-signature">
-    <a href="CWMP.Protocol.Parser.Messages.AutonomousDUStateChangeComplete.html">CWMP.Protocol.Parser.Messages.AutonomousDUStateChangeComplete</a>
+    <a href="CWMP.Protocol.Parser.Messages.AutonomousDUStateChangeCompleteResponse.html" translate="no">CWMP.Protocol.Parser.Messages.AutonomousDUStateChangeCompleteResponse</a>
+
   </div>
+
 </div>
 <div class="summary-row">
   <div class="summary-signature">
-    <a href="CWMP.Protocol.Parser.Messages.AutonomousDUStateChangeCompleteResponse.html">CWMP.Protocol.Parser.Messages.AutonomousDUStateChangeCompleteResponse</a>
+    <a href="CWMP.Protocol.Parser.Messages.AutonomousTransferComplete.html" translate="no">CWMP.Protocol.Parser.Messages.AutonomousTransferComplete</a>
+
   </div>
+
 </div>
 <div class="summary-row">
   <div class="summary-signature">
-    <a href="CWMP.Protocol.Parser.Messages.AutonomousTransferComplete.html">CWMP.Protocol.Parser.Messages.AutonomousTransferComplete</a>
+    <a href="CWMP.Protocol.Parser.Messages.AutonomousTransferCompleteResponse.html" translate="no">CWMP.Protocol.Parser.Messages.AutonomousTransferCompleteResponse</a>
+
   </div>
+
 </div>
 <div class="summary-row">
   <div class="summary-signature">
-    <a href="CWMP.Protocol.Parser.Messages.AutonomousTransferCompleteResponse.html">CWMP.Protocol.Parser.Messages.AutonomousTransferCompleteResponse</a>
+    <a href="CWMP.Protocol.Parser.Messages.CancelTransfer.html" translate="no">CWMP.Protocol.Parser.Messages.CancelTransfer</a>
+
   </div>
+
 </div>
 <div class="summary-row">
   <div class="summary-signature">
-    <a href="CWMP.Protocol.Parser.Messages.CancelTransfer.html">CWMP.Protocol.Parser.Messages.CancelTransfer</a>
+    <a href="CWMP.Protocol.Parser.Messages.CancelTransferResponse.html" translate="no">CWMP.Protocol.Parser.Messages.CancelTransferResponse</a>
+
   </div>
+
 </div>
 <div class="summary-row">
   <div class="summary-signature">
-    <a href="CWMP.Protocol.Parser.Messages.CancelTransferResponse.html">CWMP.Protocol.Parser.Messages.CancelTransferResponse</a>
+    <a href="CWMP.Protocol.Parser.Messages.ChangeDUState.html" translate="no">CWMP.Protocol.Parser.Messages.ChangeDUState</a>
+
   </div>
+
 </div>
 <div class="summary-row">
   <div class="summary-signature">
-    <a href="CWMP.Protocol.Parser.Messages.ChangeDUState.html">CWMP.Protocol.Parser.Messages.ChangeDUState</a>
+    <a href="CWMP.Protocol.Parser.Messages.ChangeDUStateResponse.html" translate="no">CWMP.Protocol.Parser.Messages.ChangeDUStateResponse</a>
+
   </div>
+
 </div>
 <div class="summary-row">
   <div class="summary-signature">
-    <a href="CWMP.Protocol.Parser.Messages.ChangeDUStateResponse.html">CWMP.Protocol.Parser.Messages.ChangeDUStateResponse</a>
+    <a href="CWMP.Protocol.Parser.Messages.DUStateChangeComplete.html" translate="no">CWMP.Protocol.Parser.Messages.DUStateChangeComplete</a>
+
   </div>
+
 </div>
 <div class="summary-row">
   <div class="summary-signature">
-    <a href="CWMP.Protocol.Parser.Messages.DUStateChangeComplete.html">CWMP.Protocol.Parser.Messages.DUStateChangeComplete</a>
+    <a href="CWMP.Protocol.Parser.Messages.DUStateChangeCompleteResponse.html" translate="no">CWMP.Protocol.Parser.Messages.DUStateChangeCompleteResponse</a>
+
   </div>
+
 </div>
 <div class="summary-row">
   <div class="summary-signature">
-    <a href="CWMP.Protocol.Parser.Messages.DUStateChangeCompleteResponse.html">CWMP.Protocol.Parser.Messages.DUStateChangeCompleteResponse</a>
+    <a href="CWMP.Protocol.Parser.Messages.DeleteObject.html" translate="no">CWMP.Protocol.Parser.Messages.DeleteObject</a>
+
   </div>
+
 </div>
 <div class="summary-row">
   <div class="summary-signature">
-    <a href="CWMP.Protocol.Parser.Messages.DeleteObject.html">CWMP.Protocol.Parser.Messages.DeleteObject</a>
+    <a href="CWMP.Protocol.Parser.Messages.DeleteObjectResponse.html" translate="no">CWMP.Protocol.Parser.Messages.DeleteObjectResponse</a>
+
   </div>
+
 </div>
 <div class="summary-row">
   <div class="summary-signature">
-    <a href="CWMP.Protocol.Parser.Messages.DeleteObjectResponse.html">CWMP.Protocol.Parser.Messages.DeleteObjectResponse</a>
+    <a href="CWMP.Protocol.Parser.Messages.Download.html" translate="no">CWMP.Protocol.Parser.Messages.Download</a>
+
   </div>
+
 </div>
 <div class="summary-row">
   <div class="summary-signature">
-    <a href="CWMP.Protocol.Parser.Messages.Download.html">CWMP.Protocol.Parser.Messages.Download</a>
+    <a href="CWMP.Protocol.Parser.Messages.DownloadResponse.html" translate="no">CWMP.Protocol.Parser.Messages.DownloadResponse</a>
+
   </div>
+
 </div>
 <div class="summary-row">
   <div class="summary-signature">
-    <a href="CWMP.Protocol.Parser.Messages.DownloadResponse.html">CWMP.Protocol.Parser.Messages.DownloadResponse</a>
+    <a href="CWMP.Protocol.Parser.Messages.FactoryReset.html" translate="no">CWMP.Protocol.Parser.Messages.FactoryReset</a>
+
   </div>
+
 </div>
 <div class="summary-row">
   <div class="summary-signature">
-    <a href="CWMP.Protocol.Parser.Messages.FactoryReset.html">CWMP.Protocol.Parser.Messages.FactoryReset</a>
+    <a href="CWMP.Protocol.Parser.Messages.FactoryResetResponse.html" translate="no">CWMP.Protocol.Parser.Messages.FactoryResetResponse</a>
+
   </div>
+
 </div>
 <div class="summary-row">
   <div class="summary-signature">
-    <a href="CWMP.Protocol.Parser.Messages.FactoryResetResponse.html">CWMP.Protocol.Parser.Messages.FactoryResetResponse</a>
+    <a href="CWMP.Protocol.Parser.Messages.Fault.html" translate="no">CWMP.Protocol.Parser.Messages.Fault</a>
+
   </div>
+
 </div>
 <div class="summary-row">
   <div class="summary-signature">
-    <a href="CWMP.Protocol.Parser.Messages.Fault.html">CWMP.Protocol.Parser.Messages.Fault</a>
+    <a href="CWMP.Protocol.Parser.Messages.GetAllQueuedTransfers.html" translate="no">CWMP.Protocol.Parser.Messages.GetAllQueuedTransfers</a>
+
   </div>
+
 </div>
 <div class="summary-row">
   <div class="summary-signature">
-    <a href="CWMP.Protocol.Parser.Messages.GetAllQueuedTransfers.html">CWMP.Protocol.Parser.Messages.GetAllQueuedTransfers</a>
+    <a href="CWMP.Protocol.Parser.Messages.GetAllQueuedTransfersResponse.html" translate="no">CWMP.Protocol.Parser.Messages.GetAllQueuedTransfersResponse</a>
+
   </div>
+
 </div>
 <div class="summary-row">
   <div class="summary-signature">
-    <a href="CWMP.Protocol.Parser.Messages.GetAllQueuedTransfersResponse.html">CWMP.Protocol.Parser.Messages.GetAllQueuedTransfersResponse</a>
+    <a href="CWMP.Protocol.Parser.Messages.GetOptions.html" translate="no">CWMP.Protocol.Parser.Messages.GetOptions</a>
+
   </div>
+
 </div>
 <div class="summary-row">
   <div class="summary-signature">
-    <a href="CWMP.Protocol.Parser.Messages.GetOptions.html">CWMP.Protocol.Parser.Messages.GetOptions</a>
+    <a href="CWMP.Protocol.Parser.Messages.GetOptionsResponse.html" translate="no">CWMP.Protocol.Parser.Messages.GetOptionsResponse</a>
+
   </div>
+
 </div>
 <div class="summary-row">
   <div class="summary-signature">
-    <a href="CWMP.Protocol.Parser.Messages.GetOptionsResponse.html">CWMP.Protocol.Parser.Messages.GetOptionsResponse</a>
+    <a href="CWMP.Protocol.Parser.Messages.GetParameterAttributes.html" translate="no">CWMP.Protocol.Parser.Messages.GetParameterAttributes</a>
+
   </div>
+
 </div>
 <div class="summary-row">
   <div class="summary-signature">
-    <a href="CWMP.Protocol.Parser.Messages.GetParameterAttributes.html">CWMP.Protocol.Parser.Messages.GetParameterAttributes</a>
+    <a href="CWMP.Protocol.Parser.Messages.GetParameterAttributesResponse.html" translate="no">CWMP.Protocol.Parser.Messages.GetParameterAttributesResponse</a>
+
   </div>
+
 </div>
 <div class="summary-row">
   <div class="summary-signature">
-    <a href="CWMP.Protocol.Parser.Messages.GetParameterAttributesResponse.html">CWMP.Protocol.Parser.Messages.GetParameterAttributesResponse</a>
+    <a href="CWMP.Protocol.Parser.Messages.GetParameterNames.html" translate="no">CWMP.Protocol.Parser.Messages.GetParameterNames</a>
+
   </div>
+
 </div>
 <div class="summary-row">
   <div class="summary-signature">
-    <a href="CWMP.Protocol.Parser.Messages.GetParameterNames.html">CWMP.Protocol.Parser.Messages.GetParameterNames</a>
+    <a href="CWMP.Protocol.Parser.Messages.GetParameterNamesResponse.html" translate="no">CWMP.Protocol.Parser.Messages.GetParameterNamesResponse</a>
+
   </div>
+
 </div>
 <div class="summary-row">
   <div class="summary-signature">
-    <a href="CWMP.Protocol.Parser.Messages.GetParameterNamesResponse.html">CWMP.Protocol.Parser.Messages.GetParameterNamesResponse</a>
+    <a href="CWMP.Protocol.Parser.Messages.GetParameterValues.html" translate="no">CWMP.Protocol.Parser.Messages.GetParameterValues</a>
+
   </div>
+
 </div>
 <div class="summary-row">
   <div class="summary-signature">
-    <a href="CWMP.Protocol.Parser.Messages.GetParameterValues.html">CWMP.Protocol.Parser.Messages.GetParameterValues</a>
+    <a href="CWMP.Protocol.Parser.Messages.GetParameterValuesResponse.html" translate="no">CWMP.Protocol.Parser.Messages.GetParameterValuesResponse</a>
+
   </div>
+
 </div>
 <div class="summary-row">
   <div class="summary-signature">
-    <a href="CWMP.Protocol.Parser.Messages.GetParameterValuesResponse.html">CWMP.Protocol.Parser.Messages.GetParameterValuesResponse</a>
+    <a href="CWMP.Protocol.Parser.Messages.GetQueuedTransfers.html" translate="no">CWMP.Protocol.Parser.Messages.GetQueuedTransfers</a>
+
   </div>
+
 </div>
 <div class="summary-row">
   <div class="summary-signature">
-    <a href="CWMP.Protocol.Parser.Messages.GetQueuedTransfers.html">CWMP.Protocol.Parser.Messages.GetQueuedTransfers</a>
+    <a href="CWMP.Protocol.Parser.Messages.GetQueuedTransfersResponse.html" translate="no">CWMP.Protocol.Parser.Messages.GetQueuedTransfersResponse</a>
+
   </div>
+
 </div>
 <div class="summary-row">
   <div class="summary-signature">
-    <a href="CWMP.Protocol.Parser.Messages.GetQueuedTransfersResponse.html">CWMP.Protocol.Parser.Messages.GetQueuedTransfersResponse</a>
+    <a href="CWMP.Protocol.Parser.Messages.GetRPCMethods.html" translate="no">CWMP.Protocol.Parser.Messages.GetRPCMethods</a>
+
   </div>
+
 </div>
 <div class="summary-row">
   <div class="summary-signature">
-    <a href="CWMP.Protocol.Parser.Messages.GetRPCMethods.html">CWMP.Protocol.Parser.Messages.GetRPCMethods</a>
+    <a href="CWMP.Protocol.Parser.Messages.GetRPCMethodsResponse.html" translate="no">CWMP.Protocol.Parser.Messages.GetRPCMethodsResponse</a>
+
   </div>
+
 </div>
 <div class="summary-row">
   <div class="summary-signature">
-    <a href="CWMP.Protocol.Parser.Messages.GetRPCMethodsResponse.html">CWMP.Protocol.Parser.Messages.GetRPCMethodsResponse</a>
+    <a href="CWMP.Protocol.Parser.Messages.Inform.html" translate="no">CWMP.Protocol.Parser.Messages.Inform</a>
+
   </div>
+
 </div>
 <div class="summary-row">
   <div class="summary-signature">
-    <a href="CWMP.Protocol.Parser.Messages.Inform.html">CWMP.Protocol.Parser.Messages.Inform</a>
+    <a href="CWMP.Protocol.Parser.Messages.Inform.DeviceIdStruct.html" translate="no">CWMP.Protocol.Parser.Messages.Inform.DeviceIdStruct</a>
+
   </div>
+
 </div>
 <div class="summary-row">
   <div class="summary-signature">
-    <a href="CWMP.Protocol.Parser.Messages.Inform.DeviceIdStruct.html">CWMP.Protocol.Parser.Messages.Inform.DeviceIdStruct</a>
+    <a href="CWMP.Protocol.Parser.Messages.Inform.EventStruct.html" translate="no">CWMP.Protocol.Parser.Messages.Inform.EventStruct</a>
+
   </div>
+
 </div>
 <div class="summary-row">
   <div class="summary-signature">
-    <a href="CWMP.Protocol.Parser.Messages.Inform.EventStruct.html">CWMP.Protocol.Parser.Messages.Inform.EventStruct</a>
+    <a href="CWMP.Protocol.Parser.Messages.InformResponse.html" translate="no">CWMP.Protocol.Parser.Messages.InformResponse</a>
+
   </div>
+
 </div>
 <div class="summary-row">
   <div class="summary-signature">
-    <a href="CWMP.Protocol.Parser.Messages.InformResponse.html">CWMP.Protocol.Parser.Messages.InformResponse</a>
+    <a href="CWMP.Protocol.Parser.Messages.InstallOpStruct.html" translate="no">CWMP.Protocol.Parser.Messages.InstallOpStruct</a>
+
   </div>
+
 </div>
 <div class="summary-row">
   <div class="summary-signature">
-    <a href="CWMP.Protocol.Parser.Messages.InstallOpStruct.html">CWMP.Protocol.Parser.Messages.InstallOpStruct</a>
+    <a href="CWMP.Protocol.Parser.Messages.Kicked.html" translate="no">CWMP.Protocol.Parser.Messages.Kicked</a>
+
   </div>
+
 </div>
 <div class="summary-row">
   <div class="summary-signature">
-    <a href="CWMP.Protocol.Parser.Messages.Kicked.html">CWMP.Protocol.Parser.Messages.Kicked</a>
+    <a href="CWMP.Protocol.Parser.Messages.KickedResponse.html" translate="no">CWMP.Protocol.Parser.Messages.KickedResponse</a>
+
   </div>
+
 </div>
 <div class="summary-row">
   <div class="summary-signature">
-    <a href="CWMP.Protocol.Parser.Messages.KickedResponse.html">CWMP.Protocol.Parser.Messages.KickedResponse</a>
+    <a href="CWMP.Protocol.Parser.Messages.OpResultStruct.html" translate="no">CWMP.Protocol.Parser.Messages.OpResultStruct</a>
+
   </div>
+
 </div>
 <div class="summary-row">
   <div class="summary-signature">
-    <a href="CWMP.Protocol.Parser.Messages.OpResultStruct.html">CWMP.Protocol.Parser.Messages.OpResultStruct</a>
+    <a href="CWMP.Protocol.Parser.Messages.OptionStruct.html" translate="no">CWMP.Protocol.Parser.Messages.OptionStruct</a>
+
   </div>
+
 </div>
 <div class="summary-row">
   <div class="summary-signature">
-    <a href="CWMP.Protocol.Parser.Messages.OptionStruct.html">CWMP.Protocol.Parser.Messages.OptionStruct</a>
+    <a href="CWMP.Protocol.Parser.Messages.ParameterAttributeStruct.html" translate="no">CWMP.Protocol.Parser.Messages.ParameterAttributeStruct</a>
+
   </div>
+
 </div>
 <div class="summary-row">
   <div class="summary-signature">
-    <a href="CWMP.Protocol.Parser.Messages.ParameterAttributeStruct.html">CWMP.Protocol.Parser.Messages.ParameterAttributeStruct</a>
+    <a href="CWMP.Protocol.Parser.Messages.ParameterInfoStruct.html" translate="no">CWMP.Protocol.Parser.Messages.ParameterInfoStruct</a>
+
   </div>
+
 </div>
 <div class="summary-row">
   <div class="summary-signature">
-    <a href="CWMP.Protocol.Parser.Messages.ParameterInfoStruct.html">CWMP.Protocol.Parser.Messages.ParameterInfoStruct</a>
+    <a href="CWMP.Protocol.Parser.Messages.ParameterValueStruct.html" translate="no">CWMP.Protocol.Parser.Messages.ParameterValueStruct</a>
+
   </div>
+
 </div>
 <div class="summary-row">
   <div class="summary-signature">
-    <a href="CWMP.Protocol.Parser.Messages.ParameterValueStruct.html">CWMP.Protocol.Parser.Messages.ParameterValueStruct</a>
+    <a href="CWMP.Protocol.Parser.Messages.QueuedTransferStruct.html" translate="no">CWMP.Protocol.Parser.Messages.QueuedTransferStruct</a>
+
   </div>
+
 </div>
 <div class="summary-row">
   <div class="summary-signature">
-    <a href="CWMP.Protocol.Parser.Messages.QueuedTransferStruct.html">CWMP.Protocol.Parser.Messages.QueuedTransferStruct</a>
+    <a href="CWMP.Protocol.Parser.Messages.Reboot.html" translate="no">CWMP.Protocol.Parser.Messages.Reboot</a>
+
   </div>
+
 </div>
 <div class="summary-row">
   <div class="summary-signature">
-    <a href="CWMP.Protocol.Parser.Messages.Reboot.html">CWMP.Protocol.Parser.Messages.Reboot</a>
+    <a href="CWMP.Protocol.Parser.Messages.RebootResponse.html" translate="no">CWMP.Protocol.Parser.Messages.RebootResponse</a>
+
   </div>
+
 </div>
 <div class="summary-row">
   <div class="summary-signature">
-    <a href="CWMP.Protocol.Parser.Messages.RebootResponse.html">CWMP.Protocol.Parser.Messages.RebootResponse</a>
+    <a href="CWMP.Protocol.Parser.Messages.RequestDownload.html" translate="no">CWMP.Protocol.Parser.Messages.RequestDownload</a>
+
   </div>
+
 </div>
 <div class="summary-row">
   <div class="summary-signature">
-    <a href="CWMP.Protocol.Parser.Messages.RequestDownload.html">CWMP.Protocol.Parser.Messages.RequestDownload</a>
+    <a href="CWMP.Protocol.Parser.Messages.RequestDownloadResponse.html" translate="no">CWMP.Protocol.Parser.Messages.RequestDownloadResponse</a>
+
   </div>
+
 </div>
 <div class="summary-row">
   <div class="summary-signature">
-    <a href="CWMP.Protocol.Parser.Messages.RequestDownloadResponse.html">CWMP.Protocol.Parser.Messages.RequestDownloadResponse</a>
+    <a href="CWMP.Protocol.Parser.Messages.ScheduleDownload.html" translate="no">CWMP.Protocol.Parser.Messages.ScheduleDownload</a>
+
   </div>
+
 </div>
 <div class="summary-row">
   <div class="summary-signature">
-    <a href="CWMP.Protocol.Parser.Messages.ScheduleDownload.html">CWMP.Protocol.Parser.Messages.ScheduleDownload</a>
+    <a href="CWMP.Protocol.Parser.Messages.ScheduleDownloadResponse.html" translate="no">CWMP.Protocol.Parser.Messages.ScheduleDownloadResponse</a>
+
   </div>
+
 </div>
 <div class="summary-row">
   <div class="summary-signature">
-    <a href="CWMP.Protocol.Parser.Messages.ScheduleDownloadResponse.html">CWMP.Protocol.Parser.Messages.ScheduleDownloadResponse</a>
+    <a href="CWMP.Protocol.Parser.Messages.ScheduleInform.html" translate="no">CWMP.Protocol.Parser.Messages.ScheduleInform</a>
+
   </div>
+
 </div>
 <div class="summary-row">
   <div class="summary-signature">
-    <a href="CWMP.Protocol.Parser.Messages.ScheduleInform.html">CWMP.Protocol.Parser.Messages.ScheduleInform</a>
+    <a href="CWMP.Protocol.Parser.Messages.ScheduleInformResponse.html" translate="no">CWMP.Protocol.Parser.Messages.ScheduleInformResponse</a>
+
   </div>
+
 </div>
 <div class="summary-row">
   <div class="summary-signature">
-    <a href="CWMP.Protocol.Parser.Messages.ScheduleInformResponse.html">CWMP.Protocol.Parser.Messages.ScheduleInformResponse</a>
+    <a href="CWMP.Protocol.Parser.Messages.SetParameterAttributes.html" translate="no">CWMP.Protocol.Parser.Messages.SetParameterAttributes</a>
+
   </div>
+
 </div>
 <div class="summary-row">
   <div class="summary-signature">
-    <a href="CWMP.Protocol.Parser.Messages.SetParameterAttributes.html">CWMP.Protocol.Parser.Messages.SetParameterAttributes</a>
+    <a href="CWMP.Protocol.Parser.Messages.SetParameterAttributesResponse.html" translate="no">CWMP.Protocol.Parser.Messages.SetParameterAttributesResponse</a>
+
   </div>
+
 </div>
 <div class="summary-row">
   <div class="summary-signature">
-    <a href="CWMP.Protocol.Parser.Messages.SetParameterAttributesResponse.html">CWMP.Protocol.Parser.Messages.SetParameterAttributesResponse</a>
+    <a href="CWMP.Protocol.Parser.Messages.SetParameterAttributesStruct.html" translate="no">CWMP.Protocol.Parser.Messages.SetParameterAttributesStruct</a>
+
   </div>
+
 </div>
 <div class="summary-row">
   <div class="summary-signature">
-    <a href="CWMP.Protocol.Parser.Messages.SetParameterAttributesStruct.html">CWMP.Protocol.Parser.Messages.SetParameterAttributesStruct</a>
+    <a href="CWMP.Protocol.Parser.Messages.SetParameterValues.html" translate="no">CWMP.Protocol.Parser.Messages.SetParameterValues</a>
+
   </div>
+
 </div>
 <div class="summary-row">
   <div class="summary-signature">
-    <a href="CWMP.Protocol.Parser.Messages.SetParameterValues.html">CWMP.Protocol.Parser.Messages.SetParameterValues</a>
+    <a href="CWMP.Protocol.Parser.Messages.SetParameterValuesResponse.html" translate="no">CWMP.Protocol.Parser.Messages.SetParameterValuesResponse</a>
+
   </div>
+
 </div>
 <div class="summary-row">
   <div class="summary-signature">
-    <a href="CWMP.Protocol.Parser.Messages.SetParameterValuesResponse.html">CWMP.Protocol.Parser.Messages.SetParameterValuesResponse</a>
+    <a href="CWMP.Protocol.Parser.Messages.SetVouchers.html" translate="no">CWMP.Protocol.Parser.Messages.SetVouchers</a>
+
   </div>
+
 </div>
 <div class="summary-row">
   <div class="summary-signature">
-    <a href="CWMP.Protocol.Parser.Messages.SetVouchers.html">CWMP.Protocol.Parser.Messages.SetVouchers</a>
+    <a href="CWMP.Protocol.Parser.Messages.SetVouchersResponse.html" translate="no">CWMP.Protocol.Parser.Messages.SetVouchersResponse</a>
+
   </div>
+
 </div>
 <div class="summary-row">
   <div class="summary-signature">
-    <a href="CWMP.Protocol.Parser.Messages.SetVouchersResponse.html">CWMP.Protocol.Parser.Messages.SetVouchersResponse</a>
+    <a href="CWMP.Protocol.Parser.Messages.TimeWindowStruct.html" translate="no">CWMP.Protocol.Parser.Messages.TimeWindowStruct</a>
+
   </div>
+
 </div>
 <div class="summary-row">
   <div class="summary-signature">
-    <a href="CWMP.Protocol.Parser.Messages.TimeWindowStruct.html">CWMP.Protocol.Parser.Messages.TimeWindowStruct</a>
+    <a href="CWMP.Protocol.Parser.Messages.TransferComplete.html" translate="no">CWMP.Protocol.Parser.Messages.TransferComplete</a>
+
   </div>
+
 </div>
 <div class="summary-row">
   <div class="summary-signature">
-    <a href="CWMP.Protocol.Parser.Messages.TransferComplete.html">CWMP.Protocol.Parser.Messages.TransferComplete</a>
+    <a href="CWMP.Protocol.Parser.Messages.TransferCompleteResponse.html" translate="no">CWMP.Protocol.Parser.Messages.TransferCompleteResponse</a>
+
   </div>
+
 </div>
 <div class="summary-row">
   <div class="summary-signature">
-    <a href="CWMP.Protocol.Parser.Messages.TransferCompleteResponse.html">CWMP.Protocol.Parser.Messages.TransferCompleteResponse</a>
+    <a href="CWMP.Protocol.Parser.Messages.UninstallOpStruct.html" translate="no">CWMP.Protocol.Parser.Messages.UninstallOpStruct</a>
+
   </div>
+
 </div>
 <div class="summary-row">
   <div class="summary-signature">
-    <a href="CWMP.Protocol.Parser.Messages.UninstallOpStruct.html">CWMP.Protocol.Parser.Messages.UninstallOpStruct</a>
+    <a href="CWMP.Protocol.Parser.Messages.UpdateOpStruct.html" translate="no">CWMP.Protocol.Parser.Messages.UpdateOpStruct</a>
+
   </div>
+
 </div>
 <div class="summary-row">
   <div class="summary-signature">
-    <a href="CWMP.Protocol.Parser.Messages.UpdateOpStruct.html">CWMP.Protocol.Parser.Messages.UpdateOpStruct</a>
+    <a href="CWMP.Protocol.Parser.Messages.Upload.html" translate="no">CWMP.Protocol.Parser.Messages.Upload</a>
+
   </div>
+
 </div>
 <div class="summary-row">
   <div class="summary-signature">
-    <a href="CWMP.Protocol.Parser.Messages.Upload.html">CWMP.Protocol.Parser.Messages.Upload</a>
+    <a href="CWMP.Protocol.Parser.Messages.UploadResponse.html" translate="no">CWMP.Protocol.Parser.Messages.UploadResponse</a>
+
   </div>
+
 </div>
 <div class="summary-row">
   <div class="summary-signature">
-    <a href="CWMP.Protocol.Parser.Messages.UploadResponse.html">CWMP.Protocol.Parser.Messages.UploadResponse</a>
+    <a href="CWMP.Protocol.Parser.ParseError.html" translate="no">CWMP.Protocol.Parser.ParseError</a>
+
   </div>
+
+    <div class="summary-synopsis"><p>Used for representing parse errors during CWMP envelope parsing</p></div>
+
 </div>
 <div class="summary-row">
   <div class="summary-signature">
-    <a href="CWMP.Protocol.Parser.State.html">CWMP.Protocol.Parser.State</a>
+    <a href="CWMP.Protocol.Parser.State.html" translate="no">CWMP.Protocol.Parser.State</a>
+
   </div>
+
 </div>
 <div class="summary-row">
   <div class="summary-signature">
-    <a href="CWMP.Protocol.ParserHelpers.html">CWMP.Protocol.ParserHelpers</a>
+    <a href="CWMP.Protocol.ParserHelpers.html" translate="no">CWMP.Protocol.ParserHelpers</a>
+
   </div>
+
 </div>
 <div class="summary-row">
   <div class="summary-signature">
-    <a href="FaultStruct.html">FaultStruct</a>
+    <a href="FaultStruct.html" translate="no">FaultStruct</a>
+
   </div>
+
 </div>
+
     </div>
   </section>
 
-  <section class="details-list">
-    <h2 id="exceptions" class="section-heading">
-  <a href="#exceptions" class="hover-link"><span class="icon-link" aria-hidden="true"></span></a>
-  Exceptions
-</h2>
 
-    <div class="summary">
-<div class="summary-row">
-  <div class="summary-signature">
-    <a href="CWMP.Protocol.Parser.ParseError.html">CWMP.Protocol.Parser.ParseError</a>
+<div class="bottom-actions">
+  <div class="bottom-actions-item">
+
   </div>
-    <div class="summary-synopsis"><p>Used for representing parse errors during CWMP envelope parsing</p>
+  <div class="bottom-actions-item">
+
+  </div>
 </div>
-</div>
-    </div>
-  </section>
 
       <footer class="footer">
-        <p>
-          <span class="line">
-            Built using
-            <a href="https://github.com/elixir-lang/ex_doc" title="ExDoc" target="_blank" rel="help noopener">ExDoc</a> (v0.19.1),
-          </span>
-          <span class="line">
-            designed by
-            <a href="https://twitter.com/dignifiedquire" target="_blank" rel="noopener" title="@dignifiedquire">Friedel Ziegelmayer</a>.
+
+          <p>
+            On Hex.pm:
+
+            <span class="line">
+              <a href="https://hex.pm/packages/cwmp_ex/0.2.6" class="line footer-hex-package">Package</a>
+              <a href="https://preview.hex.pm/preview/cwmp_ex/0.2.6" class="line">Preview</a>
+
             </span>
+
+            <button class="line footer-button display-quick-switch">
+              Search
+            </button>
+          </p>
+
+        <p>
+          Built using
+          <a href="https://github.com/elixir-lang/ex_doc" title="ExDoc" target="_blank" rel="help noopener" translate="no">ExDoc</a> (v0.28.3) for the
+          <a href="https://elixir-lang.org" title="Elixir" target="_blank" translate="no">Elixir programming language</a>
         </p>
       </footer>
     </div>
   </div>
 </section>
 </div>
-  <script src="dist/app-a0c90688fa.js"></script>
-  
+
+
   </body>
 </html>
-
