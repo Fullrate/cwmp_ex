@@ -76,17 +76,34 @@ defmodule CWMP.Protocol.ParserHelpers do
     end
   end
 
+  def required_datetimeStructure(timestring) do
+    case DateTime.from_iso8601(timestring) do
+      {:ok, dt, utc_offset} ->
+        %DateTime{dt | utc_offset: utc_offset}
+
+      {:error, :missing_offset} ->
+        # assume datetime to be a relative time since boot
+        datetimeStructure(timestring <> "Z")
+
+      {:error, reason} ->
+        # the unparsable datetime must fail here
+        raise "timestring '#{timestring}' is unparseable: #{inspect(reason)}"
+        :error
+    end
+  end
+
   def datetimeStructure(timestring) do
     case DateTime.from_iso8601(timestring) do
       {:ok, dt, utc_offset} ->
         %DateTime{dt | utc_offset: utc_offset}
 
       {:error, :missing_offset} ->
+        # assume datetime to be a relative time since boot
         datetimeStructure(timestring <> "Z")
 
-      {:error, reason} ->
-        raise "timestring '#{timestring}' is unparseable: #{inspect(reason)}"
-        :error
+      {:error, _reason} ->
+        # the unparsable datetime must return the Unknown datetime here
+        datetimeStructure("0001-01-01T00:00:00Z")
     end
   end
 
