@@ -73,15 +73,20 @@ defmodule CWMP.Protocol.Parser.Messages.Inform do
   end
 
   def end_element(state, ['MaxEnvelopes']) do
-    update_acc(state, fn cur -> %Inform{cur | max_envelopes: integerValue(state.last_text, fn(x) -> x > 0 end)} end)
+    update_acc(state, fn cur ->
+      %Inform{cur | max_envelopes: integerValue(state.last_text, fn x -> x > 0 end)}
+    end)
   end
 
   def end_element(state, ['CurrentTime']) do
-    update_acc(state, fn cur -> %Inform{cur | current_time: datetimeStructure(state.last_text)} end)
+    update_acc(state, fn cur ->
+      %Inform{cur | current_time: required_datetimeStructure(state.last_text)}
+    end)
   end
 
   def end_element(state, ['RetryCount']) do
-    update_acc(state, fn cur -> %Inform{cur | retry_count: integerValue(state.last_text, fn(x) -> x >= 0 end)} end)
+    update_acc(state, fn cur ->
+      %Inform{cur | retry_count: integerValue(state.last_text, fn x -> x >= 0 end)}
+    end)
   end
 end
-
