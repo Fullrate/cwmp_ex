@@ -9,7 +9,9 @@ defmodule CWMP.Protocol.Generator do
   Generates a CWMP envelope from an Elixir data structure.
   """
   def generate!(head, req, version \\ "1-4") do
-    element('SOAP-ENV:Envelope',
+
+
+    document(element('SOAP-ENV:Envelope',
       %{
         'xmlns:SOAP-ENV': "http://schemas.xmlsoap.org/soap/envelope/",
         'xmlns:SOAP-ENC': "http://schemas.xmlsoap.org/soap/encoding/",
@@ -17,7 +19,7 @@ defmodule CWMP.Protocol.Generator do
         'xmlns:xsd': "http://www.w3.org/2001/XMLSchema",
         'xmlns:cwmp': "urn:dslforum-org:cwmp-#{version}"
       },
-      [ element('SOAP-ENV:Header', [CWMP.Protocol.Generate.generate(head)]), element('SOAP-ENV:Body', [CWMP.Protocol.Generate.generate(req)]) ] ) |> generate;
+      [ element('SOAP-ENV:Header', [CWMP.Protocol.Generate.generate(head)]), element('SOAP-ENV:Body', [CWMP.Protocol.Generate.generate(req)]) ] )) |> generate;
   end
 
   @doc """

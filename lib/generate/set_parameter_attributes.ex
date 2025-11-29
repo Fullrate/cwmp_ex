@@ -17,6 +17,7 @@ defimpl CWMP.Protocol.Generate, for: CWMP.Protocol.Messages.SetParameterAttribut
       element(:Notification, to_string(param.notification)),
       element(:AccessListChange, boolValue(param.accesslist_change)),
       element(:AccessList, al)
+      element(:AccessList, %{"SOAP-ENC:arrayType": "xsd:string[#{length(al)}]"}, al)
     ])
   end
 end
